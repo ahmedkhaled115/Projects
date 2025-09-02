@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;📊&lt;/text&gt;&lt;/svg&gt;">
 
     <style>
-      /* --- Base & Dark Theme Styles (Same as before) --- */
+      /* --- Base & Dark Theme Styles --- */
       :root {
         --global-bg-color: #ffffff; --global-text-color: #000000; --global-theme-color: #007bff;
         --navbar-bg-color: rgba(255, 255, 255, 0.95); --navbar-text-color: #333;
@@ -32,16 +32,20 @@
       }
       a { color: var(--global-theme-color); }
       a:hover { color: var(--global-hover-color, #a7caff); }
-      /* --- Navbar --- */
+      /* --- Navbar & Dropdown --- */
       .navbar { background-color: var(--navbar-bg-color); backdrop-filter: blur(5px); border-bottom: 1px solid var(--footer-border-color); }
       .navbar-brand, .nav-link { color: var(--navbar-text-color) !important; }
       .navbar-brand .font-weight-bold { color: var(--global-theme-color); }
       .nav-item.active .nav-link { color: var(--global-theme-color) !important; font-weight: 500; }
+      .dropdown-menu { background-color: var(--navbar-bg-color); border: 1px solid var(--footer-border-color); }
+      .dropdown-item { color: var(--navbar-text-color) !important; }
+      .dropdown-item:hover { background-color: rgba(128, 128, 128, 0.2); }
+      html[data-theme='dark'] .dropdown-item:hover { background-color: rgba(255, 255, 255, 0.1); }
       /* --- Theme Toggle Icon --- */
       .toggle-container { cursor: pointer; padding: 0.5rem 0.75rem; }
       .fa-sun { display: none; } .fa-moon { display: block; }
       html[data-theme='dark'] .fa-sun { display: block; } html[data-theme='dark'] .fa-moon { display: none; }
-      /* --- About Page Specific Styles --- */
+      /* --- Page Styles --- */
       .post-header { margin-bottom: 2rem; }
       .post-title { font-family: 'Roboto Slab', serif; }
       .desc { font-size: 1.25rem; color: #888; }
@@ -71,8 +75,13 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="./index.html">About</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./portfolio.html">Portfolio</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Portfolios
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="./data-scraping.html">Data Scraping Portfolio</a>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <div class="toggle-container" id="theme-toggle">
@@ -97,13 +106,13 @@
                 <div class="profile float-right ml-3">
                     <figure>
                         <!-- !!! IMPORTANT: Replace this placeholder with your actual profile picture URL !!! -->
-                        <img class="rounded-circle" src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Ahmed.jpg" alt="Ahmed Khaled Profile Picture">
+                        <img class="rounded-circle" src="https://via.placeholder.com/250" alt="Ahmed Khaled Profile Picture">
                     </figure>
                 </div>
                 <div class="clearfix">
                     <p>Hello! I'm Ahmed Khaled, a dedicated and results-driven freelance specialist in web scraping and data automation. With over three years of intensive professional experience, I have successfully partnered with more than 1,500 clients worldwide, delivering high-quality data solutions tailored to their unique needs.</p>
                     <p>My passion lies in transforming the vast, unstructured data of the web into clean, actionable insights. I excel at tackling complex, large-scale scraping challenges, developing robust and scalable pipelines to handle everything from simple data extraction to sophisticated automation that bypasses anti-bot measures. My track record of over 800 five-star reviews reflects my commitment to quality, reliability, and client satisfaction.</p>
-                    <p>Whether you need to gather market intelligence, monitor competitor pricing, or build a unique dataset for a machine learning project, I have the technical expertise and strategic mindset to get the job done efficiently. Take a look at my <a href="./portfolio.html"><b>portfolio</b></a> to see some examples of my work.</p>
+                    <p>Whether you need to gather market intelligence, monitor competitor pricing, or build a unique dataset for a machine learning project, I have the technical expertise and strategic mindset to get the job done efficiently. Feel free to explore my <a href="./data-scraping.html"><b>Data Scraping Portfolio</b></a> to see examples of my work.</p>
                 </div>
                 
                 <div class="news">
@@ -134,10 +143,11 @@
         <div class="contact-icons">
             <a href="mailto:ahmedmtc11560@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
             <a href="https://www.linkedin.com/in/ahmed-khaled-a41919248/" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-            <!-- NEW GITHUB LINK -->
             <a href="https://github.com/ahmedkhaled115" title="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-            <a href="https://www.fiverr.com/ahmedkhaled160?public_mode=true" target="_blank" title="Fiverr"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/fiverr.png" alt="Fiverr"/></a>
-            <a href="https://www.upwork.com/freelancers/~01015f3348d2532c01?viewMode=1" target="_blank" title="Upwork"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/upwork.png" alt="Upwork"/></a>  
+            <!-- UPDATED FIVERR ICON URL -->
+            <a href="https://www.fiverr.com/ahmedkhaled160?public_mode=true" target="_blank" title="Fiverr"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/fiverr2.png" alt="Fiverr"/></a>
+            <!-- UPDATED UPWORK ICON URL -->
+            <a href="https://www.upwork.com/freelancers/~01015f3348d2532c01?viewMode=1" target="_blank" title="Upwork"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/upwork2.png" alt="Upwork"/></a>  
             <a href="https://khamsat.com/user/ahmed11560" target="_blank" title="Khamsat"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Khamsat.png" alt="Khamsat"/></a>
         </div>
         <div class="contact-note">✨ Always open for collaborations & freelance opportunities!</div>
@@ -146,7 +156,8 @@
         <div class="container">© Copyright 2025 Ahmed Khaled.</div>
     </footer>
 
-    <!-- JavaScript for Theme Toggle -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const themeToggle = document.getElementById('theme-toggle');
