@@ -1,325 +1,165 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
-<!-- Head -->
 <head>
-    <!-- Standard metadata -->
+    <!-- Metadata -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Ahmed Khaled | Portfolio</title>
+    <title>About | Ahmed Khaled</title>
     <meta name="author" content="Ahmed Khaled">
-    <meta name="description" content="Data Scraping Portfolio">
-    <meta name="keywords" content="web-scraping, portfolio-website, data-mining, python, selenium, scrapy">
-
-    <!-- Bootstrap -->
+    <meta name="description" content="Professional Web Scraping and Automation freelancer with over 3 years of experience.">
+    
+    <!-- Stylesheets and Fonts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
-
-    <!-- Custom Styles -->
     <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;📊&lt;/text&gt;&lt;/svg&gt;">
-    
+
     <style>
-      /* --- Base & Dark Theme Styles --- */
+      /* --- Base & Dark Theme Styles (Same as before) --- */
       :root {
-        --global-bg-color: #ffffff;
-        --global-text-color: #000000;
-        --global-theme-color: #007bff;
-        --global-hover-color: #0056b3;
-        --navbar-bg-color: rgba(255, 255, 255, 0.95);
-        --navbar-text-color: #333;
-        --footer-bg-color: #f8f9fa;
-        --footer-border-color: #e7e7e7;
+        --global-bg-color: #ffffff; --global-text-color: #000000; --global-theme-color: #007bff;
+        --navbar-bg-color: rgba(255, 255, 255, 0.95); --navbar-text-color: #333;
+        --footer-bg-color: #f8f9fa; --footer-border-color: #e7e7e7;
       }
-
       html[data-theme='dark'] {
-        --global-bg-color: #1a1a1a;
-        --global-text-color: #e8e6e3;
-        --global-theme-color: #68a6ff;
-        --global-hover-color: #a7caff;
-        --navbar-bg-color: rgba(26, 26, 26, 0.95);
-        --navbar-text-color: #e8e6e3;
-        --footer-bg-color: #111;
-        --footer-border-color: #333;
+        --global-bg-color: #1a1a1a; --global-text-color: #e8e6e3; --global-theme-color: #68a6ff;
+        --navbar-bg-color: rgba(26, 26, 26, 0.95); --navbar-text-color: #e8e6e3;
+        --footer-bg-color: #111; --footer-border-color: #333;
       }
-
       body {
-        font-family: 'Roboto', sans-serif;
-        background-color: var(--global-bg-color);
-        color: var(--global-text-color);
-        padding-top: 80px; /* Add padding for fixed navbar */
+        font-family: 'Roboto', sans-serif; background-color: var(--global-bg-color); color: var(--global-text-color);
+        padding-top: 80px;
       }
-      
-      a {
-        color: var(--global-theme-color);
-      }
-      a:hover {
-        color: var(--global-hover-color);
-      }
-
+      a { color: var(--global-theme-color); }
+      a:hover { color: var(--global-hover-color, #a7caff); }
       /* --- Navbar --- */
-      .navbar {
-        background-color: var(--navbar-bg-color);
-        backdrop-filter: blur(5px);
-        border-bottom: 1px solid var(--footer-border-color);
-      }
-      .navbar-brand, .nav-link {
-        color: var(--navbar-text-color) !important;
-      }
-      .navbar-brand .font-weight-bold {
-        color: var(--global-theme-color);
-      }
-
+      .navbar { background-color: var(--navbar-bg-color); backdrop-filter: blur(5px); border-bottom: 1px solid var(--footer-border-color); }
+      .navbar-brand, .nav-link { color: var(--navbar-text-color) !important; }
+      .navbar-brand .font-weight-bold { color: var(--global-theme-color); }
+      .nav-item.active .nav-link { color: var(--global-theme-color) !important; font-weight: 500; }
       /* --- Theme Toggle Icon --- */
-      .toggle-container {
-        cursor: pointer;
-        padding: 0.5rem 0.75rem;
-      }
-      .fa-sun { display: none; }
-      .fa-moon { display: block; }
-      html[data-theme='dark'] .fa-sun { display: block; }
-      html[data-theme='dark'] .fa-moon { display: none; }
-
-      /* --- Page Content --- */
-      .post-title {
-        font-family: 'Roboto Slab', serif;
-        margin-bottom: 0.5rem;
-      }
-      .post-description {
-        font-size: 1.1rem;
-        color: #888;
-        margin-bottom: 2rem;
-      }
-
-      /* --- Projects Section --- */
-      .projects h2 {
-        margin-top: 2.5rem;
-        margin-bottom: 1.5rem;
-        border-bottom: 1px solid var(--footer-border-color);
-        padding-bottom: 0.5rem;
-      }
-      .project-entry {
-        margin-bottom: 3rem;
-      }
-      .project-title a {
-        font-size: 1.5rem;
-        font-weight: 500;
-        text-decoration: none;
-      }
-      .container_row {
-        display: flex;
-        align-items: flex-start;
-        margin-top: 1rem;
-        gap: 2em;
-      }
-      .project_m {
-        width: 250px;
-        height: 150px;
-        object-fit: cover;
-        border-radius: 8px;
-        flex-shrink: 0;
-      }
-      .text {
-        flex-grow: 1;
-      }
-
-      /* --- Core Competencies --- */
-      .competencies-icon {
-        font-size: 1.5rem;
-        margin-right: 0.5rem;
-        color: var(--global-theme-color);
-      }
-      .projects ul {
-        list-style-type: none;
-        padding-left: 0;
-      }
-      .projects ul li {
-        margin-bottom: 0.75rem;
-      }
-
+      .toggle-container { cursor: pointer; padding: 0.5rem 0.75rem; }
+      .fa-sun { display: none; } .fa-moon { display: block; }
+      html[data-theme='dark'] .fa-sun { display: block; } html[data-theme='dark'] .fa-moon { display: none; }
+      /* --- About Page Specific Styles --- */
+      .post-header { margin-bottom: 2rem; }
+      .post-title { font-family: 'Roboto Slab', serif; }
+      .desc { font-size: 1.25rem; color: #888; }
+      .profile { margin-bottom: 1rem; }
+      .profile img { width: 250px; height: 250px; object-fit: cover; }
+      .news h4 { margin-top: 2rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--footer-border-color); }
+      .news ul { list-style-type: none; padding-left: 0; }
       /* --- Social and Footer --- */
-      .social {
-        text-align: center;
-        margin-top: 4rem;
-        margin-bottom: 2rem;
-      }
-      .contact-icons {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 25px; /* Adjust spacing between icons */
-      }
-      .contact-icons a {
-        display: inline-flex;
-        align-items: center;
-        text-decoration: none;
-      }
-      .contact-icons i { /* Style for Font Awesome icons */
-        font-size: 2.2rem;
-        transition: color 0.2s ease-in-out;
-      }
-      .contact-icons img { /* Style for custom image icons */
-        height: 35px; /* Set a consistent height */
-        width: auto;
-        transition: transform 0.2s ease-in-out;
-      }
-      .contact-icons img:hover {
-        transform: scale(1.1); /* Add a nice hover effect */
-      }
-      .contact-note {
-        margin-top: 1.5rem;
-        font-size: 1.1rem;
-      }
-      footer {
-        background-color: var(--footer-bg-color);
-        border-top: 1px solid var(--footer-border-color);
-        padding: 1.5rem 0;
-        text-align: center;
-        width: 100%;
-        margin-top: 3rem;
-      }
+      .social { text-align: center; margin-top: 4rem; margin-bottom: 2rem; }
+      .contact-icons { display: flex; justify-content: center; align-items: center; gap: 25px; }
+      .contact-icons a { display: inline-flex; align-items: center; text-decoration: none; }
+      .contact-icons i { font-size: 2.2rem; transition: color 0.2s ease-in-out; }
+      .contact-icons img { height: 35px; width: auto; transition: transform 0.2s ease-in-out; }
+      .contact-icons img:hover { transform: scale(1.1); }
+      .contact-note { margin-top: 1.5rem; font-size: 1.1rem; }
+      footer { background-color: var(--footer-bg-color); border-top: 1px solid var(--footer-border-color); padding: 1.5rem 0; text-align: center; width: 100%; margin-top: 3rem; }
     </style>
 </head>
-
-<!-- Body -->
 <body>
     <!-- Header -->
     <header>
-      <nav id="navbar" class="navbar navbar-expand-sm fixed-top">
-        <div class="container">
-          <a class="navbar-brand title font-weight-lighter" href="#"><span class="font-weight-bold">Ahmed</span> Khaled</a>
-          <div class="collapse navbar-collapse text-right" id="navbarNav">
-            <ul class="navbar-nav ml-auto flex-nowrap align-items-center">
-              <li class="nav-item active">
-                <a class="nav-link" href="#">portfolio<span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <div class="toggle-container" id="theme-toggle">
-                  <i class="fas fa-moon"></i>
-                  <i class="fas fa-sun"></i>
+        <nav id="navbar" class="navbar navbar-expand-sm fixed-top">
+            <div class="container">
+                <a class="navbar-brand title font-weight-lighter" href="index.html"><span class="font-weight-bold">Ahmed</span> Khaled</a>
+                <div class="collapse navbar-collapse text-right" id="navbarNav">
+                    <ul class="navbar-nav ml-auto flex-nowrap align-items-center">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="portfolio.html">Portfolio</a>
+                        </li>
+                        <li class="nav-item">
+                            <div class="toggle-container" id="theme-toggle">
+                                <i class="fas fa-moon"></i>
+                                <i class="fas fa-sun"></i>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+            </div>
+        </nav>
     </header>
 
     <!-- Content -->
     <div class="container mt-5">
         <div class="post">
-          <header class="post-header">
-            <h1 class="post-title">📊 Data Scraping Portfolio</h1>
-            <p class="post-description">This portfolio is a compilation of my Web Scraping projects, achievements, and skills as a freelancer. It is updated on a regular basis.</p>
-          </header>
-
-          <article>
-            <div class="projects">
-              <h2><i class="fas fa-trophy competencies-icon"></i>Achievements</h2>
-              <ul>
-                <li>800+ Five-Star Reviews ⭐⭐⭐⭐⭐</li>
-                <li>1,500+ Clients Served Globally 🌍</li>
-                <li>3+ Years of Professional Freelancing Experience</li>
-                <li>Expertise in <strong>large-scale web scraping &amp; automation</strong></li>
-              </ul>
-              
-              <h2><i class="fas fa-folder-open competencies-icon"></i>Projects</h2>
-              
-              <div class="project-entry">
-                <p class="project-title"><a href="https://github.com/ahmedkhaled115/Fragrantica_Scraping" target="_blank" rel="noopener noreferrer">Scrape Fragrantica Website</a></p>
-                <div class="container_row">
-                    <img class="project_m" src="https://th.bing.com/th/id/R.04b9f6cc67d3f4da2ecfc5686d8a8fb1?rik=vN%2bZhmtq8gLQmw&pid=ImgRaw&r=0" alt="Fragrantica Project">
-                    <div class="text">
-                      In this project, I scraped the <strong>Fragrantica</strong> website to extract detailed data about perfumes, brands, and parent companies. Fragrantica is one of the largest fragrance communities online, where users share reviews and insights. <br><a href="https://www.fragrantica.com/" target="_blank" rel="noopener noreferrer">Website Link</a>
-                    </div>
+            <header class="post-header">
+                <h1 class="post-title"><span class="font-weight-bold">Ahmed</span> Khaled</h1>
+                <p class="desc">Web Scraping & Automation Specialist</p>
+            </header>
+            <article>
+                <div class="profile float-right ml-3">
+                    <figure>
+                        <!-- !!! IMPORTANT: Replace this placeholder with your actual profile picture URL !!! -->
+                        <img class="rounded-circle" src="https://via.placeholder.com/250" alt="Ahmed Khaled Profile Picture">
+                    </figure>
                 </div>
-              </div>
-
-              <div class="project-entry">
-                <p class="project-title"><a href="https://github.com/ahmedkhaled115/Mastersintime.com-scraping-watch" target="_blank" rel="noopener noreferrer">Scrape MastersInTime Website</a></p>
-                <div class="container_row">
-                    <img class="project_m" src="https://media.hollandwatchgroup.com/hwg:staging_pub/media-formats/output/bes/tse/lle/rsb/ann/er/bestsellersbanner-19607-11-x.jpg" alt="MastersInTime Project">
-                    <div class="text">
-                      In this project, I scraped the <strong>MastersInTime</strong> website to extract detailed data about wristwatches, including specifications, features, and pricing. MastersInTime is a leading online platform that offers a wide range of watch brands and styles. <br><a href="https://www.mastersintime.com/" target="_blank" rel="noopener noreferrer">Website Link</a>
-                    </div>
+                <div class="clearfix">
+                    <p>Hello! I'm Ahmed Khaled, a dedicated and results-driven freelance specialist in web scraping and data automation. With over three years of intensive professional experience, I have successfully partnered with more than 1,500 clients worldwide, delivering high-quality data solutions tailored to their unique needs.</p>
+                    <p>My passion lies in transforming the vast, unstructured data of the web into clean, actionable insights. I excel at tackling complex, large-scale scraping challenges, developing robust and scalable pipelines to handle everything from simple data extraction to sophisticated automation that bypasses anti-bot measures. My track record of over 800 five-star reviews reflects my commitment to quality, reliability, and client satisfaction.</p>
+                    <p>Whether you need to gather market intelligence, monitor competitor pricing, or build a unique dataset for a machine learning project, I have the technical expertise and strategic mindset to get the job done efficiently. Take a look at my <a href="portfolio.html"><b>portfolio</b></a> to see some examples of my work.</p>
                 </div>
-              </div>
-
-              <div class="project-entry">
-                <p class="project-title"><a href="https://github.com/ahmedkhaled115/Zillow-Agent-Scraping-for-USA-States" target="_blank" rel="noopener noreferrer">Scrape Zillow Agents (USA)</a></p>
-                <div class="container_row">
-                    <img class="project_m" src="https://s.zillow.net/pfs/static/z-logo-default.svg" alt="Zillow Project">
-                    <div class="text">
-                      In this project, I scraped <strong>Zillow.com</strong> to collect real estate agent profiles across all USA states, including contact details, sales performance, and property insights. Zillow is one of the largest online real estate marketplaces in the United States. <br><a href="https://www.zillow.com/professionals/real-estate-agent-reviews/" target="_blank" rel="noopener noreferrer">Website Link</a>
-                    </div>
+                
+                <div class="news">
+                    <h4><i class="fas fa-trophy mr-2"></i>Career Highlights</h4>
+                    <ul>
+                        <li><strong>1,500+</strong> Clients Served Globally 🌍</li>
+                        <li><strong>800+</strong> Five-Star Reviews ⭐⭐⭐⭐⭐</li>
+                        <li><strong>3+ Years</strong> of Professional Freelancing Experience</li>
+                        <li>Expertise in building <strong>large-scale, resilient web scraping solutions</strong></li>
+                    </ul>
                 </div>
-              </div>
-
-              <h2><i class="fas fa-cogs competencies-icon"></i>Core Competencies</h2>
-              <ul>
-                <li><strong>Methodologies</strong>: Web Scraping, Data Mining, Data Cleaning, Data Transformation, API Integration, Proxy &amp; CAPTCHA Handling, Automation, Scalable Scraping Pipelines</li>
-                <li><strong>Languages</strong>: Python (Requests, BeautifulSoup, Scrapy, Selenium, Pandas, Regex), SQL</li>
-                <li><strong>Tools</strong>: Scrapy, Selenium, Playwright, DrissionPage, Requests, BeautifulSoup, LXML, Proxy Rotators, MySQL, PostgreSQL, MongoDB, Excel, Google Sheets, Git</li>
-                <li><strong>Visualization &amp; Analysis</strong>: Pandas, Matplotlib, Power BI, Tableau</li>
-              </ul>
-            </div>
-          </article>
+                
+                <div class="news">
+                    <h4><i class="fas fa-cogs mr-2"></i>Core Competencies</h4>
+                    <ul>
+                        <li><strong>Methodologies</strong>: Web Scraping, Data Mining, Data Cleaning, API Integration, Proxy & CAPTCHA Handling, Automation</li>
+                        <li><strong>Languages</strong>: Python (Requests, BeautifulSoup, Scrapy, Selenium, Pandas, Regex), SQL</li>
+                        <li><strong>Tools</strong>: Scrapy, Selenium, Playwright, DrissionPage, BeautifulSoup, LXML, Proxy Rotators, MySQL, PostgreSQL, Git</li>
+                        <li><strong>Data Handling</strong>: Pandas, Matplotlib, Power BI, Tableau, Excel, Google Sheets</li>
+                    </ul>
+                </div>
+            </article>
         </div>
     </div>
     
     <!-- Social and Footer -->
     <div class="social">
-      <div class="contact-icons">
-        <!-- Font Awesome Icons -->
-        <a href="mailto:ahmedmtc11560@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-        <a href="https://www.linkedin.com/in/ahmed-khaled-a41919248/" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-        
-        <!-- Custom Image Icons -->
-        <a href="https://www.fiverr.com/ahmedkhaled160?public_mode=true" target="_blank" title="Fiverr">
-          <img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/fiverr.png" alt="Fiverr"/>
-        </a>
-        <a href="https://www.upwork.com/freelancers/~01015f3348d2532c01?viewMode=1" target="_blank" title="Upwork">
-          <img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/upwork.png" alt="Upwork"/>
-        </a>  
-        <a href="https://khamsat.com/user/ahmed11560" target="_blank" title="Khamsat">
-          <img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Khamsat.png" alt="Khamsat"/>
-        </a>
-      </div>
-      <div class="contact-note">
-        ✨ Always open for collaborations &amp; freelance opportunities!
-      </div>
+        <div class="contact-icons">
+            <a href="mailto:ahmedmtc11560@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/ahmed-khaled-a41919248/" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.fiverr.com/ahmedkhaled160?public_mode=true" target="_blank" title="Fiverr"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/fiverr.png" alt="Fiverr"/></a>
+            <a href="https://www.upwork.com/freelancers/~01015f3348d2532c01?viewMode=1" target="_blank" title="Upwork"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/upwork.png" alt="Upwork"/></a>  
+            <a href="https://khamsat.com/user/ahmed11560" target="_blank" title="Khamsat"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Khamsat.png" alt="Khamsat"/></a>
+        </div>
+        <div class="contact-note">✨ Always open for collaborations & freelance opportunities!</div>
     </div>
-    
     <footer>
-      <div class="container">
-        © Copyright 2025 Ahmed Khaled.
-      </div>
+        <div class="container">© Copyright 2025 Ahmed Khaled.</div>
     </footer>
 
     <!-- JavaScript for Theme Toggle -->
     <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const themeToggle = document.getElementById('theme-toggle');
-        const html = document.documentElement;
-
-        const applyTheme = (theme) => {
-          html.setAttribute('data-theme', theme);
-          localStorage.setItem('theme', theme);
-        };
-
-        themeToggle.addEventListener('click', () => {
-          const currentTheme = html.getAttribute('data-theme');
-          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-          applyTheme(newTheme);
+        document.addEventListener('DOMContentLoaded', function () {
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            const applyTheme = (theme) => {
+                html.setAttribute('data-theme', theme);
+                localStorage.setItem('theme', theme);
+            };
+            themeToggle.addEventListener('click', () => {
+                const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                applyTheme(newTheme);
+            });
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) html.setAttribute('data-theme', savedTheme);
         });
-
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-          html.setAttribute('data-theme', savedTheme);
-        }
-      });
     </script>
 </body>
 </html>
