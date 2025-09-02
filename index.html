@@ -110,19 +110,19 @@
       }
       .container_row {
         display: flex;
-        align-items: flex-start; /* Aligns items to the top */
+        align-items: flex-start;
         margin-top: 1rem;
-        gap: 2em; /* Creates space between image and text */
+        gap: 2em;
       }
       .project_m {
         width: 250px;
         height: 150px;
-        object-fit: cover; /* Ensures image covers the area without distortion */
+        object-fit: cover;
         border-radius: 8px;
-        flex-shrink: 0; /* Prevents image from shrinking */
+        flex-shrink: 0;
       }
       .text {
-        flex-grow: 1; /* Allows text to take up remaining space */
+        flex-grow: 1;
       }
 
       /* --- Core Competencies --- */
@@ -145,10 +145,28 @@
         margin-top: 4rem;
         margin-bottom: 2rem;
       }
-      .social .contact-icons i {
-        font-size: 2rem;
-        margin: 0 15px;
+      .contact-icons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 25px; /* Adjust spacing between icons */
+      }
+      .contact-icons a {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+      }
+      .contact-icons i { /* Style for Font Awesome icons */
+        font-size: 2.2rem;
         transition: color 0.2s ease-in-out;
+      }
+      .contact-icons img { /* Style for custom image icons */
+        height: 35px; /* Set a consistent height */
+        width: auto;
+        transition: transform 0.2s ease-in-out;
+      }
+      .contact-icons img:hover {
+        transform: scale(1.1); /* Add a nice hover effect */
       }
       .contact-note {
         margin-top: 1.5rem;
@@ -254,9 +272,20 @@
     <!-- Social and Footer -->
     <div class="social">
       <div class="contact-icons">
+        <!-- Font Awesome Icons -->
         <a href="mailto:ahmedmtc11560@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
         <a href="https://www.linkedin.com/in/ahmed-khaled-a41919248/" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-        <a href="https://www.fiverr.com/ahmedkhaled160?public_mode=true" title="Fiverr" target="_blank" rel="noopener noreferrer"><i class="fas fa-briefcase"></i></a>
+        
+        <!-- Custom Image Icons -->
+        <a href="https://www.fiverr.com/ahmedkhaled160?public_mode=true" target="_blank" title="Fiverr">
+          <img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/fiverr.png" alt="Fiverr"/>
+        </a>
+        <a href="https://www.upwork.com/freelancers/~01015f3348d2532c01?viewMode=1" target="_blank" title="Upwork">
+          <img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/upwork.png" alt="Upwork"/>
+        </a>  
+        <a href="https://khamsat.com/user/ahmed11560" target="_blank" title="Khamsat">
+          <img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Khamsat.png" alt="Khamsat"/>
+        </a>
       </div>
       <div class="contact-note">
         ✨ Always open for collaborations &amp; freelance opportunities!
@@ -275,25 +304,21 @@
         const themeToggle = document.getElementById('theme-toggle');
         const html = document.documentElement;
 
-        // Function to apply the theme
         const applyTheme = (theme) => {
           html.setAttribute('data-theme', theme);
           localStorage.setItem('theme', theme);
         };
 
-        // Event listener for the toggle button
         themeToggle.addEventListener('click', () => {
           const currentTheme = html.getAttribute('data-theme');
           const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
           applyTheme(newTheme);
         });
 
-        // Check for saved theme in local storage on page load
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme) {
           html.setAttribute('data-theme', savedTheme);
         }
-        // If no theme is saved, the default 'data-theme="dark"' from the HTML tag will be used.
       });
     </script>
 </body>
