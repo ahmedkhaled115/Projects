@@ -3,70 +3,163 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ahmed Khaled | Portfolio</title>
+  <title>Ahmed Khaled | Data Scraping Portfolio</title>
+
+  <!-- Bootstrap & FontAwesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #121212;
-      color: #f5f5f5;
+      padding-top: 70px;
+      background: #f9f9f9;
     }
-    header {
-      background: #1e1e1e;
-      padding: 20px;
-      text-align: center;
+    .navbar {
+      box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
     }
-    h1 {
-      margin: 0;
-      color: #00ffcc;
+    .post-header {
+      margin-bottom: 40px;
     }
-    p {
-      color: #cccccc;
+    .project img {
+      border-radius: 10px;
     }
-    a {
-      color: #00ffcc;
-      text-decoration: none;
+    .container_row {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 40px;
     }
-    a:hover {
-      text-decoration: underline;
+    .container_row img {
+      margin-right: 20px;
+      width: 250px;
+      height: 150px;
+      object-fit: cover;
     }
-    section {
-      padding: 40px;
-      max-width: 800px;
-      margin: auto;
+    .freelance-logos img {
+      margin: 15px;
+      width: 120px;
     }
     footer {
-      background: #1e1e1e;
+      padding: 20px;
       text-align: center;
-      padding: 15px;
-      color: #aaa;
-      margin-top: 40px;
+      background: #f1f1f1;
+      margin-top: 50px;
     }
   </style>
 </head>
-<body>
+<body class="fixed-top-nav">
+
+  <!-- Header -->
   <header>
-    <h1>Ahmed Khaled</h1>
-    <p>Full-Stack Web Scraping Expert</p>
+    <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top bg-white">
+      <div class="container">
+        <a class="navbar-brand title font-weight-lighter" href="#">
+          <span class="font-weight-bold">Ahmed</span> Khaled
+        </a>
+
+        <!-- Toggle -->
+        <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse text-right" id="navbarNav">
+          <ul class="navbar-nav ml-auto flex-nowrap">
+            <li class="nav-item active"><a class="nav-link" href="#">Portfolio</a></li>
+            <li class="nav-item"><a class="nav-link" href="mailto:ahmedmtc11560@gmail.com">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/ahmed-khaled-a41919248/" target="_blank">LinkedIn</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://www.fiverr.com/ahmedkhaled160?public_mode=true" target="_blank">Fiverr</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   </header>
 
-  <section>
-    <h2>👋 Welcome!</h2>
-    <p>
-      Hello! I’m Ahmed Khaled, a Full-Stack Web Scraping expert with over 3 years of experience and more than 800 five-star reviews from 1,000+ satisfied clients worldwide. 
-      I specialize in delivering premium web scraping services with fast turnaround times and competitive prices.
-    </p>
+  <!-- Content -->
+  <div class="container">
+    <div class="post">
+      <header class="post-header text-center">
+        <h1 class="post-title">📊 Data Scraping Portfolio</h1>
+        <p class="post-description">
+          Compilation of my <strong>Web Scraping projects</strong>, achievements, and skills as a freelancer.
+        </p>
+      </header>
 
-    <h2>🌐 Portfolio</h2>
-    <p>Check out my <a href="https://github.com/ahmedkhaled115/Portfolio">Portfolio</a> for all my projects, skills, and achievements.</p>
+      <article>
+        <!-- Achievements -->
+        <h2>🏆 Achievements</h2>
+        <ul>
+          <li>800+ Five-Star Reviews ⭐⭐⭐⭐⭐</li>
+          <li>1,500+ Clients Served Globally 🌍</li>
+          <li>3+ Years of Professional Freelancing Experience</li>
+          <li>Expertise in <strong>large-scale web scraping & automation</strong></li>
+        </ul>
 
-    <h2>💼 Fiverr</h2>
-    <p>Hire me on <a href="https://www.fiverr.com/ahmedkhaled160?public_mode=true" target="_blank">Fiverr</a></p>
-  </section>
+        <!-- Projects -->
+        <h2>📂 Projects</h2>
 
+        <div class="container_row project">
+          <img src="https://th.bing.com/th/id/R.04b9f6cc67d3f4da2ecfc5686d8a8fb1?rik=vN%2bZhmtq8gLQmw&pid=ImgRaw&r=0" alt="Fragrantica">
+          <div>
+            <h4><a href="https://github.com/ahmedkhaled115/Fragrantica_Scraping" target="_blank">Scrape Fragrantica Website</a></h4>
+            <p>Scraped the <strong>Fragrantica</strong> website to extract detailed data about perfumes, brands, and parent companies.</p>
+            <p>🔗 <a href="https://www.fragrantica.com/" target="_blank">Fragrantica Website</a></p>
+          </div>
+        </div>
+
+        <div class="container_row project">
+          <img src="https://media.hollandwatchgroup.com/hwg:staging_pub/media-formats/output/bes/tse/lle/rsb/ann/er/bestsellersbanner-19607-11-x.jpg" alt="MastersInTime">
+          <div>
+            <h4><a href="https://github.com/ahmedkhaled115/Mastersintime.com-scraping-watch" target="_blank">Scrape MastersInTime Website</a></h4>
+            <p>Extracted detailed data about wristwatches including specifications, features, and pricing from <strong>MastersInTime</strong>.</p>
+            <p>🔗 <a href="https://www.mastersintime.com/" target="_blank">MastersInTime Website</a></p>
+          </div>
+        </div>
+
+        <div class="container_row project">
+          <img src="https://tse1.mm.bing.net/th/id/OIP.ABHliBeNLMq-MaMeGUZA9wHaEK?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Zillow">
+          <div>
+            <h4><a href="https://github.com/ahmedkhaled115/Zillow-Agent-Scraping-for-USA-States" target="_blank">Scrape Zillow Agents (USA)</a></h4>
+            <p>Scraped <strong>Zillow.com</strong> to collect real estate agent profiles across all USA states, including contact details and sales performance.</p>
+            <p>🔗 <a href="https://www.zillow.com/professionals/real-estate-agent-reviews/" target="_blank">Zillow Website</a></p>
+          </div>
+        </div>
+
+        <!-- Core Competencies -->
+        <h2>🛠 Core Competencies</h2>
+        <ul>
+          <li><strong>Methodologies</strong>: Web Scraping, Data Mining, Data Cleaning, API Integration, Automation</li>
+          <li><strong>Languages</strong>: Python (Requests, BeautifulSoup, Scrapy, Selenium, Pandas, Regex), SQL</li>
+          <li><strong>Tools</strong>: Scrapy, Selenium, Playwright, Requests, BeautifulSoup, LXML, MySQL, MongoDB, Excel, Google Sheets, Git</li>
+          <li><strong>Visualization</strong>: Pandas, Matplotlib, Power BI, Tableau</li>
+        </ul>
+
+        <!-- Freelancer Accounts -->
+        <h2>🌍 Freelancer Accounts</h2>
+        <div class="freelance-logos">
+          <a href="https://www.fiverr.com/ahmedkhaled160?public_mode=true" target="_blank">
+            <img src="https://cdn.worldvectorlogo.com/logos/fiverr-1.svg" alt="Fiverr">
+          </a>
+          <a href="https://khamsat.com/user/ahmed11560" target="_blank">
+            <img src="https://www.tizdeet.com/wp-content/uploads/2021/09/khamsat.png" alt="Khamsat">
+          </a>
+          <a href="https://www.upwork.com/freelancers/~01015f3348d2532c01?viewMode=1" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/15527/15527365.png" alt="Upwork">
+          </a>
+        </div>
+
+        <p class="mt-4">✨ Always open for collaborations & freelance opportunities!</p>
+      </article>
+    </div>
+  </div>
+
+  <!-- Footer -->
   <footer>
-    <p>© 2025 Ahmed Khaled | Built with ❤️ using GitHub Pages</p>
+    <div class="container">
+      © 2025 Ahmed Khaled. Hosted with <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+    </div>
   </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
