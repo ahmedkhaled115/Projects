@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <!-- Metadata -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Portfolio | Ahmed Khaled</title>
+    <meta name="author" content="Ahmed Khaled">
+    <meta name="description" content="A portfolio of web scraping and data automation projects by Ahmed Khaled.">
+
+    <!-- Stylesheets and Fonts -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
+    <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;📊&lt;/text&gt;&lt;/svg&gt;">
+
+    <style>
+      /* --- Base & Dark Theme Styles (Same as before) --- */
+      :root {
+        --global-bg-color: #ffffff; --global-text-color: #000000; --global-theme-color: #007bff;
+        --navbar-bg-color: rgba(255, 255, 255, 0.95); --navbar-text-color: #333;
+        --footer-bg-color: #f8f9fa; --footer-border-color: #e7e7e7;
+      }
+      html[data-theme='dark'] {
+        --global-bg-color: #1a1a1a; --global-text-color: #e8e6e3; --global-theme-color: #68a6ff;
+        --navbar-bg-color: rgba(26, 26, 26, 0.95); --navbar-text-color: #e8e6e3;
+        --footer-bg-color: #111; --footer-border-color: #333;
+      }
+      body {
+        font-family: 'Roboto', sans-serif; background-color: var(--global-bg-color); color: var(--global-text-color);
+        padding-top: 80px;
+      }
+      a { color: var(--global-theme-color); }
+      a:hover { color: var(--global-hover-color, #a7caff); }
+      /* --- Navbar --- */
+      .navbar { background-color: var(--navbar-bg-color); backdrop-filter: blur(5px); border-bottom: 1px solid var(--footer-border-color); }
+      .navbar-brand, .nav-link { color: var(--navbar-text-color) !important; }
+      .navbar-brand .font-weight-bold { color: var(--global-theme-color); }
+      .nav-item.active .nav-link { color: var(--global-theme-color) !important; font-weight: 500; }
+      /* --- Theme Toggle Icon --- */
+      .toggle-container { cursor: pointer; padding: 0.5rem 0.75rem; }
+      .fa-sun { display: none; } .fa-moon { display: block; }
+      html[data-theme='dark'] .fa-sun { display: block; } html[data-theme='dark'] .fa-moon { display: none; }
+      /* --- Portfolio Page Styles --- */
+      .post-header { margin-bottom: 2rem; }
+      .post-title { font-family: 'Roboto Slab', serif; }
+      .post-description { font-size: 1.1rem; color: #888; }
+      .project-entry { margin-bottom: 3rem; }
+      .project-title a { font-size: 1.5rem; font-weight: 500; text-decoration: none; }
+      .container_row { display: flex; align-items: flex-start; margin-top: 1rem; gap: 2em; }
+      .project_m { width: 250px; height: 150px; object-fit: cover; border-radius: 8px; flex-shrink: 0; }
+      .text { flex-grow: 1; }
+      /* --- Social and Footer --- */
+      .social { text-align: center; margin-top: 4rem; margin-bottom: 2rem; }
+      .contact-icons { display: flex; justify-content: center; align-items: center; gap: 25px; }
+      .contact-icons a { display: inline-flex; align-items: center; text-decoration: none; }
+      .contact-icons i { font-size: 2.2rem; transition: color 0.2s ease-in-out; }
+      .contact-icons img { height: 35px; width: auto; transition: transform 0.2s ease-in-out; }
+      .contact-icons img:hover { transform: scale(1.1); }
+      .contact-note { margin-top: 1.5rem; font-size: 1.1rem; }
+      footer { background-color: var(--footer-bg-color); border-top: 1px solid var(--footer-border-color); padding: 1.5rem 0; text-align: center; width: 100%; margin-top: 3rem; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav id="navbar" class="navbar navbar-expand-sm fixed-top">
+            <div class="container">
+                <a class="navbar-brand title font-weight-lighter" href="index.html"><span class="font-weight-bold">Ahmed</span> Khaled</a>
+                <div class="collapse navbar-collapse text-right" id="navbarNav">
+                    <ul class="navbar-nav ml-auto flex-nowrap align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">About</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="portfolio.html">Portfolio</a>
+                        </li>
+                        <li class="nav-item">
+                            <div class="toggle-container" id="theme-toggle">
+                                <i class="fas fa-moon"></i>
+                                <i class="fas fa-sun"></i>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Content -->
+    <div class="container mt-5">
+        <div class="post">
+            <header class="post-header">
+                <h1 class="post-title">📊 Data Scraping Portfolio</h1>
+                <p class="post-description">A collection of my recent web scraping and data automation projects.</p>
+            </header>
+            <article>
+                <div class="project-entry">
+                    <p class="project-title"><a href="https://github.com/ahmedkhaled115/Fragrantica_Scraping" target="_blank" rel="noopener noreferrer">Fragrantica Website Scraping</a></p>
+                    <div class="container_row">
+                        <img class="project_m" src="https://th.bing.com/th/id/R.04b9f6cc67d3f4da2ecfc5686d8a8fb1?rik=vN%2bZhmtq8gLQmw&pid=ImgRaw&r=0" alt="Fragrantica Project">
+                        <div class="text">
+                            Scraped the <strong>Fragrantica</strong> website to extract detailed data about perfumes, brands, and parent companies. This project involved handling complex page structures and large volumes of data from a major online fragrance community. <br><a href="https://www.fragrantica.com/" target="_blank" rel="noopener noreferrer">Website Link</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-entry">
+                    <p class="project-title"><a href="https://github.com/ahmedkhaled115/Mastersintime.com-scraping-watch" target="_blank" rel="noopener noreferrer">MastersInTime Website Scraping</a></p>
+                    <div class="container_row">
+                        <img class="project_m" src="https://media.hollandwatchgroup.com/hwg:staging_pub/media-formats/output/bes/tse/lle/rsb/ann/er/bestsellersbanner-19607-11-x.jpg" alt="MastersInTime Project">
+                        <div class="text">
+                            Extracted detailed data for wristwatches from <strong>MastersInTime</strong>, including specifications, features, and pricing. This project required careful handling of product variations and dynamic content on a leading e-commerce platform. <br><a href="https://www.mastersintime.com/" target="_blank" rel="noopener noreferrer">Website Link</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-entry">
+                    <p class="project-title"><a href="https://github.com/ahmedkhaled115/Zillow-Agent-Scraping-for-USA-States" target="_blank" rel="noopener noreferrer">Zillow Real Estate Agents (USA)</a></p>
+                    <div class="container_row">
+                        <img class="project_m" src="https://s.zillow.net/pfs/static/z-logo-default.svg" alt="Zillow Project">
+                        <div class="text">
+                            Collected a comprehensive dataset of real estate agent profiles from <strong>Zillow.com</strong> across all USA states. The scraped data included contact details, sales performance, and property insights, navigating pagination and state-specific layouts. <br><a href="https://www.zillow.com/professionals/real-estate-agent-reviews/" target="_blank" rel="noopener noreferrer">Website Link</a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+    
+    <!-- Social and Footer -->
+    <div class="social">
+        <div class="contact-icons">
+            <a href="mailto:ahmedmtc11560@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/ahmed-khaled-a41919248/" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.fiverr.com/ahmedkhaled160?public_mode=true" target="_blank" title="Fiverr"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/fiverr.png" alt="Fiverr"/></a>
+            <a href="https://www.upwork.com/freelancers/~01015f3348d2532c01?viewMode=1" target="_blank" title="Upwork"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/upwork.png" alt="Upwork"/></a>  
+            <a href="https://khamsat.com/user/ahmed11560" target="_blank" title="Khamsat"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Khamsat.png" alt="Khamsat"/></a>
+        </div>
+        <div class="contact-note">✨ Always open for collaborations & freelance opportunities!</div>
+    </div>
+    <footer>
+        <div class="container">© Copyright 2025 Ahmed Khaled.</div>
+    </footer>
+
+    <!-- JavaScript for Theme Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            const applyTheme = (theme) => {
+                html.setAttribute('data-theme', theme);
+                localStorage.setItem('theme', theme);
+            };
+            themeToggle.addEventListener('click', () => {
+                const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                applyTheme(newTheme);
+            });
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) html.setAttribute('data-theme', savedTheme);
+        });
+    </script>
+</body>
+</html>
