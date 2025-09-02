@@ -4,7 +4,7 @@
     <!-- Metadata -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Portfolio | Ahmed Khaled</title>
+    <title>Data Scraping Portfolio | Ahmed Khaled</title>
     <meta name="author" content="Ahmed Khaled">
     <meta name="description" content="A portfolio of web scraping and data automation projects by Ahmed Khaled.">
 
@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;📊&lt;/text&gt;&lt;/svg&gt;">
 
     <style>
-      /* --- Base & Dark Theme Styles (Same as before) --- */
+      /* --- Base & Dark Theme Styles --- */
       :root {
         --global-bg-color: #ffffff; --global-text-color: #000000; --global-theme-color: #007bff;
         --navbar-bg-color: rgba(255, 255, 255, 0.95); --navbar-text-color: #333;
@@ -32,11 +32,15 @@
       }
       a { color: var(--global-theme-color); }
       a:hover { color: var(--global-hover-color, #a7caff); }
-      /* --- Navbar --- */
+      /* --- Navbar & Dropdown --- */
       .navbar { background-color: var(--navbar-bg-color); backdrop-filter: blur(5px); border-bottom: 1px solid var(--footer-border-color); }
       .navbar-brand, .nav-link { color: var(--navbar-text-color) !important; }
       .navbar-brand .font-weight-bold { color: var(--global-theme-color); }
       .nav-item.active .nav-link { color: var(--global-theme-color) !important; font-weight: 500; }
+      .dropdown-menu { background-color: var(--navbar-bg-color); border: 1px solid var(--footer-border-color); }
+      .dropdown-item { color: var(--navbar-text-color) !important; }
+      .dropdown-item:hover { background-color: rgba(128, 128, 128, 0.2); }
+      html[data-theme='dark'] .dropdown-item:hover { background-color: rgba(255, 255, 255, 0.1); }
       /* --- Theme Toggle Icon --- */
       .toggle-container { cursor: pointer; padding: 0.5rem 0.75rem; }
       .fa-sun { display: none; } .fa-moon { display: block; }
@@ -66,17 +70,19 @@
     <header>
         <nav id="navbar" class="navbar navbar-expand-sm fixed-top">
             <div class="container">
-                <!-- CORRECTED LINK -->
                 <a class="navbar-brand title font-weight-lighter" href="./index.html"><span class="font-weight-bold">Ahmed</span> Khaled</a>
                 <div class="collapse navbar-collapse text-right" id="navbarNav">
                     <ul class="navbar-nav ml-auto flex-nowrap align-items-center">
                         <li class="nav-item">
-                            <!-- CORRECTED LINK -->
                             <a class="nav-link" href="./index.html">About</a>
                         </li>
-                        <li class="nav-item active">
-                            <!-- CORRECTED LINK -->
-                            <a class="nav-link" href="./portfolio.html">Portfolio</a>
+                        <li class="nav-item dropdown active">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Portfolios
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="./data-scraping.html">Data Scraping Portfolio</a>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <div class="toggle-container" id="theme-toggle">
@@ -134,8 +140,11 @@
         <div class="contact-icons">
             <a href="mailto:ahmedmtc11560@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
             <a href="https://www.linkedin.com/in/ahmed-khaled-a41919248/" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-            <a href="https://www.fiverr.com/ahmedkhaled160?public_mode=true" target="_blank" title="Fiverr"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/fiverr.png" alt="Fiverr"/></a>
-            <a href="https://www.upwork.com/freelancers/~01015f3348d2532c01?viewMode=1" target="_blank" title="Upwork"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/upwork.png" alt="Upwork"/></a>  
+            <a href="https://github.com/ahmedkhaled115" title="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+            <!-- UPDATED FIVERR ICON URL -->
+            <a href="https://www.fiverr.com/ahmedkhaled160?public_mode=true" target="_blank" title="Fiverr"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/fiverr2.png" alt="Fiverr"/></a>
+            <!-- UPDATED UPWORK ICON URL -->
+            <a href="https://www.upwork.com/freelancers/~01015f3348d2532c01?viewMode=1" target="_blank" title="Upwork"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/upwork2.png" alt="Upwork"/></a>  
             <a href="https://khamsat.com/user/ahmed11560" target="_blank" title="Khamsat"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Khamsat.png" alt="Khamsat"/></a>
         </div>
         <div class="contact-note">✨ Always open for collaborations & freelance opportunities!</div>
@@ -144,7 +153,8 @@
         <div class="container">© Copyright 2025 Ahmed Khaled.</div>
     </footer>
 
-    <!-- JavaScript for Theme Toggle -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const themeToggle = document.getElementById('theme-toggle');
