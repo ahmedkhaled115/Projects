@@ -3,130 +3,163 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>📊 Data Scraping Portfolio - Ahmed Khaled</title>
+  <title>Ahmed Khaled | Data Scraping Portfolio</title>
+
+  <!-- Bootstrap & FontAwesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
   <style>
     body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 20px;
-      padding: 20px;
+      padding-top: 70px;
       background: #f9f9f9;
-      color: #2c3e50;
     }
-    h1, h2, h3 {
-      color: #2c3e50;
+    .navbar {
+      box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
     }
-    a {
-      color: #3498db;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    img {
-      border-radius: 8px;
-      margin: 10px 20px 20px 0;
-    }
-    .project {
-      margin-bottom: 60px;
-      overflow: auto;
+    .post-header {
+      margin-bottom: 40px;
     }
     .project img {
-      float: left;
+      border-radius: 10px;
+    }
+    .container_row {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 40px;
+    }
+    .container_row img {
+      margin-right: 20px;
       width: 250px;
       height: 150px;
       object-fit: cover;
     }
     .freelance-logos img {
       margin: 15px;
-      vertical-align: middle;
+      width: 120px;
     }
-    hr {
-      border: none;
-      border-top: 2px solid #ddd;
-      margin: 30px 0;
+    footer {
+      padding: 20px;
+      text-align: center;
+      background: #f1f1f1;
+      margin-top: 50px;
     }
   </style>
 </head>
-<body>
+<body class="fixed-top-nav">
 
-  <h1>📊 Data Scraping Portfolio - Ahmed Khaled</h1>
-  <p>This portfolio is a compilation of my <strong>Web Scraping projects</strong>, achievements, and skills as a freelancer.<br>
-  It is updated on a regular basis.</p>
+  <!-- Header -->
+  <header>
+    <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top bg-white">
+      <div class="container">
+        <a class="navbar-brand title font-weight-lighter" href="#">
+          <span class="font-weight-bold">Ahmed</span> Khaled
+        </a>
 
-  <ul>
-    <li><strong>Email</strong>: <a href="mailto:ahmedmtc11560@gmail.com">ahmedmtc11560@gmail.com</a></li>
-    <li><strong>LinkedIn</strong>: <a href="https://www.linkedin.com/in/ahmed-khaled-a41919248/" target="_blank">linkedin.com/in/ahmed-khaled-a41919248</a></li>
-    <li><strong>Fiverr</strong>: <a href="https://www.fiverr.com/ahmedkhaled160?public_mode=true" target="_blank">fiverr.com/ahmedkhaled160</a></li>
-  </ul>
+        <!-- Toggle -->
+        <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-  <hr>
+        <div class="collapse navbar-collapse text-right" id="navbarNav">
+          <ul class="navbar-nav ml-auto flex-nowrap">
+            <li class="nav-item active"><a class="nav-link" href="#">Portfolio</a></li>
+            <li class="nav-item"><a class="nav-link" href="mailto:ahmedmtc11560@gmail.com">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/ahmed-khaled-a41919248/" target="_blank">LinkedIn</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://www.fiverr.com/ahmedkhaled160?public_mode=true" target="_blank">Fiverr</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
 
-  <h2>🏆 Achievements</h2>
-  <ul>
-    <li>800+ Five-Star Reviews ⭐⭐⭐⭐⭐</li>
-    <li>1,500+ Clients Served Globally 🌍</li>
-    <li>3+ Years of Professional Freelancing Experience</li>
-    <li>Expertise in <strong>large-scale web scraping & automation</strong></li>
-  </ul>
+  <!-- Content -->
+  <div class="container">
+    <div class="post">
+      <header class="post-header text-center">
+        <h1 class="post-title">📊 Data Scraping Portfolio</h1>
+        <p class="post-description">
+          Compilation of my <strong>Web Scraping projects</strong>, achievements, and skills as a freelancer.
+        </p>
+      </header>
 
-  <hr>
+      <article>
+        <!-- Achievements -->
+        <h2>🏆 Achievements</h2>
+        <ul>
+          <li>800+ Five-Star Reviews ⭐⭐⭐⭐⭐</li>
+          <li>1,500+ Clients Served Globally 🌍</li>
+          <li>3+ Years of Professional Freelancing Experience</li>
+          <li>Expertise in <strong>large-scale web scraping & automation</strong></li>
+        </ul>
 
-  <h2>📂 Projects</h2>
+        <!-- Projects -->
+        <h2>📂 Projects</h2>
 
-  <div class="project">
-    <img src="https://th.bing.com/th/id/R.04b9f6cc67d3f4da2ecfc5686d8a8fb1?rik=vN%2bZhmtq8gLQmw&pid=ImgRaw&r=0" alt="Fragrantica">
-    <h3><a href="https://github.com/ahmedkhaled115/Fragrantica_Scraping" target="_blank">Scrape Fragrantica Website</a></h3>
-    <p>In this project, I scraped the <strong>Fragrantica</strong> website to extract detailed data about perfumes, brands, and parent companies.<br>
-    Fragrantica is one of the largest fragrance communities online, where users share reviews and insights.</p>
-    <p>🔗 <a href="https://www.fragrantica.com/" target="_blank">Fragrantica Website</a></p>
+        <div class="container_row project">
+          <img src="https://th.bing.com/th/id/R.04b9f6cc67d3f4da2ecfc5686d8a8fb1?rik=vN%2bZhmtq8gLQmw&pid=ImgRaw&r=0" alt="Fragrantica">
+          <div>
+            <h4><a href="https://github.com/ahmedkhaled115/Fragrantica_Scraping" target="_blank">Scrape Fragrantica Website</a></h4>
+            <p>Scraped the <strong>Fragrantica</strong> website to extract detailed data about perfumes, brands, and parent companies.</p>
+            <p>🔗 <a href="https://www.fragrantica.com/" target="_blank">Fragrantica Website</a></p>
+          </div>
+        </div>
+
+        <div class="container_row project">
+          <img src="https://media.hollandwatchgroup.com/hwg:staging_pub/media-formats/output/bes/tse/lle/rsb/ann/er/bestsellersbanner-19607-11-x.jpg" alt="MastersInTime">
+          <div>
+            <h4><a href="https://github.com/ahmedkhaled115/Mastersintime.com-scraping-watch" target="_blank">Scrape MastersInTime Website</a></h4>
+            <p>Extracted detailed data about wristwatches including specifications, features, and pricing from <strong>MastersInTime</strong>.</p>
+            <p>🔗 <a href="https://www.mastersintime.com/" target="_blank">MastersInTime Website</a></p>
+          </div>
+        </div>
+
+        <div class="container_row project">
+          <img src="https://tse1.mm.bing.net/th/id/OIP.ABHliBeNLMq-MaMeGUZA9wHaEK?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Zillow">
+          <div>
+            <h4><a href="https://github.com/ahmedkhaled115/Zillow-Agent-Scraping-for-USA-States" target="_blank">Scrape Zillow Agents (USA)</a></h4>
+            <p>Scraped <strong>Zillow.com</strong> to collect real estate agent profiles across all USA states, including contact details and sales performance.</p>
+            <p>🔗 <a href="https://www.zillow.com/professionals/real-estate-agent-reviews/" target="_blank">Zillow Website</a></p>
+          </div>
+        </div>
+
+        <!-- Core Competencies -->
+        <h2>🛠 Core Competencies</h2>
+        <ul>
+          <li><strong>Methodologies</strong>: Web Scraping, Data Mining, Data Cleaning, API Integration, Automation</li>
+          <li><strong>Languages</strong>: Python (Requests, BeautifulSoup, Scrapy, Selenium, Pandas, Regex), SQL</li>
+          <li><strong>Tools</strong>: Scrapy, Selenium, Playwright, Requests, BeautifulSoup, LXML, MySQL, MongoDB, Excel, Google Sheets, Git</li>
+          <li><strong>Visualization</strong>: Pandas, Matplotlib, Power BI, Tableau</li>
+        </ul>
+
+        <!-- Freelancer Accounts -->
+        <h2>🌍 Freelancer Accounts</h2>
+        <div class="freelance-logos">
+          <a href="https://www.fiverr.com/ahmedkhaled160?public_mode=true" target="_blank">
+            <img src="https://cdn.worldvectorlogo.com/logos/fiverr-1.svg" alt="Fiverr">
+          </a>
+          <a href="https://khamsat.com/user/ahmed11560" target="_blank">
+            <img src="https://www.tizdeet.com/wp-content/uploads/2021/09/khamsat.png" alt="Khamsat">
+          </a>
+          <a href="https://www.upwork.com/freelancers/~01015f3348d2532c01?viewMode=1" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/15527/15527365.png" alt="Upwork">
+          </a>
+        </div>
+
+        <p class="mt-4">✨ Always open for collaborations & freelance opportunities!</p>
+      </article>
+    </div>
   </div>
 
-  <div class="project">
-    <img src="https://media.hollandwatchgroup.com/hwg:staging_pub/media-formats/output/bes/tse/lle/rsb/ann/er/bestsellersbanner-19607-11-x.jpg" alt="MastersInTime">
-    <h3><a href="https://github.com/ahmedkhaled115/Mastersintime.com-scraping-watch" target="_blank">Scrape MastersInTime Website</a></h3>
-    <p>In this project, I scraped the <strong>MastersInTime</strong> website to extract detailed data about wristwatches, including specifications, features, and pricing.<br>
-    MastersInTime is a leading online platform that offers a wide range of watch brands and styles.</p>
-    <p>🔗 <a href="https://www.mastersintime.com/" target="_blank">MastersInTime Website</a></p>
-  </div>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      © 2025 Ahmed Khaled. Hosted with <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+    </div>
+  </footer>
 
-  <div class="project">
-    <img src="https://tse1.mm.bing.net/th/id/OIP.ABHliBeNLMq-MaMeGUZA9wHaEK?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Zillow">
-    <h3><a href="https://github.com/ahmedkhaled115/Zillow-Agent-Scraping-for-USA-States" target="_blank">Scrape Zillow Agents (USA)</a></h3>
-    <p>In this project, I scraped <strong>Zillow.com</strong> to collect real estate agent profiles across all USA states, including contact details, sales performance, and property insights.<br>
-    Zillow is one of the largest online real estate marketplaces in the United States.</p>
-    <p>🔗 <a href="https://www.zillow.com/professionals/real-estate-agent-reviews/" target="_blank">Zillow Website</a></p>
-  </div>
-
-  <hr>
-
-  <h2>🛠 Core Competencies</h2>
-  <ul>
-    <li><strong>Methodologies</strong>: Web Scraping, Data Mining, Data Cleaning, Data Transformation, API Integration, Proxy & CAPTCHA Handling, Automation, Scalable Scraping Pipelines</li>
-    <li><strong>Languages</strong>: Python (Requests, BeautifulSoup, Scrapy, Selenium, Pandas, Regex), SQL</li>
-    <li><strong>Tools</strong>: Scrapy, Selenium, Playwright, DrissionPage, Requests, BeautifulSoup, LXML, Proxy Rotators, MySQL, PostgreSQL, MongoDB, Excel, Google Sheets, Git</li>
-    <li><strong>Visualization & Analysis</strong>: Pandas, Matplotlib, Power BI, Tableau</li>
-  </ul>
-
-  <hr>
-
-  <h2>🌍 Freelancer Accounts</h2>
-  <div class="freelance-logos">
-    <a href="https://www.fiverr.com/ahmedkhaled160?public_mode=true" target="_blank">
-      <img src="https://cdn.worldvectorlogo.com/logos/fiverr-1.svg" alt="Fiverr" width="120">
-    </a>
-    <a href="https://khamsat.com/user/ahmed11560" target="_blank">
-      <img src="https://www.tizdeet.com/wp-content/uploads/2021/09/khamsat.png" alt="Khamsat" width="120">
-    </a>
-    <a href="https://www.upwork.com/freelancers/~01015f3348d2532c01?viewMode=1" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/15527/15527365.png" alt="Upwork" width="120">
-    </a>
-  </div>
-
-  <hr>
-
-  <p>✨ Always open for collaborations & freelance opportunities!</p>
-
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
