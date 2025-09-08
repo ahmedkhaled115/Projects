@@ -4,7 +4,7 @@
     <!-- Metadata -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Services | Ahmed Khaled</title>
+    <title>My Gigs | Ahmed Khaled</title>
     <meta name="author" content="Ahmed Khaled">
     <meta name="description" content="A portfolio of web scraping and data automation projects by Ahmed Khaled.">
 
@@ -38,6 +38,73 @@
       .post-header { margin-bottom: 2rem; }
       .post-title { font-family: 'Roboto Slab', serif; }
       .post-description { font-size: 1.25rem; color: #888; }
+      
+      /* --- Gig Card Styles --- */
+      .gigs-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2rem;
+      }
+      .gig-card-link {
+        text-decoration: none;
+        color: var(--global-text-color);
+      }
+      .gig-card-link:hover { text-decoration: none; }
+      .gig-card {
+        background-color: var(--footer-bg-color);
+        border: 1px solid var(--footer-border-color);
+        border-radius: 8px;
+        overflow: hidden;
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      .gig-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      }
+      html[data-theme='dark'] .gig-card:hover {
+        box-shadow: 0 6px 20px rgba(255,255,255,0.08);
+      }
+      .gig-card img {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        border-bottom: 1px solid var(--footer-border-color);
+      }
+      .gig-info {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+      }
+      .gig-title {
+        font-weight: 500;
+        margin-bottom: 0.75rem;
+        flex-grow: 1;
+      }
+      .gig-rating {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        font-size: 0.95rem;
+        color: #ffb300; /* Star color */
+      }
+      .gig-rating span {
+        color: #888;
+        font-weight: 300;
+      }
+      .gig-price {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--footer-border-color);
+        text-align: right;
+        font-weight: bold;
+        font-size: 1.1rem;
+      }
+      
+      /* --- Footer Styles --- */
       .social { text-align: center; margin-top: 4rem; margin-bottom: 2rem; }
       .contact-icons { display: flex; justify-content: center; align-items: center; gap: 25px; }
       .contact-icons i { font-size: 2.2rem; }
@@ -45,17 +112,6 @@
       .contact-icons img:hover { transform: scale(1.1); }
       .contact-note { margin-top: 1.5rem; font-size: 1.1rem; }
       footer { background-color: var(--footer-bg-color); border-top: 1px solid var(--footer-border-color); padding: 1.5rem 0; text-align: center; width: 100%; margin-top: 3rem; }
-      
-      /* --- Services Section ("Gig") Styles --- */
-      .service-card { background-color: var(--footer-bg-color); border: 1px solid var(--footer-border-color); border-radius: 8px; margin-bottom: 1rem; transition: box-shadow 0.2s ease-in-out; }
-      .service-title { font-family: 'Roboto Slab', serif; font-size: 1.4rem; padding: 1.25rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
-      .service-title i.fa-chevron-down { transition: transform 0.3s ease; }
-      .service-details { display: none; padding: 0 1.25rem 1.25rem 1.25rem; border-top: 1px solid var(--footer-border-color); }
-      .service-card.active { box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
-      html[data-theme='dark'] .service-card.active { box-shadow: 0 4px 20px rgba(255,255,255,0.05); }
-      .service-card.active .service-details { display: block; }
-      .service-card.active .service-title i.fa-chevron-down { transform: rotate(180deg); }
-      .gig-image { max-width: 100%; border-radius: 8px; margin-top: 1rem; border: 1px solid var(--footer-border-color); }
     </style>
 </head>
 <body>
@@ -84,62 +140,52 @@
     <div class="container mt-5">
         <div class="post">
             <header class="post-header">
-                <h1 class="post-title">Services Offered</h1>
-                <p class="post-description">Leveraging automation to deliver fast, accurate, and cost-effective data solutions.</p>
+                <h1 class="post-title">My Gigs</h1>
+                <p class="post-description">Explore the specialized data services I offer. Click on any gig to learn more.</p>
             </header>
             <article>
-                <div class="service-card">
-                    <div class="service-title" onclick="toggleService(this)">
-                        <span>About this Gig</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="service-details">
-                        <div class="row align-items-center">
-                            <div class="col-md-7">
-                                <p>Instead of slow, costly, and error-prone manual data entry, I will scrape the website to extract the data you need. This automated process ensures:</p>
-                                <ul>
-                                    <li><strong>Accuracy:</strong> Automation eliminates human error, guaranteeing precise data.</li>
-                                    <li><strong>Speed:</strong> Extracting thousands of records can be done in hours, not weeks.</li>
-                                    <li><strong>Low Cost:</strong> My services are a fraction of the cost of manual data entry.</li>
-                                </ul>
-                                <p>I deliver clean, well-organized data in Excel, CSV, or Google Sheets format. My work is highly accurate and precise, with rigorous attention to detail.</p>
-                                <p class="font-weight-bold">Please Make Sure To Message Me Before Ordering.</p>
-                            </div>
-                            <div class="col-md-5">
-                                <img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/main/icons/web-scraping-service.png" alt="Web Scraping Gig" class="gig-image">
+                <div class="gigs-container">
+
+                    <!-- Gig Card 1: General Web Scraping -->
+                    <a href="#" class="gig-card-link" title="Learn more about this service">
+                        <div class="gig-card">
+                            <!-- !!! IMPORTANT: Replace this with the URL to your gig image !!! -->
+                            <img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/main/icons/gig-web-scraping.png" alt="Web Scraping Gig">
+                            <div class="gig-info">
+                                <p class="gig-title">I will do python web scraping, data scraping, and data mining</p>
+                                <div class="gig-rating">
+                                    <i class="fas fa-star"></i>
+                                    <strong>4.9</strong>
+                                    <span>(882)</span>
+                                </div>
+                                <div class="gig-price">
+                                    <span>From</span> <strong>$5</strong>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </a>
 
-                <div class="service-card">
-                    <div class="service-title" onclick="toggleService(this)">
-                        <span>What I Can Extract</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="service-details">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item bg-transparent">📦 <strong>Products Data:</strong> E-commerce product details, pricing, stock levels, and reviews.</li>
-                            <li class="list-group-item bg-transparent">📞 <strong>Businesses Contact Info:</strong> Leads from online directories (names, emails, phones).</li>
-                            <li class="list-group-item bg-transparent">🏠 <strong>Properties Info:</strong> Real estate listings, prices, and agent details.</li>
-                            <li class="list-group-item bg-transparent">🔍 <strong>Search Results:</strong> Data from search engines or internal site searches.</li>
-                            <li class="list-group-item bg-transparent">... And Much More!</li>
-                        </ul>
-                    </div>
-                </div>
+                    <!-- Gig Card 2: Product Scraping -->
+                    <a href="#" class="gig-card-link" title="Learn more about this service">
+                        <div class="gig-card">
+                            <!-- !!! IMPORTANT: Replace this with the URL to your gig image !!! -->
+                            <img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/main/icons/gig-product-scraping.png" alt="Product Scraping Gig">
+                            <div class="gig-info">
+                                <p class="gig-title">I will scrape product info from any ecommerce website</p>
+                                <div class="gig-rating">
+                                    <i class="fas fa-star"></i>
+                                    <strong>5.0</strong>
+                                    <span>(26)</span>
+                                </div>
+                                <div class="gig-price">
+                                    <span>From</span> <strong>$30</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
 
-                 <div class="service-card">
-                    <div class="service-title" onclick="toggleService(this)">
-                        <span>Important Notes</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="service-details">
-                        <ul>
-                            <li>I do not work on scraping social media platforms.</li>
-                            <li>The base cost is for one simple, static website. Costs may increase for sites that have anti-bot measures, require logins, or are heavily JavaScript-based.</li>
-                            <li><strong>Please contact me first to discuss your project details and get an accurate quote.</strong></li>
-                        </ul>
-                    </div>
+                    <!-- To add a new gig, copy the entire <a ...>...</a> block above and paste it here. -->
+
                 </div>
             </article>
         </div>
@@ -178,11 +224,6 @@
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme) html.setAttribute('data-theme', savedTheme);
         });
-
-        function toggleService(element) {
-            const parentCard = element.parentElement;
-            parentCard.classList.toggle('active');
-        }
     </script>
 </body>
 </html>
