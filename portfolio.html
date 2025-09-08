@@ -15,19 +15,32 @@
     <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🕸️&lt;/text&gt;&lt;/svg&gt;">
 
     <style>
+      /* --- Base & Dark Theme Styles --- */
       :root {
-        --global-bg-color: #ffffff; --global-text-color: #000000; --global-theme-color: #007bff;
-        --navbar-bg-color: rgba(255, 255, 255, 0.95); --navbar-text-color: #333;
-        --footer-bg-color: #f8f9fa; --footer-border-color: #e7e7e7;
+        --global-bg-color: #f1f1f1; /* Lighter grey for a softer look */
+        --card-bg-color: #ffffff;
+        --global-text-color: #000000;
+        --global-theme-color: #007bff;
+        --navbar-bg-color: rgba(255, 255, 255, 0.95);
+        --navbar-text-color: #333;
+        --footer-bg-color: #ffffff;
+        --footer-border-color: #e7e7e7;
       }
       html[data-theme='dark'] {
-        --global-bg-color: #1a1a1a; --global-text-color: #e8e6e3; --global-theme-color: #68a6ff;
-        --navbar-bg-color: rgba(26, 26, 26, 0.95); --navbar-text-color: #e8e6e3;
-        --footer-bg-color: #111; --footer-border-color: #333;
+        --global-bg-color: #121212; /* Darker background */
+        --card-bg-color: #1e1e1e;
+        --global-text-color: #e8e6e3;
+        --global-theme-color: #68a6ff;
+        --navbar-bg-color: rgba(30, 30, 30, 0.95);
+        --navbar-text-color: #e8e6e3;
+        --footer-bg-color: #1e1e1e;
+        --footer-border-color: #333;
       }
       body { font-family: 'Roboto', sans-serif; background-color: var(--global-bg-color); color: var(--global-text-color); padding-top: 80px; }
       a { color: var(--global-theme-color); }
-      a:hover { color: var(--global-hover-color, #a7caff); }
+      a:hover { color: var(--global-hover-color, #a7caff); text-decoration: none; }
+      
+      /* --- Navbar & Dropdown --- */
       .navbar { background-color: var(--navbar-bg-color); backdrop-filter: blur(5px); border-bottom: 1px solid var(--footer-border-color); }
       .navbar-brand, .nav-link { color: var(--navbar-text-color) !important; }
       .navbar-brand .font-weight-bold { color: var(--global-theme-color); }
@@ -36,17 +49,81 @@
       .dropdown-item { color: var(--navbar-text-color) !important; }
       .dropdown-item:hover { background-color: rgba(128, 128, 128, 0.2); }
       html[data-theme='dark'] .dropdown-item:hover { background-color: rgba(255, 255, 255, 0.1); }
+      
+      /* --- Theme Toggle Icon --- */
       .toggle-container { cursor: pointer; padding: 0.5rem 0.75rem; }
       .fa-sun { display: none; } .fa-moon { display: block; }
       html[data-theme='dark'] .fa-sun { display: block; } html[data-theme='dark'] .fa-moon { display: none; }
-      .post-header { margin-bottom: 2rem; }
-      .post-title { font-family: 'Roboto Slab', serif; }
-      .post-description { font-size: 1.1rem; color: #888; }
-      .project-entry { margin-bottom: 3rem; }
-      .project-title a { font-size: 1.5rem; font-weight: 500; text-decoration: none; }
-      .container_row { display: flex; align-items: flex-start; margin-top: 1rem; gap: 2em; flex-wrap: wrap; }
-      .project_m { width: 250px; height: 150px; object-fit: cover; border-radius: 8px; flex-shrink: 0; }
-      .text { flex-grow: 1; min-width: 250px; }
+      
+      /* --- Page Header --- */
+      .post-header { margin-bottom: 3rem; text-align: center; }
+      .post-title { font-family: 'Roboto Slab', serif; margin-bottom: 0.5rem; }
+      .post-description { font-size: 1.2rem; color: #888; max-width: 600px; margin: 0 auto; }
+
+      /* --- Project Card Grid --- */
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 2rem;
+      }
+      .project-card {
+        background-color: var(--card-bg-color);
+        border: 1px solid var(--footer-border-color);
+        border-radius: 12px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .project-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      }
+      html[data-theme='dark'] .project-card:hover {
+        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      }
+      .project-image {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+      }
+      .project-content {
+        padding: 1.5rem;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .project-title {
+        font-family: 'Roboto Slab', serif;
+        font-size: 1.4rem;
+        margin-bottom: 0.75rem;
+      }
+      .project-description {
+        color: #888;
+        font-size: 1rem;
+        line-height: 1.6;
+        flex-grow: 1;
+        margin-bottom: 1.5rem;
+      }
+      .project-links {
+        display: flex;
+        gap: 1rem;
+        justify-content: flex-end;
+        padding-top: 1rem;
+        border-top: 1px solid var(--footer-border-color);
+      }
+      .project-link {
+        color: var(--global-theme-color);
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        letter-spacing: 0.5px;
+      }
+      .project-link i {
+        margin-right: 0.5rem;
+      }
+
+      /* --- Footer Styles --- */
       .social { text-align: center; margin-top: 4rem; margin-bottom: 2rem; }
       .contact-icons { display: flex; justify-content: center; align-items: center; gap: 25px; }
       .contact-icons i { font-size: 2.2rem; }
@@ -87,41 +164,60 @@
     </header>
 
     <!-- Content -->
-    <div class="container mt-5">
-        <div class="post">
-            <header class="post-header">
-                <h1 class="post-title">🕸️ Data Scraping Portfolio</h1>
-                <p class="post-description">A collection of my recent web scraping and data automation projects.</p>
-            </header>
-            <article>
-                <div class="project-entry">
-                    <p class="project-title"><a href="https://github.com/ahmedkhaled115/Fragrantica_Scraping" target="_blank" rel="noopener noreferrer">Fragrantica Website Scraping</a></p>
-                    <div class="container_row">
-                        <img class="project_m" src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/fragrantica.jpg" alt="Fragrantica Project">
-                        <div class="text">
-                            Scraped the <strong>Fragrantica</strong> website to extract detailed data about perfumes, brands, and parent companies. This project involved handling complex page structures and large volumes of data from a major online fragrance community. <br><a href="https://www.fragrantica.com/" target="_blank" rel="noopener noreferrer">Website Link</a>
-                        </div>
+    <div class="container mt-5 py-5">
+        <header class="post-header">
+            <h1 class="post-title">🕸️ Data Scraping Portfolio</h1>
+            <p class="post-description">A collection of my recent web scraping and data automation projects. Each project showcases my ability to tackle unique data extraction challenges.</p>
+        </header>
+        
+        <div class="portfolio-grid">
+            <!-- Project Card 1 -->
+            <div class="project-card">
+                <img class="project-image" src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/fragrantica.jpg" alt="Fragrantica Project Thumbnail">
+                <div class="project-content">
+                    <h4 class="project-title">Fragrantica Website Scraping</h4>
+                    <p class="project-description">
+                        Extracted detailed data about perfumes, brands, and parent companies from the complex page structures of a major online fragrance community.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://github.com/ahmedkhaled115/Fragrantica_Scraping" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>GitHub</a>
+                        <a href="https://www.fragrantica.com/" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i>Live Site</a>
                     </div>
                 </div>
-                <div class="project-entry">
-                    <p class="project-title"><a href="https://github.com/ahmedkhaled115/Mastersintime.com-scraping-watch" target="_blank" rel="noopener noreferrer">MastersInTime Website Scraping</a></p>
-                    <div class="container_row">
-                        <img class="project_m" src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/masterintime.jpg" alt="MastersInTime Project">
-                        <div class="text">
-                            Extracted detailed data for wristwatches from <strong>MastersInTime</strong>, including specifications, features, and pricing. This project required careful handling of product variations and dynamic content on a leading e-commerce platform. <br><a href="https://www.mastersintime.com/" target="_blank" rel="noopener noreferrer">Website Link</a>
-                        </div>
+            </div>
+
+            <!-- Project Card 2 -->
+            <div class="project-card">
+                <img class="project-image" src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/masterintime.jpg" alt="MastersInTime Project Thumbnail">
+                <div class="project-content">
+                    <h4 class="project-title">MastersInTime E-commerce Scraping</h4>
+                    <p class="project-description">
+                        Scraped detailed data for wristwatches, including specifications, features, and pricing, carefully handling product variations and dynamic content.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://github.com/ahmedkhaled115/Mastersintime.com-scraping-watch" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>GitHub</a>
+                        <a href="https://www.mastersintime.com/" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i>Live Site</a>
                     </div>
                 </div>
-                <div class="project-entry">
-                    <p class="project-title"><a href="https://github.com/ahmedkhaled115/Zillow-Agent-Scraping-for-USA-States" target="_blank" rel="noopener noreferrer">Zillow Real Estate Agents (USA)</a></p>
-                    <div class="container_row">
-                        <img class="project_m" src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Zillow.webp" alt="Zillow Project">
-                        <div class="text">
-                            Collected a comprehensive dataset of real estate agent profiles from <strong>Zillow.com</strong> across all USA states. The scraped data included contact details, sales performance, and property insights, navigating pagination and state-specific layouts. <br><a href="https://www.zillow.com/professionals/real-estate-agent-reviews/" target="_blank" rel="noopener noreferrer">Website Link</a>
-                        </div>
+            </div>
+
+            <!-- Project Card 3 -->
+            <div class="project-card">
+                <img class="project-image" src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Zillow.webp" alt="Zillow Project Thumbnail">
+                <div class="project-content">
+                    <h4 class="project-title">Zillow Real Estate Agents (USA)</h4>
+                    <p class="project-description">
+                        Collected a comprehensive dataset of agent profiles from Zillow across all USA states, navigating pagination and state-specific layouts.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://github.com/ahmedkhaled115/Zillow-Agent-Scraping-for-USA-States" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>GitHub</a>
+                        <a href="https://www.zillow.com/professionals/real-estate-agent-reviews/" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i>Live Site</a>
                     </div>
                 </div>
-            </article>
+            </div>
+
+            <!-- To add a new project, copy a whole "project-card" div and paste it here -->
+
         </div>
     </div>
     
