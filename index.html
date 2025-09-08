@@ -15,7 +15,6 @@
     <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🕸️&lt;/text&gt;&lt;/svg&gt;">
 
     <style>
-      /* --- Base & Dark Theme Styles --- */
       :root {
         --global-bg-color: #ffffff; --global-text-color: #000000; --global-theme-color: #007bff;
         --navbar-bg-color: rgba(255, 255, 255, 0.95); --navbar-text-color: #333;
@@ -26,22 +25,20 @@
         --navbar-bg-color: rgba(26, 26, 26, 0.95); --navbar-text-color: #e8e6e3;
         --footer-bg-color: #111; --footer-border-color: #333;
       }
-      body {
-        font-family: 'Roboto', sans-serif; background-color: var(--global-bg-color); color: var(--global-text-color);
-        padding-top: 80px;
-      }
+      body { font-family: 'Roboto', sans-serif; background-color: var(--global-bg-color); color: var(--global-text-color); padding-top: 80px; }
       a { color: var(--global-theme-color); }
       a:hover { color: var(--global-hover-color, #a7caff); }
-      /* --- Navbar --- */
       .navbar { background-color: var(--navbar-bg-color); backdrop-filter: blur(5px); border-bottom: 1px solid var(--footer-border-color); }
       .navbar-brand, .nav-link { color: var(--navbar-text-color) !important; }
       .navbar-brand .font-weight-bold { color: var(--global-theme-color); }
       .nav-item.active .nav-link { color: var(--global-theme-color) !important; font-weight: 500; }
-      /* --- Theme Toggle Icon --- */
+      .dropdown-menu { background-color: var(--navbar-bg-color); border: 1px solid var(--footer-border-color); }
+      .dropdown-item { color: var(--navbar-text-color) !important; }
+      .dropdown-item:hover { background-color: rgba(128, 128, 128, 0.2); }
+      html[data-theme='dark'] .dropdown-item:hover { background-color: rgba(255, 255, 255, 0.1); }
       .toggle-container { cursor: pointer; padding: 0.5rem 0.75rem; }
       .fa-sun { display: none; } .fa-moon { display: block; }
       html[data-theme='dark'] .fa-sun { display: block; } html[data-theme='dark'] .fa-moon { display: none; }
-      /* --- Page Styles --- */
       .post-header { margin-bottom: 2rem; }
       .post-title { font-family: 'Roboto Slab', serif; }
       .desc { font-size: 1.25rem; color: #888; }
@@ -49,7 +46,6 @@
       .profile img { width: 250px; height: 250px; object-fit: cover; }
       .news h4 { margin-top: 2rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--footer-border-color); }
       .news ul { list-style-type: none; padding-left: 0; }
-      /* --- Social and Footer --- */
       .social { text-align: center; margin-top: 4rem; margin-bottom: 2rem; }
       .contact-icons { display: flex; justify-content: center; align-items: center; gap: 25px; }
       .contact-icons i { font-size: 2.2rem; }
@@ -69,7 +65,16 @@
                     <ul class="navbar-nav ml-auto flex-nowrap align-items-center">
                         <li class="nav-item active"><a class="nav-link" href="./index.html">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="./services.html">Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="./portfolio.html">Portfolio</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Portfolio
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownPortfolio">
+                                <a class="dropdown-item" href="./portfolio.html">Data Scraping Portfolio</a>
+                                <!-- You can add more portfolio links here in the future -->
+                                <!-- <a class="dropdown-item" href="./another-portfolio.html">Another Portfolio</a> -->
+                            </div>
+                        </li>
                         <li class="nav-item">
                             <div class="toggle-container" id="theme-toggle">
                                 <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
