@@ -4,7 +4,7 @@
     <!-- Metadata -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Data Scraping Portfolio | Ahmed Khaled</title>
+    <title>About | Ahmed Khaled</title>
     <meta name="author" content="Ahmed Khaled">
     <meta name="description" content="A portfolio of web scraping and data automation projects by Ahmed Khaled.">
 
@@ -12,8 +12,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
-    
-    <!-- UPDATED ICON: Changed from 📊 to 🕸️ -->
     <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🕸️&lt;/text&gt;&lt;/svg&gt;">
 
     <style>
@@ -34,15 +32,11 @@
       }
       a { color: var(--global-theme-color); }
       a:hover { color: var(--global-hover-color, #a7caff); }
-      /* --- Navbar & Dropdown --- */
+      /* --- Navbar --- */
       .navbar { background-color: var(--navbar-bg-color); backdrop-filter: blur(5px); border-bottom: 1px solid var(--footer-border-color); }
       .navbar-brand, .nav-link { color: var(--navbar-text-color) !important; }
       .navbar-brand .font-weight-bold { color: var(--global-theme-color); }
       .nav-item.active .nav-link { color: var(--global-theme-color) !important; font-weight: 500; }
-      .dropdown-menu { background-color: var(--navbar-bg-color); border: 1px solid var(--footer-border-color); }
-      .dropdown-item { color: var(--navbar-text-color) !important; }
-      .dropdown-item:hover { background-color: rgba(128, 128, 128, 0.2); }
-      html[data-theme='dark'] .dropdown-item:hover { background-color: rgba(255, 255, 255, 0.1); }
       /* --- Theme Toggle Icon --- */
       .toggle-container { cursor: pointer; padding: 0.5rem 0.75rem; }
       .fa-sun { display: none; } .fa-moon { display: block; }
@@ -58,56 +52,11 @@
       /* --- Social and Footer --- */
       .social { text-align: center; margin-top: 4rem; margin-bottom: 2rem; }
       .contact-icons { display: flex; justify-content: center; align-items: center; gap: 25px; }
-      .contact-icons a { display: inline-flex; align-items: center; text-decoration: none; }
-      .contact-icons i { font-size: 2.2rem; transition: color 0.2s ease-in-out; }
+      .contact-icons i { font-size: 2.2rem; }
       .contact-icons img { height: 35px; width: auto; transition: transform 0.2s ease-in-out; }
       .contact-icons img:hover { transform: scale(1.1); }
       .contact-note { margin-top: 1.5rem; font-size: 1.1rem; }
       footer { background-color: var(--footer-bg-color); border-top: 1px solid var(--footer-border-color); padding: 1.5rem 0; text-align: center; width: 100%; margin-top: 3rem; }
-      /* --- Services Section --- */
-      .services-section { margin-top: 4rem; }
-      .service-card {
-        background-color: var(--footer-bg-color);
-        border: 1px solid var(--footer-border-color);
-        border-radius: 8px;
-        padding: 1.5rem;
-        margin-bottom: 1.5rem;
-        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-      }
-      .service-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      }
-      html[data-theme='dark'] .service-card:hover {
-        box-shadow: 0 4px 15px rgba(255,255,255,0.08);
-      }
-      .service-title {
-        font-family: 'Roboto Slab', serif;
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-        cursor: pointer;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .service-title i {
-        transition: transform 0.3s ease;
-      }
-      .service-details {
-        display: none;
-        margin-top: 1rem;
-      }
-      .service-card.active .service-details {
-        display: block;
-      }
-      .service-card.active .service-title i {
-        transform: rotate(180deg);
-      }
-      .gig-image {
-          max-width: 100%;
-          border-radius: 8px;
-          margin-top: 1rem;
-      }
     </style>
 </head>
 <body>
@@ -118,21 +67,12 @@
                 <a class="navbar-brand title font-weight-lighter" href="./index.html"><span class="font-weight-bold">Ahmed</span> Khaled</a>
                 <div class="collapse navbar-collapse text-right" id="navbarNav">
                     <ul class="navbar-nav ml-auto flex-nowrap align-items-center">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="./index.html">About</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Portfolios
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="./data-scraping.html">Data Scraping Portfolio</a>
-                            </div>
-                        </li>
+                        <li class="nav-item active"><a class="nav-link" href="./index.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./services.html">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./portfolio.html">Portfolio</a></li>
                         <li class="nav-item">
                             <div class="toggle-container" id="theme-toggle">
-                                <i class="fas fa-moon"></i>
-                                <i class="fas fa-sun"></i>
+                                <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
                             </div>
                         </li>
                     </ul>
@@ -151,14 +91,13 @@
             <article>
                 <div class="profile float-right ml-3">
                     <figure>
-                        <!-- !!! IMPORTANT: Replace this placeholder with your actual profile picture URL !!! -->
                         <img class="rounded-circle" src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Ahmed.jpg" alt="Ahmed Khaled Profile Picture">
                     </figure>
                 </div>
                 <div class="clearfix">
                     <p>Hello! I'm Ahmed Khaled, a dedicated and results-driven freelance specialist in web scraping and data automation. With over three years of intensive professional experience, I have successfully partnered with more than 1,500 clients worldwide, delivering high-quality data solutions tailored to their unique needs.</p>
                     <p>My passion lies in transforming the vast, unstructured data of the web into clean, actionable insights. I excel at tackling complex, large-scale scraping challenges, developing robust and scalable pipelines to handle everything from simple data extraction to sophisticated automation that bypasses anti-bot measures. My track record of over 800 five-star reviews reflects my commitment to quality, reliability, and client satisfaction.</p>
-                    <p>Whether you need to gather market intelligence, monitor competitor pricing, or build a unique dataset for a machine learning project, I have the technical expertise and strategic mindset to get the job done efficiently. Feel free to explore my <a href="./data-scraping.html"><b>Data Scraping Portfolio</b></a> to see examples of my work.</p>
+                    <p>Whether you need to gather market intelligence, monitor competitor pricing, or build a unique dataset for a machine learning project, I have the technical expertise and strategic mindset to get the job done efficiently. Feel free to explore my <a href="./portfolio.html"><b>Data Scraping Portfolio</b></a> to see examples of my work or review the <a href="./services.html"><b>Services I Offer</b></a>.</p>
                 </div>
                 
                 <div class="news">
@@ -180,73 +119,6 @@
                         <li><strong>Data Handling</strong>: Pandas, Matplotlib, Power BI, Tableau, Excel, Google Sheets</li>
                     </ul>
                 </div>
-                
-                <!-- Services Section -->
-                <div class="services-section">
-                    <h4><i class="fas fa-concierge-bell mr-2"></i>What I Offer</h4>
-                    <p>Looking for fast, accurate, and cost-effective data from a website? Instead of slow and error-prone manual data entry, I use automated web scraping to deliver high-quality data in a well-organized format (Excel, CSV, Google Sheets).</p>
-                    
-                    <div class="service-card">
-                        <div class="service-title" onclick="toggleService(this)">
-                            <span>📦 Products Data</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="service-details">
-                            <p>Extracting comprehensive product information from e-commerce sites, including pricing, stock levels, specifications, and customer reviews to support market analysis and competitive intelligence.</p>
-                        </div>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-title" onclick="toggleService(this)">
-                            <span>📞 Businesses Contact Info</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="service-details">
-                            <p>Compiling targeted lists of business contacts from online directories and professional networks to fuel your sales and marketing campaigns. Data points can include names, emails, phone numbers, and company details.</p>
-                        </div>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-title" onclick="toggleService(this)">
-                            <span>🏠 Properties Info</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="service-details">
-                            <p>Gathering detailed real estate data from property listing websites. This includes property characteristics, pricing history, agent contact information, and market trends for analysis and investment.</p>
-                        </div>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-title" onclick="toggleService(this)">
-                            <span>🔍 Search Results</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="service-details">
-                            <p>Automating the collection of data from search engine results pages (SERPs) or internal site searches to monitor rankings, analyze trends, or aggregate information from multiple listings.</p>
-                        </div>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="service-title" onclick="toggleService(this)">
-                            <span>⭐ Why Choose Web Scraping?</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="service-details">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <p><strong>1. Accuracy:</strong> Automation eliminates human error, ensuring the data you receive is precise and reliable.</p>
-                                    <p><strong>2. Speed:</strong> What takes a person days or weeks to collect manually, I can often deliver within hours or a single day.</p>
-                                    <p><strong>3. Low Cost:</strong> Automated scraping is significantly more affordable than manual data entry, providing a higher return on your investment.</p>
-                                    <p><strong>Please Note:</strong> I do not work with social media platforms. The cost may vary for complex websites that require advanced techniques like proxy rotation or JavaScript rendering. <strong>Please contact me before placing an order.</strong></p>
-                                </div>
-                                <div class="col-md-6">
-                                    <img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/main/icons/web-scraping-service.png" alt="Web Scraping Service" class="gig-image">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </article>
         </div>
     </div>
@@ -257,9 +129,7 @@
             <a href="mailto:ahmedmtc11560@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
             <a href="https://www.linkedin.com/in/ahmed-khaled-a41919248/" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
             <a href="https://github.com/ahmedkhaled115" title="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-            <!-- UPDATED FIVERR ICON URL -->
             <a href="https://www.fiverr.com/ahmedkhaled160?public_mode=true" target="_blank" title="Fiverr"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Fiverr.png" alt="Fiverr"/></a>
-            <!-- UPDATED UPWORK ICON URL -->
             <a href="https://www.upwork.com/freelancers/~01015f3348d2532c01?viewMode=1" target="_blank" title="Upwork"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/upwork2.png" alt="Upwork"/></a>  
             <a href="https://khamsat.com/user/ahmed11560" target="_blank" title="Khamsat"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Khamsat.png" alt="Khamsat"/></a>
         </div>
@@ -286,11 +156,6 @@
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme) html.setAttribute('data-theme', savedTheme);
         });
-
-        function toggleService(element) {
-            const parentCard = element.parentElement;
-            parentCard.classList.toggle('active');
-        }
     </script>
 </body>
 </html>
