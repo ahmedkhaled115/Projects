@@ -64,6 +64,50 @@
       .contact-icons img:hover { transform: scale(1.1); }
       .contact-note { margin-top: 1.5rem; font-size: 1.1rem; }
       footer { background-color: var(--footer-bg-color); border-top: 1px solid var(--footer-border-color); padding: 1.5rem 0; text-align: center; width: 100%; margin-top: 3rem; }
+      /* --- Services Section --- */
+      .services-section { margin-top: 4rem; }
+      .service-card {
+        background-color: var(--footer-bg-color);
+        border: 1px solid var(--footer-border-color);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+      }
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      }
+      html[data-theme='dark'] .service-card:hover {
+        box-shadow: 0 4px 15px rgba(255,255,255,0.08);
+      }
+      .service-title {
+        font-family: 'Roboto Slab', serif;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .service-title i {
+        transition: transform 0.3s ease;
+      }
+      .service-details {
+        display: none;
+        margin-top: 1rem;
+      }
+      .service-card.active .service-details {
+        display: block;
+      }
+      .service-card.active .service-title i {
+        transform: rotate(180deg);
+      }
+      .gig-image {
+          max-width: 100%;
+          border-radius: 8px;
+          margin-top: 1rem;
+      }
     </style>
 </head>
 <body>
@@ -136,6 +180,73 @@
                         <li><strong>Data Handling</strong>: Pandas, Matplotlib, Power BI, Tableau, Excel, Google Sheets</li>
                     </ul>
                 </div>
+                
+                <!-- Services Section -->
+                <div class="services-section">
+                    <h4><i class="fas fa-concierge-bell mr-2"></i>What I Offer</h4>
+                    <p>Looking for fast, accurate, and cost-effective data from a website? Instead of slow and error-prone manual data entry, I use automated web scraping to deliver high-quality data in a well-organized format (Excel, CSV, Google Sheets).</p>
+                    
+                    <div class="service-card">
+                        <div class="service-title" onclick="toggleService(this)">
+                            <span>📦 Products Data</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="service-details">
+                            <p>Extracting comprehensive product information from e-commerce sites, including pricing, stock levels, specifications, and customer reviews to support market analysis and competitive intelligence.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-title" onclick="toggleService(this)">
+                            <span>📞 Businesses Contact Info</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="service-details">
+                            <p>Compiling targeted lists of business contacts from online directories and professional networks to fuel your sales and marketing campaigns. Data points can include names, emails, phone numbers, and company details.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-title" onclick="toggleService(this)">
+                            <span>🏠 Properties Info</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="service-details">
+                            <p>Gathering detailed real estate data from property listing websites. This includes property characteristics, pricing history, agent contact information, and market trends for analysis and investment.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-title" onclick="toggleService(this)">
+                            <span>🔍 Search Results</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="service-details">
+                            <p>Automating the collection of data from search engine results pages (SERPs) or internal site searches to monitor rankings, analyze trends, or aggregate information from multiple listings.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-title" onclick="toggleService(this)">
+                            <span>⭐ Why Choose Web Scraping?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="service-details">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p><strong>1. Accuracy:</strong> Automation eliminates human error, ensuring the data you receive is precise and reliable.</p>
+                                    <p><strong>2. Speed:</strong> What takes a person days or weeks to collect manually, I can often deliver within hours or a single day.</p>
+                                    <p><strong>3. Low Cost:</strong> Automated scraping is significantly more affordable than manual data entry, providing a higher return on your investment.</p>
+                                    <p><strong>Please Note:</strong> I do not work with social media platforms. The cost may vary for complex websites that require advanced techniques like proxy rotation or JavaScript rendering. <strong>Please contact me before placing an order.</strong></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/main/icons/web-scraping-service.png" alt="Web Scraping Service" class="gig-image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </article>
         </div>
     </div>
@@ -175,6 +286,11 @@
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme) html.setAttribute('data-theme', savedTheme);
         });
+
+        function toggleService(element) {
+            const parentCard = element.parentElement;
+            parentCard.classList.toggle('active');
+        }
     </script>
 </body>
 </html>
