@@ -4,7 +4,7 @@
     <!-- Metadata -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Data Scraping Portfolio | Ahmed Khaled</title>
+    <title>Portfolio | Ahmed Khaled</title>
     <meta name="author" content="Ahmed Khaled">
     <meta name="description" content="A portfolio of web scraping and data automation projects by Ahmed Khaled.">
 
@@ -15,7 +15,6 @@
     <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🕸️&lt;/text&gt;&lt;/svg&gt;">
 
     <style>
-      /* --- Base & Dark Theme Styles --- */
       :root {
         --global-bg-color: #ffffff; --global-text-color: #000000; --global-theme-color: #007bff;
         --navbar-bg-color: rgba(255, 255, 255, 0.95); --navbar-text-color: #333;
@@ -26,39 +25,27 @@
         --navbar-bg-color: rgba(26, 26, 26, 0.95); --navbar-text-color: #e8e6e3;
         --footer-bg-color: #111; --footer-border-color: #333;
       }
-      body {
-        font-family: 'Roboto', sans-serif; background-color: var(--global-bg-color); color: var(--global-text-color);
-        padding-top: 80px;
-      }
+      body { font-family: 'Roboto', sans-serif; background-color: var(--global-bg-color); color: var(--global-text-color); padding-top: 80px; }
       a { color: var(--global-theme-color); }
       a:hover { color: var(--global-hover-color, #a7caff); }
-      /* --- Navbar & Dropdown --- */
       .navbar { background-color: var(--navbar-bg-color); backdrop-filter: blur(5px); border-bottom: 1px solid var(--footer-border-color); }
       .navbar-brand, .nav-link { color: var(--navbar-text-color) !important; }
       .navbar-brand .font-weight-bold { color: var(--global-theme-color); }
       .nav-item.active .nav-link { color: var(--global-theme-color) !important; font-weight: 500; }
-      .dropdown-menu { background-color: var(--navbar-bg-color); border: 1px solid var(--footer-border-color); }
-      .dropdown-item { color: var(--navbar-text-color) !important; }
-      .dropdown-item:hover { background-color: rgba(128, 128, 128, 0.2); }
-      html[data-theme='dark'] .dropdown-item:hover { background-color: rgba(255, 255, 255, 0.1); }
-      /* --- Theme Toggle Icon --- */
       .toggle-container { cursor: pointer; padding: 0.5rem 0.75rem; }
       .fa-sun { display: none; } .fa-moon { display: block; }
       html[data-theme='dark'] .fa-sun { display: block; } html[data-theme='dark'] .fa-moon { display: none; }
-      /* --- Portfolio Page Styles --- */
       .post-header { margin-bottom: 2rem; }
       .post-title { font-family: 'Roboto Slab', serif; }
       .post-description { font-size: 1.1rem; color: #888; }
       .project-entry { margin-bottom: 3rem; }
       .project-title a { font-size: 1.5rem; font-weight: 500; text-decoration: none; }
-      .container_row { display: flex; align-items: flex-start; margin-top: 1rem; gap: 2em; }
+      .container_row { display: flex; align-items: flex-start; margin-top: 1rem; gap: 2em; flex-wrap: wrap; }
       .project_m { width: 250px; height: 150px; object-fit: cover; border-radius: 8px; flex-shrink: 0; }
-      .text { flex-grow: 1; }
-      /* --- Social and Footer --- */
+      .text { flex-grow: 1; min-width: 250px; }
       .social { text-align: center; margin-top: 4rem; margin-bottom: 2rem; }
       .contact-icons { display: flex; justify-content: center; align-items: center; gap: 25px; }
-      .contact-icons a { display: inline-flex; align-items: center; text-decoration: none; }
-      .contact-icons i { font-size: 2.2rem; transition: color 0.2s ease-in-out; }
+      .contact-icons i { font-size: 2.2rem; }
       .contact-icons img { height: 35px; width: auto; transition: transform 0.2s ease-in-out; }
       .contact-icons img:hover { transform: scale(1.1); }
       .contact-note { margin-top: 1.5rem; font-size: 1.1rem; }
@@ -73,21 +60,12 @@
                 <a class="navbar-brand title font-weight-lighter" href="./index.html"><span class="font-weight-bold">Ahmed</span> Khaled</a>
                 <div class="collapse navbar-collapse text-right" id="navbarNav">
                     <ul class="navbar-nav ml-auto flex-nowrap align-items-center">
-                        <li class="nav-item">
-                            <a class="nav-link" href="./index.html">About</a>
-                        </li>
-                        <li class="nav-item dropdown active">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Portfolios
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="./data-scraping.html">Data Scraping Portfolio</a>
-                            </div>
-                        </li>
+                        <li class="nav-item"><a class="nav-link" href="./index.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./services.html">Services</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="./portfolio.html">Portfolio</a></li>
                         <li class="nav-item">
                             <div class="toggle-container" id="theme-toggle">
-                                <i class="fas fa-moon"></i>
-                                <i class="fas fa-sun"></i>
+                                <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
                             </div>
                         </li>
                     </ul>
@@ -141,9 +119,7 @@
             <a href="mailto:ahmedmtc11560@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
             <a href="https://www.linkedin.com/in/ahmed-khaled-a41919248/" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
             <a href="https://github.com/ahmedkhaled115" title="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-            <!-- UPDATED FIVERR ICON URL -->
             <a href="https://www.fiverr.com/ahmedkhaled160?public_mode=true" target="_blank" title="Fiverr"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Fiverr.png" alt="Fiverr"/></a>
-            <!-- UPDATED UPWORK ICON URL -->
             <a href="https://www.upwork.com/freelancers/~01015f3348d2532c01?viewMode=1" target="_blank" title="Upwork"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/upwork2.png" alt="Upwork"/></a>  
             <a href="https://khamsat.com/user/ahmed11560" target="_blank" title="Khamsat"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Khamsat.png" alt="Khamsat"/></a>
         </div>
