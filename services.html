@@ -32,79 +32,28 @@
       .navbar-brand, .nav-link { color: var(--navbar-text-color) !important; }
       .navbar-brand .font-weight-bold { color: var(--global-theme-color); }
       .nav-item.active .nav-link { color: var(--global-theme-color) !important; font-weight: 500; }
+      .dropdown-menu { background-color: var(--navbar-bg-color); border: 1px solid var(--footer-border-color); }
+      .dropdown-item { color: var(--navbar-text-color) !important; }
+      .dropdown-item:hover { background-color: rgba(128, 128, 128, 0.2); }
+      html[data-theme='dark'] .dropdown-item:hover { background-color: rgba(255, 255, 255, 0.1); }
       .toggle-container { cursor: pointer; padding: 0.5rem 0.75rem; }
       .fa-sun { display: none; } .fa-moon { display: block; }
       html[data-theme='dark'] .fa-sun { display: block; } html[data-theme='dark'] .fa-moon { display: none; }
       .post-header { margin-bottom: 2rem; }
       .post-title { font-family: 'Roboto Slab', serif; }
       .post-description { font-size: 1.25rem; color: #888; }
-      
-      /* --- Gig Card Styles --- */
-      .gigs-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 2rem;
-      }
-      .gig-card-link {
-        text-decoration: none;
-        color: var(--global-text-color);
-      }
+      .gigs-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; }
+      .gig-card-link { text-decoration: none; color: var(--global-text-color); }
       .gig-card-link:hover { text-decoration: none; }
-      .gig-card {
-        background-color: var(--footer-bg-color);
-        border: 1px solid var(--footer-border-color);
-        border-radius: 8px;
-        overflow: hidden;
-        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-      }
-      .gig-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-      }
-      html[data-theme='dark'] .gig-card:hover {
-        box-shadow: 0 6px 20px rgba(255,255,255,0.08);
-      }
-      .gig-card img {
-        width: 100%;
-        aspect-ratio: 16 / 9;
-        object-fit: cover;
-        border-bottom: 1px solid var(--footer-border-color);
-      }
-      .gig-info {
-        padding: 1rem;
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-      }
-      .gig-title {
-        font-weight: 500;
-        margin-bottom: 0.75rem;
-        flex-grow: 1;
-      }
-      .gig-rating {
-        display: flex;
-        align-items: center;
-        gap: 0.3rem;
-        font-size: 0.95rem;
-        color: #ffb300; /* Star color */
-      }
-      .gig-rating span {
-        color: #888;
-        font-weight: 300;
-      }
-      .gig-price {
-        margin-top: 1rem;
-        padding-top: 1rem;
-        border-top: 1px solid var(--footer-border-color);
-        text-align: right;
-        font-weight: bold;
-        font-size: 1.1rem;
-      }
-      
-      /* --- Footer Styles --- */
+      .gig-card { background-color: var(--footer-bg-color); border: 1px solid var(--footer-border-color); border-radius: 8px; overflow: hidden; transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; display: flex; flex-direction: column; height: 100%; }
+      .gig-card:hover { transform: translateY(-5px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+      html[data-theme='dark'] .gig-card:hover { box-shadow: 0 6px 20px rgba(255,255,255,0.08); }
+      .gig-card img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-bottom: 1px solid var(--footer-border-color); }
+      .gig-info { padding: 1rem; display: flex; flex-direction: column; flex-grow: 1; }
+      .gig-title { font-weight: 500; margin-bottom: 0.75rem; flex-grow: 1; }
+      .gig-rating { display: flex; align-items: center; gap: 0.3rem; font-size: 0.95rem; color: #ffb300; }
+      .gig-rating span { color: #888; font-weight: 300; }
+      .gig-price { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--footer-border-color); text-align: right; font-weight: bold; font-size: 1.1rem; }
       .social { text-align: center; margin-top: 4rem; margin-bottom: 2rem; }
       .contact-icons { display: flex; justify-content: center; align-items: center; gap: 25px; }
       .contact-icons i { font-size: 2.2rem; }
@@ -124,7 +73,15 @@
                     <ul class="navbar-nav ml-auto flex-nowrap align-items-center">
                         <li class="nav-item"><a class="nav-link" href="./index.html">About</a></li>
                         <li class="nav-item active"><a class="nav-link" href="./services.html">Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="./portfolio.html">Portfolio</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Portfolio
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownPortfolio">
+                                <a class="dropdown-item" href="./portfolio.html">Data Scraping Portfolio</a>
+                                <!-- You can add more portfolio links here in the future -->
+                            </div>
+                        </li>
                         <li class="nav-item">
                             <div class="toggle-container" id="theme-toggle">
                                 <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
@@ -145,47 +102,29 @@
             </header>
             <article>
                 <div class="gigs-container">
-
                     <!-- Gig Card 1: General Web Scraping -->
                     <a href="#" class="gig-card-link" title="Learn more about this service">
                         <div class="gig-card">
-                            <!-- !!! IMPORTANT: Replace this with the URL to your gig image !!! -->
                             <img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/main/icons/gig-web-scraping.png" alt="Web Scraping Gig">
                             <div class="gig-info">
                                 <p class="gig-title">I will do python web scraping, data scraping, and data mining</p>
-                                <div class="gig-rating">
-                                    <i class="fas fa-star"></i>
-                                    <strong>4.9</strong>
-                                    <span>(882)</span>
-                                </div>
-                                <div class="gig-price">
-                                    <span>From</span> <strong>$5</strong>
-                                </div>
+                                <div class="gig-rating"><i class="fas fa-star"></i><strong>4.9</strong><span>(882)</span></div>
+                                <div class="gig-price"><span>From</span> <strong>$5</strong></div>
                             </div>
                         </div>
                     </a>
-
                     <!-- Gig Card 2: Product Scraping -->
                     <a href="#" class="gig-card-link" title="Learn more about this service">
                         <div class="gig-card">
-                            <!-- !!! IMPORTANT: Replace this with the URL to your gig image !!! -->
                             <img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/main/icons/gig-product-scraping.png" alt="Product Scraping Gig">
                             <div class="gig-info">
                                 <p class="gig-title">I will scrape product info from any ecommerce website</p>
-                                <div class="gig-rating">
-                                    <i class="fas fa-star"></i>
-                                    <strong>5.0</strong>
-                                    <span>(26)</span>
-                                </div>
-                                <div class="gig-price">
-                                    <span>From</span> <strong>$30</strong>
-                                </div>
+                                <div class="gig-rating"><i class="fas fa-star"></i><strong>5.0</strong><span>(26)</span></div>
+                                <div class="gig-price"><span>From</span> <strong>$30</strong></div>
                             </div>
                         </div>
                     </a>
-
                     <!-- To add a new gig, copy the entire <a ...>...</a> block above and paste it here. -->
-
                 </div>
             </article>
         </div>
