@@ -61,13 +61,17 @@
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         border-bottom: 1px solid var(--card-border-color);
+        padding: 0.75rem 1rem;
       }
       .navbar-brand { font-family: 'Roboto Slab', serif; font-size: 1.5rem; }
       .nav-link { font-weight: 500; }
+      .navbar-toggler { border: none; }
+      .navbar-toggler:focus { outline: none; box-shadow: none; }
+      .navbar-toggler-icon { color: var(--heading-color); }
       .toggle-container { cursor: pointer; padding: 0.5rem 0.75rem; }
       .fa-sun { display: none; } .fa-moon { display: block; }
       html[data-theme='dark'] .fa-sun { display: block; } html[data-theme='dark'] .fa-moon { display: none; }
-
+      
       /* Page Header */
       .post-header { text-align: center; margin-bottom: 3rem; padding-top: 2rem; }
       .post-title { font-size: 3rem; }
@@ -76,7 +80,7 @@
       /* Gig Sections */
       .gigs-section-title { margin-top: 3rem; margin-bottom: 2rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--card-border-color); }
       .gigs-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; }
-      .gig-card-link { text-decoration: none; color: var(--text-color); }
+      .gig-card-link { text-decoration: none; color: var(--text-color); display: block; height: 100%; }
       
       /* Gig Card with Glassmorphism */
       .gig-card {
@@ -106,10 +110,10 @@
 
       /* Social and Footer */
       .social { text-align: center; margin-top: 4rem; margin-bottom: 2rem; }
-      .contact-icons { display: flex; justify-content: center; align-items: center; gap: 25px; }
-      .contact-icons i { font-size: 2.2rem; }
-      .contact-icons img { height: 35px; width: auto; transition: transform 0.2s ease-in-out; }
-      .contact-icons img:hover { transform: scale(1.1); }
+      .contact-icons { display: flex; justify-content: center; align-items: center; gap: 1.5rem; }
+      .contact-icons a { display: inline-block; font-size: 1.8rem; color: var(--text-color); }
+      .contact-icons img { height: 28px; width: auto; }
+      .contact-note { margin-top: 1.5rem; }
       footer { background-color: transparent; padding: 1.5rem 0; text-align: center; width: 100%; margin-top: 3rem; border-top: 1px solid var(--card-border-color); }
 
       /* Responsive */
@@ -121,11 +125,14 @@
 <body>
     <!-- Header -->
     <header>
-        <nav id="navbar" class="navbar navbar-expand-sm fixed-top">
+        <nav id="navbar" class="navbar navbar-expand-lg fixed-top">
             <div class="container">
                 <a class="navbar-brand title font-weight-lighter" href="./index.html"><span class="font-weight-bold">Ahmed</span> Khaled</a>
-                <div class="collapse navbar-collapse text-right" id="navbarNav">
-                    <ul class="navbar-nav ml-auto flex-nowrap align-items-center">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars navbar-toggler-icon"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto align-items-center">
                         <li class="nav-item"><a class="nav-link" href="./index.html">About</a></li>
                         <li class="nav-item active"><a class="nav-link" href="./services.html">Services</a></li>
                         <li class="nav-item dropdown">
@@ -157,7 +164,7 @@
                 <!-- Fiverr Gigs Section -->
                 <h2 class="gigs-section-title g-fade-in">Fiverr Gigs</h2>
                 <div class="gigs-container">
-                    <a href="#" class="gig-card-link g-fade-in">
+                    <a href="https://www.fiverr.com/ahmedkhaled160/do-web-scraping-data-entry-from-any-website" target="_blank" rel="noopener" class="gig-card-link g-fade-in">
                         <div class="gig-card">
                             <img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/2.png" alt="Web Scraping Gig">
                             <div class="gig-info">
@@ -167,7 +174,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="gig-card-link g-fade-in">
+                    <a href="https://www.fiverr.com/ahmedkhaled160/scrape-varied-product-info-from-any-ecommerce-website" target="_blank" rel="noopener" class="gig-card-link g-fade-in">
                         <div class="gig-card">
                             <img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/1.png" alt="Product Scraping Gig">
                             <div class="gig-info">
@@ -182,7 +189,7 @@
                 <!-- Khamsat Gigs Section -->
                 <h2 class="gigs-section-title g-fade-in">Khamsat Gigs</h2>
                 <div class="gigs-container">
-                    <a href="#" class="gig-card-link g-fade-in">
+                    <a href="https://khamsat.com/data/web-scraping/2736039" target="_blank" rel="noopener" class="gig-card-link g-fade-in">
                         <div class="gig-card">
                             <img src="https://khamsat.hsoubcdn.com/images/services/3086058/9781cd58b879457d6cd9ab06aafe9a80.jpg" alt="Maroof Scraping Gig">
                             <div class="gig-info" dir="rtl">
@@ -192,7 +199,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="gig-card-link g-fade-in">
+                    <a href="https://khamsat.com/data/web-scraping/2621302" target="_blank" rel="noopener" class="gig-card-link g-fade-in">
                         <div class="gig-card">
                             <img src="https://khamsat.hsoubcdn.com/images/services/3086058/7fd34b89b3b0f2092d128138064651a8.jpg" alt="Automated Web Scraping Gig">
                             <div class="gig-info" dir="rtl">
@@ -202,7 +209,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="gig-card-link g-fade-in">
+                    <a href="https://khamsat.com/marketing/database-marketing/2768855" target="_blank" rel="noopener" class="gig-card-link g-fade-in">
                         <div class="gig-card">
                             <img src="https://khamsat.hsoubcdn.com/images/services/3086058/c503284f16d73b0d1974be521ef26f3f.jpg" alt="Saudi Factories Scraping Gig">
                             <div class="gig-info" dir="rtl">
@@ -220,10 +227,14 @@
     <!-- Social and Footer -->
     <div class="social g-fade-in">
         <div class="contact-icons">
-            <a href="mailto:ahmedmtc11560@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-            <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="mailto:ahmedmtc11560@gmail.com" title="Email" class="magnetic-link"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/ahmed-khaled-a41919248/" title="LinkedIn" target="_blank" rel="noopener noreferrer" class="magnetic-link"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/ahmedkhaled115" title="GitHub" target="_blank" rel="noopener noreferrer" class="magnetic-link"><i class="fab fa-github"></i></a>
+            <a href="https://www.fiverr.com/ahmedkhaled160?public_mode=true" target="_blank" title="Fiverr" class="magnetic-link"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Fiverr.png" alt="Fiverr"/></a>
+            <a href="https://www.upwork.com/freelancers/~01015f3348d2532c01?viewMode=1" target="_blank" title="Upwork" class="magnetic-link"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/upwork2.png" alt="Upwork"/></a>
+            <a href="https://khamsat.com/user/ahmed11560" target="_blank" title="Khamsat" class="magnetic-link"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Khamsat.png" alt="Khamsat"/></a>
         </div>
+        <div class="contact-note">✨ Always open for collaborations & freelance opportunities!</div>
     </div>
     <footer class="g-fade-in">
         <div class="container">© Copyright 2025 Ahmed Khaled.</div>
@@ -238,6 +249,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             gsap.registerPlugin(ScrollTrigger);
+            const isTouchDevice = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
             // --- THEME TOGGLE ---
             const themeToggle = document.getElementById('theme-toggle');
@@ -254,7 +266,7 @@
             applyTheme(savedTheme);
 
             // --- GSAP SCROLL-TRIGGERED ANIMATIONS ---
-            gsap.utils.toArray('.g-fade-in').forEach((el, i) => {
+            gsap.utils.toArray('.g-fade-in').forEach((el) => {
                 gsap.from(el, {
                     scrollTrigger: {
                         trigger: el,
@@ -265,36 +277,41 @@
                     y: 40,
                     duration: 0.8,
                     ease: 'power3.out',
-                    delay: el.classList.contains('gig-card-link') ? (i % 3) * 0.1 : 0 // Stagger cards
                 });
             });
 
-            // --- 3D TILT EFFECT FOR GIG CARDS ---
-            document.querySelectorAll('.gig-card-link').forEach(cardLink => {
-                const card = cardLink.querySelector('.gig-card');
-                cardLink.addEventListener('mousemove', e => {
-                    const rect = cardLink.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    const rotateX = -1 * ((rect.height / 2) - y) / 15;
-                    const rotateY = ((rect.width / 2) - x) / 15;
-                    gsap.to(card, {
-                        rotationX: rotateX,
-                        rotationY: rotateY,
-                        transformPerspective: 1000,
-                        ease: 'power2.out',
-                        duration: 0.7
+            // --- DESKTOP-ONLY INTERACTIVITY ---
+            if (!isTouchDevice()) {
+                // --- 3D TILT EFFECT FOR GIG CARDS ---
+                document.querySelectorAll('.gig-card-link').forEach(cardLink => {
+                    const card = cardLink.querySelector('.gig-card');
+                    cardLink.addEventListener('mousemove', e => {
+                        const rect = cardLink.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        const rotateX = -1 * ((rect.height / 2) - y) / 15;
+                        const rotateY = ((rect.width / 2) - x) / 15;
+                        gsap.to(card, { rotationX: rotateX, rotationY: rotateY, transformPerspective: 1000, ease: 'power2.out', duration: 0.7 });
+                    });
+                    cardLink.addEventListener('mouseleave', () => {
+                        gsap.to(card, { rotationX: 0, rotationY: 0, ease: 'elastic.out(1, 0.5)', duration: 1.2 });
                     });
                 });
-                cardLink.addEventListener('mouseleave', () => {
-                    gsap.to(card, {
-                        rotationX: 0,
-                        rotationY: 0,
-                        ease: 'elastic.out(1, 0.5)',
-                        duration: 1.2
+
+                // --- MAGNETIC LINKS ---
+                document.querySelectorAll('.magnetic-link').forEach(link => {
+                    const icon = link.querySelector('i, img');
+                    link.addEventListener('mousemove', e => {
+                        const rect = link.getBoundingClientRect();
+                        const x = e.clientX - rect.left - rect.width / 2;
+                        const y = e.clientY - rect.top - rect.height / 2;
+                        gsap.to(icon, { x: x * 0.3, y: y * 0.3, duration: 0.5, ease: 'power3.out' });
+                    });
+                    link.addEventListener('mouseleave', () => {
+                        gsap.to(icon, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.3)' });
                     });
                 });
-            });
+            }
         });
     </script>
 </body>
