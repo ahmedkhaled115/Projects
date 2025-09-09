@@ -11,136 +11,138 @@
     <!-- Stylesheets and Fonts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🕸️&lt;/text&gt;&lt;/svg&gt;">
 
     <style>
-      /* --- Base & Dark Theme Styles --- */
       :root {
-        --global-bg-color: #f1f1f1; /* Lighter grey for a softer look */
-        --card-bg-color: #ffffff;
-        --global-text-color: #000000;
-        --global-theme-color: #007bff;
-        --navbar-bg-color: rgba(255, 255, 255, 0.95);
-        --navbar-text-color: #333;
-        --footer-bg-color: #ffffff;
-        --footer-border-color: #e7e7e7;
+        --bg-color: #F8F9FA;
+        --text-color: #495057;
+        --heading-color: #212529;
+        --theme-color: #0056b3;
+        --card-bg-color: rgba(255, 255, 255, 0.6);
+        --card-border-color: rgba(0, 0, 0, 0.1);
+        --navbar-bg-color: rgba(255, 255, 255, 0.85);
+        --shadow-color: rgba(0, 0, 0, 0.05);
+        --glow-color: rgba(0, 86, 179, 0.15);
       }
+
       html[data-theme='dark'] {
-        --global-bg-color: #121212; /* Darker background */
-        --card-bg-color: #1e1e1e;
-        --global-text-color: #e8e6e3;
-        --global-theme-color: #68a6ff;
-        --navbar-bg-color: rgba(30, 30, 30, 0.95);
-        --navbar-text-color: #e8e6e3;
-        --footer-bg-color: #1e1e1e;
-        --footer-border-color: #333;
+        --bg-color: #0D1117;
+        --text-color: #ADB5BD;
+        --heading-color: #E8EAED;
+        --theme-color: #58A6FF;
+        --card-bg-color: rgba(22, 27, 34, 0.6);
+        --card-border-color: rgba(255, 255, 255, 0.1);
+        --navbar-bg-color: rgba(13, 17, 23, 0.85);
+        --shadow-color: rgba(0, 0, 0, 0.2);
+        --glow-color: rgba(88, 166, 255, 0.15);
       }
-      body { font-family: 'Roboto', sans-serif; background-color: var(--global-bg-color); color: var(--global-text-color); padding-top: 80px; }
-      a { color: var(--global-theme-color); }
-      a:hover { color: var(--global-hover-color, #a7caff); text-decoration: none; }
-      
-      /* --- Navbar & Dropdown --- */
-      .navbar { background-color: var(--navbar-bg-color); backdrop-filter: blur(5px); border-bottom: 1px solid var(--footer-border-color); }
-      .navbar-brand, .nav-link { color: var(--navbar-text-color) !important; }
-      .navbar-brand .font-weight-bold { color: var(--global-theme-color); }
-      .nav-item.active .nav-link { color: var(--global-theme-color) !important; font-weight: 500; }
-      .dropdown-menu { background-color: var(--navbar-bg-color); border: 1px solid var(--footer-border-color); }
-      .dropdown-item { color: var(--navbar-text-color) !important; }
-      .dropdown-item:hover { background-color: rgba(128, 128, 128, 0.2); }
-      html[data-theme='dark'] .dropdown-item:hover { background-color: rgba(255, 255, 255, 0.1); }
-      
-      /* --- Theme Toggle Icon --- */
+
+      /* Base Styles */
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        padding-top: 80px;
+        transition: background-color 0.3s, color 0.3s;
+        overflow-x: hidden;
+      }
+      h1, h2, h3, h4, h5, h6 { font-family: 'Roboto Slab', serif; color: var(--heading-color); font-weight: 700; }
+      a { color: var(--theme-color); transition: filter 0.2s; }
+      a:hover { text-decoration: none; color: var(--theme-color); filter: brightness(1.2); }
+
+      /* Navbar */
+      .navbar {
+        background-color: var(--navbar-bg-color);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--card-border-color);
+        padding: 0.75rem 1rem;
+      }
+      .navbar-brand { font-family: 'Roboto Slab', serif; font-size: 1.5rem; }
+      .nav-link { font-weight: 500; }
+      .navbar-toggler { border: none; }
+      .navbar-toggler:focus { outline: none; box-shadow: none; }
+      .navbar-toggler-icon { color: var(--heading-color); }
+      .dropdown-menu { 
+        background-color: var(--card-bg-color);
+        border-color: var(--card-border-color);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+      .dropdown-item { color: var(--text-color) !important; }
+      .dropdown-item:hover { background-color: rgba(128, 128, 128, 0.1); }
       .toggle-container { cursor: pointer; padding: 0.5rem 0.75rem; }
       .fa-sun { display: none; } .fa-moon { display: block; }
       html[data-theme='dark'] .fa-sun { display: block; } html[data-theme='dark'] .fa-moon { display: none; }
-      
-      /* --- Page Header --- */
-      .post-header { margin-bottom: 3rem; text-align: center; }
-      .post-title { font-family: 'Roboto Slab', serif; margin-bottom: 0.5rem; }
-      .post-description { font-size: 1.2rem; color: #888; max-width: 600px; margin: 0 auto; }
 
-      /* --- Project Card Grid --- */
+      /* Page Header */
+      .post-header { text-align: center; margin-bottom: 3rem; padding-top: 2rem; }
+      .post-title { font-size: 3rem; }
+      .post-description { font-size: 1.1rem; color: var(--text-color); max-width: 600px; margin: 0 auto; }
+
+      /* Project Card Grid */
       .portfolio-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
         gap: 2rem;
       }
+      .project-card-link {
+        text-decoration: none;
+        color: var(--text-color);
+      }
       .project-card {
-        background-color: var(--card-bg-color);
-        border: 1px solid var(--footer-border-color);
+        background: var(--card-bg-color);
+        border: 1px solid var(--card-border-color);
         border-radius: 12px;
         overflow: hidden;
+        box-shadow: 0 8px 32px var(--shadow-color);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         display: flex;
         flex-direction: column;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 100%;
+        transition: box-shadow 0.3s ease;
       }
-      .project-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      .project-card:hover { 
+        box-shadow: 0 8px 35px var(--shadow-color), 0 0 25px var(--glow-color);
       }
-      html[data-theme='dark'] .project-card:hover {
-        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-      }
-      .project-image {
-        width: 100%;
-        aspect-ratio: 16 / 9;
-        object-fit: cover;
-      }
-      .project-content {
-        padding: 1.5rem;
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-      }
-      .project-title {
-        font-family: 'Roboto Slab', serif;
-        font-size: 1.4rem;
-        margin-bottom: 0.75rem;
-      }
-      .project-description {
-        color: #888;
-        font-size: 1rem;
-        line-height: 1.6;
-        flex-grow: 1;
-        margin-bottom: 1.5rem;
-      }
-      .project-links {
-        display: flex;
-        gap: 1rem;
-        justify-content: flex-end;
-        padding-top: 1rem;
-        border-top: 1px solid var(--footer-border-color);
-      }
-      .project-link {
-        color: var(--global-theme-color);
-        font-weight: 500;
-        text-transform: uppercase;
-        font-size: 0.9rem;
-        letter-spacing: 0.5px;
-      }
-      .project-link i {
-        margin-right: 0.5rem;
-      }
+      .project-image { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+      .project-content { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
+      .project-title { font-size: 1.4rem; margin-bottom: 0.75rem; color: var(--heading-color); }
+      .project-description { font-size: 1rem; line-height: 1.6; flex-grow: 1; margin-bottom: 1.5rem; }
+      .project-links { display: flex; gap: 1rem; justify-content: flex-end; padding-top: 1rem; border-top: 1px solid var(--card-border-color); }
+      .project-link { font-weight: 500; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px; }
+      .project-link i { margin-right: 0.5rem; }
 
-      /* --- Footer Styles --- */
+      /* Social and Footer */
       .social { text-align: center; margin-top: 4rem; margin-bottom: 2rem; }
-      .contact-icons { display: flex; justify-content: center; align-items: center; gap: 25px; }
-      .contact-icons i { font-size: 2.2rem; }
-      .contact-icons img { height: 35px; width: auto; transition: transform 0.2s ease-in-out; }
-      .contact-icons img:hover { transform: scale(1.1); }
-      .contact-note { margin-top: 1.5rem; font-size: 1.1rem; }
-      footer { background-color: var(--footer-bg-color); border-top: 1px solid var(--footer-border-color); padding: 1.5rem 0; text-align: center; width: 100%; margin-top: 3rem; }
+      .contact-icons { display: flex; justify-content: center; align-items: center; gap: 1.5rem; }
+      .contact-icons a { display: inline-block; font-size: 1.8rem; color: var(--text-color); }
+      .contact-icons img { height: 28px; width: auto; }
+      .contact-note { margin-top: 1.5rem; }
+      footer { background-color: transparent; padding: 1.5rem 0; text-align: center; width: 100%; margin-top: 3rem; border-top: 1px solid var(--card-border-color); }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .post-title { font-size: 2.5rem; }
+      }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header>
-        <nav id="navbar" class="navbar navbar-expand-sm fixed-top">
+        <nav id="navbar" class="navbar navbar-expand-lg fixed-top">
             <div class="container">
                 <a class="navbar-brand title font-weight-lighter" href="./index.html"><span class="font-weight-bold">Ahmed</span> Khaled</a>
-                <div class="collapse navbar-collapse text-right" id="navbarNav">
-                    <ul class="navbar-nav ml-auto flex-nowrap align-items-center">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars navbar-toggler-icon"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto align-items-center">
                         <li class="nav-item"><a class="nav-link" href="./index.html">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="./services.html">Services</a></li>
                         <li class="nav-item dropdown active">
@@ -149,7 +151,6 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownPortfolio">
                                 <a class="dropdown-item" href="./portfolio.html">Data Scraping Portfolio</a>
-                                <!-- You can add more portfolio links here in the future -->
                             </div>
                         </li>
                         <li class="nav-item">
@@ -164,83 +165,94 @@
     </header>
 
     <!-- Content -->
-    <div class="container mt-5 py-5">
-        <header class="post-header">
+    <div class="container mt-5 py-4">
+        <header class="post-header g-fade-in">
             <h1 class="post-title">🕸️ Data Scraping Portfolio</h1>
             <p class="post-description">A collection of my recent web scraping and data automation projects. Each project showcases my ability to tackle unique data extraction challenges.</p>
         </header>
         
         <div class="portfolio-grid">
             <!-- Project Card 1 -->
-            <div class="project-card">
-                <img class="project-image" src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/fragrantica.jpg" alt="Fragrantica Project Thumbnail">
-                <div class="project-content">
-                    <h4 class="project-title">Fragrantica Website Scraping</h4>
-                    <p class="project-description">
-                        Extracted detailed data about perfumes, brands, and parent companies from the complex page structures of a major online fragrance community.
-                    </p>
-                    <div class="project-links">
-                        <a href="https://github.com/ahmedkhaled115/Fragrantica_Scraping" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>GitHub</a>
-                        <a href="https://www.fragrantica.com/" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i>Live Site</a>
+            <a href="https://github.com/ahmedkhaled115/Fragrantica_Scraping" target="_blank" rel="noopener" class="project-card-link g-fade-in">
+                <div class="project-card">
+                    <img class="project-image" src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/fragrantica.jpg" alt="Fragrantica Project Thumbnail">
+                    <div class="project-content">
+                        <h4 class="project-title">Fragrantica Website Scraping</h4>
+                        <p class="project-description">
+                            Extracted detailed data about perfumes, brands, and parent companies from the complex page structures of a major online fragrance community.
+                        </p>
+                        <div class="project-links">
+                            <span class="project-link"><i class="fab fa-github"></i>GitHub</span>
+                            <span class="project-link"><i class="fas fa-external-link-alt"></i>Live Site</span>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </a>
 
             <!-- Project Card 2 -->
-            <div class="project-card">
-                <img class="project-image" src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/masterintime.jpg" alt="MastersInTime Project Thumbnail">
-                <div class="project-content">
-                    <h4 class="project-title">MastersInTime E-commerce Scraping</h4>
-                    <p class="project-description">
-                        Scraped detailed data for wristwatches, including specifications, features, and pricing, carefully handling product variations and dynamic content.
-                    </p>
-                    <div class="project-links">
-                        <a href="https://github.com/ahmedkhaled115/Mastersintime.com-scraping-watch" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>GitHub</a>
-                        <a href="https://www.mastersintime.com/" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i>Live Site</a>
+             <a href="https://github.com/ahmedkhaled115/Mastersintime.com-scraping-watch" target="_blank" rel="noopener" class="project-card-link g-fade-in">
+                <div class="project-card">
+                    <img class="project-image" src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/masterintime.jpg" alt="MastersInTime Project Thumbnail">
+                    <div class="project-content">
+                        <h4 class="project-title">MastersInTime E-commerce Scraping</h4>
+                        <p class="project-description">
+                            Scraped detailed data for wristwatches, including specifications, features, and pricing, carefully handling product variations and dynamic content.
+                        </p>
+                        <div class="project-links">
+                            <span class="project-link"><i class="fab fa-github"></i>GitHub</span>
+                            <span class="project-link"><i class="fas fa-external-link-alt"></i>Live Site</span>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </a>
 
             <!-- Project Card 3 -->
-            <div class="project-card">
-                <img class="project-image" src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Zillow.webp" alt="Zillow Project Thumbnail">
-                <div class="project-content">
-                    <h4 class="project-title">Zillow Real Estate Agents (USA)</h4>
-                    <p class="project-description">
-                        Collected a comprehensive dataset of agent profiles from Zillow across all USA states, navigating pagination and state-specific layouts.
-                    </p>
-                    <div class="project-links">
-                        <a href="https://github.com/ahmedkhaled115/Zillow-Agent-Scraping-for-USA-States" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>GitHub</a>
-                        <a href="https://www.zillow.com/professionals/real-estate-agent-reviews/" class="project-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i>Live Site</a>
+            <a href="https://github.com/ahmedkhaled115/Zillow-Agent-Scraping-for-USA-States" target="_blank" rel="noopener" class="project-card-link g-fade-in">
+                <div class="project-card">
+                    <img class="project-image" src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Zillow.webp" alt="Zillow Project Thumbnail">
+                    <div class="project-content">
+                        <h4 class="project-title">Zillow Real Estate Agents (USA)</h4>
+                        <p class="project-description">
+                            Collected a comprehensive dataset of agent profiles from Zillow across all USA states, navigating pagination and state-specific layouts.
+                        </p>
+                        <div class="project-links">
+                            <span class="project-link"><i class="fab fa-github"></i>GitHub</span>
+                            <span class="project-link"><i class="fas fa-external-link-alt"></i>Live Site</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- To add a new project, copy a whole "project-card" div and paste it here -->
-
+            </a>
         </div>
     </div>
     
     <!-- Social and Footer -->
-    <div class="social">
+    <div class="social g-fade-in">
         <div class="contact-icons">
-            <a href="mailto:ahmedmtc11560@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-            <a href="https://www.linkedin.com/in/ahmed-khaled-a41919248/" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/ahmedkhaled115" title="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-            <a href="https://www.fiverr.com/ahmedkhaled160?public_mode=true" target="_blank" title="Fiverr"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Fiverr.png" alt="Fiverr"/></a>
-            <a href="https://www.upwork.com/freelancers/~01015f3348d2532c01?viewMode=1" target="_blank" title="Upwork"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/upwork2.png" alt="Upwork"/></a>  
-            <a href="https://khamsat.com/user/ahmed11560" target="_blank" title="Khamsat"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Khamsat.png" alt="Khamsat"/></a>
+            <a href="mailto:ahmedmtc11560@gmail.com" title="Email" class="magnetic-link"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/ahmed-khaled-a41919248/" title="LinkedIn" target="_blank" rel="noopener noreferrer" class="magnetic-link"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/ahmedkhaled115" title="GitHub" target="_blank" rel="noopener noreferrer" class="magnetic-link"><i class="fab fa-github"></i></a>
+            <a href="https://www.fiverr.com/ahmedkhaled160?public_mode=true" target="_blank" title="Fiverr" class="magnetic-link"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Fiverr.png" alt="Fiverr"/></a>
+            <a href="https://www.upwork.com/freelancers/~01015f3348d2532c01?viewMode=1" target="_blank" title="Upwork" class="magnetic-link"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/upwork2.png" alt="Upwork"/></a>
+            <a href="https://khamsat.com/user/ahmed11560" target="_blank" title="Khamsat" class="magnetic-link"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Khamsat.png" alt="Khamsat"/></a>
         </div>
         <div class="contact-note">✨ Always open for collaborations & freelance opportunities!</div>
     </div>
-    <footer>
+    <footer class="g-fade-in">
         <div class="container">© Copyright 2025 Ahmed Khaled.</div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            gsap.registerPlugin(ScrollTrigger);
+            const isTouchDevice = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+            // --- THEME TOGGLE ---
             const themeToggle = document.getElementById('theme-toggle');
             const html = document.documentElement;
             const applyTheme = (theme) => {
@@ -251,8 +263,57 @@
                 const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
                 applyTheme(newTheme);
             });
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme) html.setAttribute('data-theme', savedTheme);
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            applyTheme(savedTheme);
+
+            // --- GSAP SCROLL-TRIGGERED ANIMATIONS ---
+            gsap.utils.toArray('.g-fade-in').forEach((el, i) => {
+                gsap.from(el, {
+                    scrollTrigger: {
+                        trigger: el,
+                        start: 'top 85%',
+                        toggleActions: 'play none none none'
+                    },
+                    opacity: 0,
+                    y: 40,
+                    duration: 0.8,
+                    ease: 'power3.out',
+                    delay: el.classList.contains('project-card-link') ? (i % 3) * 0.1 : 0
+                });
+            });
+
+            // --- DESKTOP-ONLY INTERACTIVITY ---
+            if (!isTouchDevice()) {
+                // --- 3D TILT EFFECT FOR PROJECT CARDS ---
+                document.querySelectorAll('.project-card-link').forEach(cardLink => {
+                    const card = cardLink.querySelector('.project-card');
+                    cardLink.addEventListener('mousemove', e => {
+                        const rect = cardLink.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        const rotateX = -1 * ((rect.height / 2) - y) / 15;
+                        const rotateY = ((rect.width / 2) - x) / 15;
+                        gsap.to(card, { rotationX: rotateX, rotationY: rotateY, transformPerspective: 1000, ease: 'power2.out', duration: 0.7 });
+                    });
+                    cardLink.addEventListener('mouseleave', () => {
+                        gsap.to(card, { rotationX: 0, rotationY: 0, ease: 'elastic.out(1, 0.5)', duration: 1.2 });
+                    });
+                });
+
+                // --- MAGNETIC LINKS ---
+                document.querySelectorAll('.magnetic-link').forEach(link => {
+                    const icon = link.querySelector('i, img');
+                    link.addEventListener('mousemove', e => {
+                        const rect = link.getBoundingClientRect();
+                        const x = e.clientX - rect.left - rect.width / 2;
+                        const y = e.clientY - rect.top - rect.height / 2;
+                        gsap.to(icon, { x: x * 0.3, y: y * 0.3, duration: 0.5, ease: 'power3.out' });
+                    });
+                    link.addEventListener('mouseleave', () => {
+                        gsap.to(icon, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.3)' });
+                    });
+                });
+            }
         });
     </script>
 </body>
