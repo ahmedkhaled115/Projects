@@ -22,8 +22,8 @@
         --text-color: #495057;
         --heading-color: #212529;
         --theme-color: #0056b3;
-        --card-bg-color: rgba(255, 255, 255, 0.6);
-        --card-border-color: rgba(0, 0, 0, 0.1);
+        --card-bg-color: #FFFFFF;
+        --card-border-color: #DEE2E6;
         --navbar-bg-color: rgba(255, 255, 255, 0.85);
         --shadow-color: rgba(0, 0, 0, 0.05);
         --glow-color: rgba(0, 86, 179, 0.15);
@@ -34,8 +34,8 @@
         --text-color: #ADB5BD;
         --heading-color: #E8EAED;
         --theme-color: #58A6FF;
-        --card-bg-color: rgba(22, 27, 34, 0.6);
-        --card-border-color: rgba(255, 255, 255, 0.1);
+        --card-bg-color: #161B22;
+        --card-border-color: #30363D;
         --navbar-bg-color: rgba(13, 17, 23, 0.85);
         --shadow-color: rgba(0, 0, 0, 0.2);
         --glow-color: rgba(88, 166, 255, 0.15);
@@ -67,14 +67,18 @@
       .navbar-toggler { border: none; }
       .navbar-toggler:focus { outline: none; box-shadow: none; }
       .navbar-toggler-icon { color: var(--heading-color); }
+      
+      /* --- CORRECTED DROPDOWN STYLE --- */
       .dropdown-menu { 
-        background-color: var(--card-bg-color);
+        background-color: var(--card-bg-color); /* Solid background */
         border-color: var(--card-border-color);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 5px 15px var(--shadow-color); /* Add shadow */
+        backdrop-filter: none; /* Remove blur */
+        -webkit-backdrop-filter: none;
       }
       .dropdown-item { color: var(--text-color) !important; }
       .dropdown-item:hover { background-color: rgba(128, 128, 128, 0.1); }
+      
       .toggle-container { cursor: pointer; padding: 0.5rem 0.75rem; }
       .fa-sun { display: none; } .fa-moon { display: block; }
       html[data-theme='dark'] .fa-sun { display: block; } html[data-theme='dark'] .fa-moon { display: none; }
@@ -90,18 +94,13 @@
         grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
         gap: 2rem;
       }
-      .project-card-link {
-        text-decoration: none;
-        color: var(--text-color);
-      }
+      .project-card-link { text-decoration: none; color: var(--text-color); }
       .project-card {
         background: var(--card-bg-color);
         border: 1px solid var(--card-border-color);
         border-radius: 12px;
         overflow: hidden;
         box-shadow: 0 8px 32px var(--shadow-color);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
         display: flex;
         flex-direction: column;
         height: 100%;
