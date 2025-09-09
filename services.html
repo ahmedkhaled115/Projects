@@ -12,6 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap">
     <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🕸️&lt;/text&gt;&lt;/svg&gt;">
 
     <style>
@@ -26,6 +27,7 @@
         --footer-bg-color: #111; --footer-border-color: #333;
       }
       body { font-family: 'Roboto', sans-serif; background-color: var(--global-bg-color); color: var(--global-text-color); padding-top: 80px; }
+      .arabic-text { font-family: 'Cairo', sans-serif; }
       a { color: var(--global-theme-color); }
       a:hover { color: var(--global-hover-color, #a7caff); }
       .navbar { background-color: var(--navbar-bg-color); backdrop-filter: blur(5px); border-bottom: 1px solid var(--footer-border-color); }
@@ -42,6 +44,7 @@
       .post-header { margin-bottom: 2rem; }
       .post-title { font-family: 'Roboto Slab', serif; }
       .post-description { font-size: 1.25rem; color: #888; }
+      .gigs-section-title { font-family: 'Roboto Slab', serif; margin-top: 3rem; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--footer-border-color); }
       .gigs-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; }
       .gig-card-link { text-decoration: none; color: var(--global-text-color); }
       .gig-card-link:hover { text-decoration: none; }
@@ -53,7 +56,8 @@
       .gig-title { font-weight: 500; margin-bottom: 0.75rem; flex-grow: 1; }
       .gig-rating { display: flex; align-items: center; gap: 0.3rem; font-size: 0.95rem; color: #ffb300; }
       .gig-rating span { color: #888; font-weight: 300; }
-      .gig-price { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--footer-border-color); text-align: right; font-weight: bold; font-size: 1.1rem; }
+      .gig-price { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--footer-border-color); font-weight: bold; font-size: 1.1rem; display: flex; justify-content: flex-end; align-items: center; gap: 0.3rem; }
+      .gig-price.rtl { flex-direction: row-reverse; }
       .social { text-align: center; margin-top: 4rem; margin-bottom: 2rem; }
       .contact-icons { display: flex; justify-content: center; align-items: center; gap: 25px; }
       .contact-icons i { font-size: 2.2rem; }
@@ -79,7 +83,6 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownPortfolio">
                                 <a class="dropdown-item" href="./portfolio.html">Data Scraping Portfolio</a>
-                                <!-- You can add more portfolio links here in the future -->
                             </div>
                         </li>
                         <li class="nav-item">
@@ -101,8 +104,10 @@
                 <p class="post-description">Explore the specialized data services I offer. Click on any gig to go to the order page.</p>
             </header>
             <article>
-                <div class="gigs-container">
 
+                <!-- Fiverr Gigs Section -->
+                <h2 class="gigs-section-title">Fiverr Gigs</h2>
+                <div class="gigs-container">
                     <!-- Gig Card 1: General Web Scraping -->
                     <a href="https://www.fiverr.com/ahmedkhaled160/do-web-scraping-data-entry-from-any-website?context_referrer=seller_page&ref_ctx_id=cd1360b82523499ea2e19bc6bc8a4cb4&pckg_id=1&pos=1&seller_online=true&imp_id=506fca0e-c82d-4221-add0-ea6513917738" class="gig-card-link" target="_blank" rel="noopener noreferrer" title="View this gig on Fiverr">
                         <div class="gig-card">
@@ -110,7 +115,7 @@
                             <div class="gig-info">
                                 <p class="gig-title">I will do python web scraping, data scraping, and data mining</p>
                                 <div class="gig-rating"><i class="fas fa-star"></i><strong>4.9</strong><span>(882)</span></div>
-                                <div class="gig-price"><span>From</span> <strong>$5</strong></div>
+                                <div class="gig-price"><span>From</span><strong>$5</strong></div>
                             </div>
                         </div>
                     </a>
@@ -118,17 +123,55 @@
                     <!-- Gig Card 2: Product Scraping -->
                     <a href="https://www.fiverr.com/ahmedkhaled160/scrape-varied-product-info-from-any-ecommerce-website?context_referrer=seller_page&ref_ctx_id=cd1360b82523499ea2e19bc6bc8a4cb4&pckg_id=1&pos=2&seller_online=true&imp_id=37263a2a-773b-4d7d-a0b6-5f3dd75cccb7" class="gig-card-link" target="_blank" rel="noopener noreferrer" title="View this gig on Fiverr">
                         <div class="gig-card">
-                            <img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/1.png" alt="Product Scraping Gig">
+                            <img src="https://raw.githubusercontent.com/ahmedkh Khaled115/Projects/refs/heads/main/icons/1.png" alt="Product Scraping Gig">
                             <div class="gig-info">
                                 <p class="gig-title">I will scrape product info from any ecommerce website</p>
                                 <div class="gig-rating"><i class="fas fa-star"></i><strong>5.0</strong><span>(26)</span></div>
-                                <div class="gig-price"><span>From</span> <strong>$30</strong></div>
+                                <div class="gig-price"><span>From</span><strong>$30</strong></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Khamsat Gigs Section -->
+                <h2 class="gigs-section-title">Khamsat Gigs</h2>
+                <div class="gigs-container">
+                    
+                    <!-- Gig Card 3: Maroof Scraping -->
+                    <a href="https://khamsat.com/data/web-scraping/2736039-%D8%A7%D8%B3%D8%AA%D8%AE%D8%B1%D8%A7%D8%AC-%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D8%AA%D8%A7%D8%AC%D8%B1-%D8%A7%D9%84%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A9-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D9%87-%D9%85%D9%86-%D9%85%D9%88%D9%82%D8%B9-%D9%85%D8%B9%D8%B1%D9%88%D9%81" class="gig-card-link" target="_blank" rel="noopener noreferrer" title="View this gig on Khamsat">
+                        <div class="gig-card">
+                            <img src="https://khamsat.hsoubcdn.com/images/services/3086058/9781cd58b879457d6cd9ab06aafe9a80.jpg" alt="Maroof Scraping Gig">
+                            <div class="gig-info" dir="rtl">
+                                <p class="gig-title arabic-text">استخراج بيانات المتاجر الإلكترونية السعوديه من موقع معروف</p>
+                                <div class="gig-rating"><i class="fas fa-star"></i><strong>5.0</strong><span>(28)</span></div>
+                                <div class="gig-price rtl arabic-text"><span>تبدأ من</span><strong>$20.00</strong></div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Gig Card 4: Automated Web Scraping -->
+                    <a href="https://khamsat.com/data/web-scraping/2621302-%D8%AC%D9%85%D8%B9-%D9%88%D8%A5%D8%B3%D8%AA%D8%AE%D8%B1%D8%A7%D8%AC-%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA-%D9%85%D9%86-%D8%A7%D9%84%D8%A5%D9%86%D8%AA%D8%B1%D9%86%D8%AA-%D8%A2%D9%84%D9%8A%D8%A7-web-scraping" class="gig-card-link" target="_blank" rel="noopener noreferrer" title="View this gig on Khamsat">
+                        <div class="gig-card">
+                            <img src="https://khamsat.hsoubcdn.com/images/services/3086058/7fd34b89b3b0f2092d128138064651a8.jpg" alt="Automated Web Scraping Gig">
+                            <div class="gig-info" dir="rtl">
+                                <p class="gig-title arabic-text">جمع وإستخراج البيانات من الإنترنت آلياً Web Scraping</p>
+                                <div class="gig-rating"><i class="fas fa-star"></i><strong>5.0</strong><span>(24)</span></div>
+                                <div class="gig-price rtl arabic-text"><span>تبدأ من</span><strong>$5.00</strong></div>
                             </div>
                         </div>
                     </a>
                     
-                    <!-- To add a new gig, copy the entire <a ...>...</a> block above, paste it here, and update the href, img src, and text content. -->
-
+                    <!-- Gig Card 5: Saudi Factories Scraping -->
+                    <a href="https://khamsat.com/marketing/database-marketing/2768855-%D8%A7%D8%B3%D8%AA%D8%AE%D8%B1%D8%A7%D8%AC-%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA-%D9%85%D8%B5%D8%A7%D9%86%D8%B9-%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D9%85%D9%86-%D8%A7%D9%84%D9%85%D8%B1%D9%83%D8%B2-%D8%A7%D9%84%D9%88%D8%B7%D9%86%D9%8A-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A" class="gig-card-link" target="_blank" rel="noopener noreferrer" title="View this gig on Khamsat">
+                        <div class="gig-card">
+                            <img src="https://khamsat.hsoubcdn.com/images/services/3086058/c503284f16d73b0d1974be521ef26f3f.jpg" alt="Saudi Factories Scraping Gig">
+                            <div class="gig-info" dir="rtl">
+                                <p class="gig-title arabic-text">استخراج بيانات مصانع سعودية من المركز الوطني السعودي</p>
+                                <div class="gig-rating"><i class="fas fa-star"></i><strong>5.0</strong><span>(9)</span></div>
+                                <div class="gig-price rtl arabic-text"><span>تبدأ من</span><strong>$25.00</strong></div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </article>
         </div>
@@ -165,7 +208,9 @@
                 applyTheme(newTheme);
             });
             const savedTheme = localStorage.getItem('theme');
-            if (savedTheme) html.setAttribute('data-theme', savedTheme);
+            if (savedTheme) {
+                applyTheme(savedTheme);
+            }
         });
     </script>
 </body>
