@@ -26,6 +26,7 @@
         --card-border-color: #DEE2E6;
         --navbar-bg-color: rgba(255, 255, 255, 0.85);
         --shadow-color: rgba(0, 0, 0, 0.05);
+        --glow-color: rgba(0, 86, 179, 0.2);
       }
 
       html[data-theme='dark'] {
@@ -37,6 +38,7 @@
         --card-border-color: #30363D;
         --navbar-bg-color: rgba(13, 17, 23, 0.85);
         --shadow-color: rgba(0, 0, 0, 0.2);
+        --glow-color: rgba(88, 166, 255, 0.2);
       }
 
       /* Base Styles */
@@ -81,9 +83,10 @@
       /* Page Content & Layout */
       .post-header { text-align: center; margin-bottom: 3rem; }
       .post-title { font-size: 3rem; }
+      .post-title .char { display: inline-block; }
       .desc { font-size: 1.25rem; color: var(--theme-color); }
 
-      .profile-section { display: flex; align-items: center; gap: 2rem; margin-bottom: 3rem; }
+      .profile-section { display: flex; align-items-center; gap: 2rem; margin-bottom: 3rem; }
       .profile-pic { width: 250px; height: 250px; object-fit: cover; border-radius: 50%; border: 5px solid var(--card-bg-color); box-shadow: 0 10px 30px var(--shadow-color); }
 
       .content-section { margin-bottom: 3rem; }
@@ -100,8 +103,12 @@
         text-align: center;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         color: var(--text-color) !important;
+        box-shadow: 0 4px 15px var(--shadow-color);
       }
-      .certification-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px var(--shadow-color); }
+      .certification-card:hover { 
+        transform: translateY(-5px); 
+        box-shadow: 0 8px 25px var(--shadow-color), 0 0 20px var(--glow-color);
+      }
       .cert-image-container { width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin: 0 auto 1rem auto; border: 3px solid var(--theme-color); }
       .cert-image-container img { width: 100%; height: 100%; object-fit: cover; }
       .cert-title { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1rem; color: var(--heading-color) !important; }
@@ -111,20 +118,26 @@
       .social { text-align: center; padding: 2rem 0; }
       .contact-icons { display: flex; justify-content: center; gap: 1.5rem; }
       .contact-icons a { display: inline-block; font-size: 1.8rem; color: var(--text-color); transition: transform 0.3s ease, color 0.3s ease; }
-      .contact-icons a:hover { transform: translateY(-3px); color: var(--theme-color); }
+      .contact-icons a:hover { transform: translateY(-3px) scale(1.1); color: var(--theme-color); }
       .contact-icons img { height: 28px; width: 28px; }
       .contact-note { margin-top: 1.5rem; }
       footer { background-color: transparent; padding: 1.5rem 0; text-align: center; border-top: 1px solid var(--card-border-color); margin-top: 2rem; }
 
-      /* Simple Fade-In Animation */
-      .fade-in-up, [data-stagger] > * {
+      /* Sweet Animations */
+      .animate-on-scroll {
         opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
       }
-      .fade-in-up.is-visible, [data-stagger].is-visible > * {
+      .slide-in-from-left { transform: translateX(-30px); }
+      .slide-in-from-right { transform: translateX(30px); }
+      .slide-in-from-bottom { transform: translateY(30px); }
+      
+      .animate-on-scroll.is-visible {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateX(0) translateY(0);
+      }
+      [data-stagger] > * {
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
       }
       
       /* Responsive Design */
@@ -132,6 +145,7 @@
         .post-title { font-size: 2.25rem; }
         .profile-section { flex-direction: column; }
         .profile-pic { width: 200px; height: 200px; }
+        .slide-in-from-left, .slide-in-from-right { transform: translateY(20px); } /* Use consistent up-down motion on mobile */
       }
     </style>
 </head>
@@ -168,17 +182,17 @@
     <!-- Content -->
     <div class="container">
         <div class="post">
-            <header class="post-header fade-in-up">
+            <header class="post-header animate-on-scroll slide-in-from-bottom">
                 <h1 class="post-title"><span class="font-weight-bold">Ahmed</span> Khaled</h1>
                 <p class="desc">Web Scraping & Automation Specialist</p>
             </header>
             
             <article>
                 <section class="profile-section">
-                    <div class="fade-in-up">
+                    <div class="animate-on-scroll slide-in-from-left">
                         <img class="profile-pic" src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Ahmed.jpg" alt="Ahmed Khaled Profile Picture">
                     </div>
-                    <div class="profile-text fade-in-up" style="transition-delay: 150ms;">
+                    <div class="profile-text animate-on-scroll slide-in-from-right">
                         <p>Hello! I'm Ahmed Khaled, a freelance specialist dedicated to unlocking the web's data potential. With over three years of focused experience, I've empowered more than 1,500 clients globally by delivering precise, high-quality data solutions tailored to their strategic needs.</p>
                         <p>My expertise lies in transforming chaotic web data into clean, actionable insights. I build robust and scalable pipelines to tackle complex scraping challenges, skillfully navigating anti-bot measures to ensure reliable data flow. This commitment to excellence is reflected in my track record of over 800 five-star reviews.</p>
                         <p>Whether you're gathering market intelligence, monitoring competitor pricing, or building a dataset for a machine learning project, I provide the technical skill and strategic foresight to achieve your goals efficiently. Explore my <strong><a href="./portfolio.html">Data Scraping Portfolio</a></strong> to see my work or review the <strong><a href="./services.html">Services I Offer</a></strong>.</p>
@@ -187,9 +201,11 @@
                 
                 <div class="row">
                     <div class="col-lg-6">
-                        <div class="content-section fade-in-up">
-                            <h4><i class="fas fa-trophy mr-2"></i>Career Highlights</h4>
-                            <ul data-stagger>
+                        <div class="content-section">
+                            <h4 class="animate-on-scroll slide-in-from-bottom">
+                                <i class="fas fa-trophy mr-2"></i>Career Highlights
+                            </h4>
+                            <ul data-stagger class="animate-on-scroll">
                                 <li><strong>1,500+</strong> Clients Served Globally 🌍</li>
                                 <li><strong>800+</strong> Five-Star Reviews ⭐⭐⭐⭐⭐</li>
                                 <li><strong>3+ Years</strong> of Professional Freelancing Experience</li>
@@ -198,9 +214,11 @@
                         </div>
                     </div>
                     <div class="col-lg-6">
-                         <div class="content-section fade-in-up">
-                            <h4><i class="fas fa-cogs mr-2"></i>Core Competencies</h4>
-                            <ul data-stagger>
+                         <div class="content-section">
+                            <h4 class="animate-on-scroll slide-in-from-bottom">
+                                <i class="fas fa-cogs mr-2"></i>Core Competencies
+                            </h4>
+                            <ul data-stagger class="animate-on-scroll">
                                 <li><strong>Methodologies</strong>: Web Scraping, Data Mining, Automation</li>
                                 <li><strong>Languages</strong>: Python (Scrapy, Selenium, Pandas), SQL</li>
                                 <li><strong>Tools</strong>: Playwright, BeautifulSoup, Proxy Rotators, Git</li>
@@ -210,10 +228,12 @@
                     </div>
                 </div>
 
-                <div class="content-section fade-in-up">
-                    <h4><i class="fas fa-certificate mr-2"></i>Certifications</h4>
+                <div class="content-section">
+                    <h4 class="animate-on-scroll slide-in-from-bottom">
+                        <i class="fas fa-certificate mr-2"></i>Certifications
+                    </h4>
                     <div class="row" data-stagger>
-                        <div class="col-lg-6 mb-4">
+                        <div class="col-lg-6 mb-4 animate-on-scroll">
                             <a href="https://www.credly.com/badges/71a9c2ad-7394-4c25-842d-bacfafc72204" target="_blank" rel="noopener noreferrer" class="d-block h-100">
                                 <div class="certification-card h-100">
                                     <div class="cert-image-container"><img src="https://images.credly.com/images/9247e02c-eade-4704-8758-7a9f6ef8e3db/image.png" alt="SQL Badge"></div>
@@ -221,7 +241,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="col-lg-6 mb-4">
+                        <div class="col-lg-6 mb-4 animate-on-scroll">
                             <a href="https://www.credly.com/badges/29d55d4c-6e3a-4745-b85c-ccadcbf5718a" target="_blank" rel="noopener noreferrer" class="d-block h-100">
                                 <div class="certification-card h-100">
                                     <div class="cert-image-container"><img src="https://images.credly.com/images/f2573aac-d21c-483d-acda-afaa366b4f51/image.png" alt="Data Science Badge"></div>
@@ -229,7 +249,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="col-lg-6 mb-4">
+                        <div class="col-lg-6 mb-4 animate-on-scroll">
                             <a href="https://www.credly.com/badges/476132a0-dba4-4fe3-84fe-6a82bec9ae7e" target="_blank" rel="noopener noreferrer" class="d-block h-100">
                                 <div class="certification-card h-100">
                                     <div class="cert-image-container"><img src="https://images.credly.com/images/2c88c783-8753-44f8-8842-85d495ba1c0e/image.png" alt="RDBMS Badge"></div>
@@ -237,7 +257,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="col-lg-6 mb-4">
+                        <div class="col-lg-6 mb-4 animate-on-scroll">
                             <a href="https://www.credly.com/badges/c6630790-de41-41d4-ba8c-a1330c2aae6c" target="_blank" rel="noopener noreferrer" class="d-block h-100">
                                 <div class="certification-card h-100">
                                     <div class="cert-image-container"><img src="https://images.credly.com/images/c0b439e5-79d5-498e-abc9-2b71cdf08c34/image.png" alt="Data Engineering Badge"></div>
@@ -252,7 +272,7 @@
     </div>
     
     <!-- Social and Footer -->
-    <div class="social fade-in-up">
+    <div class="social animate-on-scroll slide-in-from-bottom">
         <div class="contact-icons">
             <a href="mailto:ahmedmtc11560@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
             <a href="https://www.linkedin.com/in/ahmed-khaled-a41919248/" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
@@ -263,7 +283,7 @@
         </div>
         <div class="contact-note">✨ Always open for collaborations & freelance opportunities!</div>
     </div>
-    <footer class="fade-in-up">
+    <footer class="animate-on-scroll slide-in-from-bottom">
         <div class="container">© Copyright 2025 Ahmed Khaled.</div>
     </footer>
 
@@ -285,20 +305,47 @@
             const savedTheme = localStorage.getItem('theme') || 'dark';
             applyTheme(savedTheme);
 
-            // --- FADE & STAGGER ANIMATION ON SCROLL ---
-            const animatedElements = document.querySelectorAll('.fade-in-up, [data-stagger]');
+            // --- CHARACTER-BY-CHARACTER TITLE ANIMATION ---
+            const title = document.querySelector('.post-title');
+            const text = title.textContent.trim();
+            title.innerHTML = ''; // Clear original text
+            text.split('').forEach(char => {
+                const span = document.createElement('span');
+                span.className = 'char';
+                span.textContent = char === ' ' ? '\u00A0' : char; // Handle spaces
+                title.appendChild(span);
+            });
+
+            const titleChars = title.querySelectorAll('.char');
+            titleChars.forEach((char, index) => {
+                char.style.transition = `transform 0.5s ease ${index * 40}ms, opacity 0.5s ease ${index * 40}ms`;
+                char.style.transform = 'translateY(20px)';
+                char.style.opacity = '0';
+            });
+
+            setTimeout(() => {
+                 titleChars.forEach(char => {
+                    char.style.transform = 'translateY(0)';
+                    char.style.opacity = '1';
+                });
+            }, 500);
+
+
+            // --- SWEET ANIMATION ON SCROLL ---
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
 
             if ("IntersectionObserver" in window) {
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
                             entry.target.classList.add('is-visible');
+                            
                             // Stagger children if the element has the data-stagger attribute
                             if (entry.target.hasAttribute('data-stagger')) {
-                                const children = entry.target.children;
-                                for (let i = 0; i < children.length; i++) {
-                                    children[i].style.transitionDelay = `${i * 100}ms`;
-                                }
+                                const children = entry.target.querySelectorAll('.animate-on-scroll, li');
+                                children.forEach((child, i) => {
+                                    child.style.transitionDelay = `${i * 100}ms`;
+                                });
                             }
                         }
                     });
