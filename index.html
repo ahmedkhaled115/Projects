@@ -11,104 +11,251 @@
     <!-- Stylesheets and Fonts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🕸️&lt;/text&gt;&lt;/svg&gt;">
+    
+    <!-- Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
       :root {
-        --global-bg-color: #ffffff; --global-text-color: #000000; --global-theme-color: #007bff;
-        --global-hover-color: #0056b3;
-        --navbar-bg-color: rgba(255, 255, 255, 0.95); --navbar-text-color: #333;
-        --footer-bg-color: #f8f9fa; --footer-border-color: #e7e7e7;
+        --bg-color: #f4f7fd;
+        --text-color: #333;
+        --heading-color: #111;
+        --theme-color: #0056b3;
+        --card-bg-color: #ffffff;
+        --card-border-color: #e7eaf3;
+        --navbar-bg-color: rgba(255, 255, 255, 0.85);
+        --shadow-color: rgba(0, 0, 0, 0.08);
       }
+
       html[data-theme='dark'] {
-        --global-bg-color: #1a1a1a; --global-text-color: #e8e6e3; --global-theme-color: #68a6ff;
-        --global-hover-color: #a7caff;
-        --navbar-bg-color: rgba(26, 26, 26, 0.95); --navbar-text-color: #e8e6e3;
-        --footer-bg-color: #111; --footer-border-color: #333;
+        --bg-color: #0d1117;
+        --text-color: #c9d1d9;
+        --heading-color: #ffffff;
+        --theme-color: #58a6ff;
+        --card-bg-color: #161b22;
+        --card-border-color: #30363d;
+        --navbar-bg-color: rgba(13, 17, 23, 0.85);
+        --shadow-color: rgba(0, 0, 0, 0.3);
       }
-      body { font-family: 'Roboto', sans-serif; background-color: var(--global-bg-color); color: var(--global-text-color); padding-top: 80px; }
-      a { color: var(--global-theme-color); }
-      a:hover { color: var(--global-hover-color); text-decoration: none; }
-      .navbar { background-color: var(--navbar-bg-color); backdrop-filter: blur(5px); border-bottom: 1px solid var(--footer-border-color); }
-      .navbar-brand, .nav-link { color: var(--navbar-text-color) !important; }
-      .navbar-brand .font-weight-bold { color: var(--global-theme-color); }
-      .nav-item.active .nav-link { color: var(--global-theme-color) !important; font-weight: 500; }
-      .dropdown-menu { background-color: var(--navbar-bg-color); border: 1px solid var(--footer-border-color); }
-      .dropdown-item { color: var(--navbar-text-color) !important; }
-      .dropdown-item:hover { background-color: rgba(128, 128, 128, 0.2); }
-      html[data-theme='dark'] .dropdown-item:hover { background-color: rgba(255, 255, 255, 0.1); }
-      .toggle-container { cursor: pointer; padding: 0.5rem 0.75rem; }
-      .fa-sun { display: none; } .fa-moon { display: block; }
-      html[data-theme='dark'] .fa-sun { display: block; } html[data-theme='dark'] .fa-moon { display: none; }
-      .post-header { margin-bottom: 2rem; }
-      .post-title { font-family: 'Roboto Slab', serif; }
-      .desc { font-size: 1.25rem; color: #888; }
-      .profile { margin-bottom: 1rem; }
-      .profile img { width: 250px; height: 250px; object-fit: cover; }
-      .news h4 { margin-top: 2rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--footer-border-color); }
-      .news ul { list-style-type: none; padding-left: 0; }
-      .social { text-align: center; margin-top: 4rem; margin-bottom: 2rem; }
-      .contact-icons { display: flex; justify-content: center; align-items: center; gap: 25px; }
-      .contact-icons i { font-size: 2.2rem; }
-      .contact-icons img { height: 35px; width: auto; transition: transform 0.2s ease-in-out; }
-      .contact-icons img:hover { transform: scale(1.1); }
-      .contact-note { margin-top: 1.5rem; font-size: 1.1rem; }
-      footer { background-color: var(--footer-bg-color); border-top: 1px solid var(--footer-border-color); padding: 1.5rem 0; text-align: center; width: 100%; margin-top: 3rem; }
+
+      body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        padding-top: 80px;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Roboto Slab', serif;
+        color: var(--heading-color);
+        font-weight: 700;
+      }
       
-      /* Styles for the new circular certification section */
+      a {
+        color: var(--theme-color);
+        transition: color 0.2s ease-in-out;
+      }
+      a:hover {
+        color: var(--theme-color);
+        text-decoration: none;
+        filter: brightness(1.2);
+      }
+
+      /* Navbar */
+      .navbar {
+        background-color: var(--navbar-bg-color);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--card-border-color);
+        transition: background-color 0.3s;
+      }
+      .navbar-brand, .nav-link {
+        color: var(--text-color) !important;
+        font-weight: 600;
+      }
+      .navbar-brand .font-weight-bold {
+        color: var(--theme-color);
+      }
+      .nav-item.active .nav-link {
+        color: var(--theme-color) !important;
+      }
+
+      /* Theme Toggle */
+      .toggle-container {
+        cursor: pointer;
+        padding: 0.5rem 0.75rem;
+      }
+      .fa-sun { display: none; }
+      .fa-moon { display: block; }
+      html[data-theme='dark'] .fa-sun { display: block; }
+      html[data-theme='dark'] .fa-moon { display: none; }
+
+      /* Hero Section */
+      .hero {
+        padding: 4rem 0;
+        text-align: center;
+      }
+      .hero-title {
+        font-size: 3.5rem;
+        margin-bottom: 0.5rem;
+        animation: fadeInDown 1s ease-out;
+      }
+      .hero-desc {
+        font-size: 1.5rem;
+        color: var(--theme-color);
+        min-height: 50px;
+      }
+
+      /* Content Sections */
+      .content-section {
+        padding: 3rem 0;
+      }
+      
+      .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+        font-size: 2.5rem;
+      }
+
+      /* About Section */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 3rem;
+        align-items: center;
+      }
+      .profile-pic-container {
+        text-align: center;
+      }
+      .profile-pic {
+        width: 280px;
+        height: 280px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 5px solid var(--card-border-color);
+        box-shadow: 0 10px 30px var(--shadow-color);
+      }
+
+      /* Stats & Skills */
+      .info-card {
+        background: var(--card-bg-color);
+        border: 1px solid var(--card-border-color);
+        border-radius: 12px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 15px var(--shadow-color);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .info-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px var(--shadow-color);
+      }
+      .info-card h4 {
+        color: var(--theme-color);
+        border-bottom: 2px solid var(--theme-color);
+        padding-bottom: 0.75rem;
+        margin-bottom: 1.5rem;
+      }
+      .info-card ul {
+        list-style: none;
+        padding-left: 0;
+      }
+      .info-card ul li {
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+      }
+      .info-card ul li strong {
+        color: var(--heading-color);
+      }
+
+      /* Certifications */
       .certification-card {
         display: flex;
-        flex-direction: column;
         align-items: center;
-        text-align: center;
-        padding: 1.5rem;
-        border: 1px solid var(--footer-border-color);
-        border-radius: 15px;
-        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        color: var(--global-text-color);
-        background-color: var(--navbar-bg-color);
+        padding: 1rem;
+        border: 1px solid var(--card-border-color);
+        border-radius: 12px;
+        transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        color: var(--text-color);
       }
       .certification-card:hover {
+        background-color: var(--card-bg-color);
         transform: translateY(-5px);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        box-shadow: 0 8px 25px var(--shadow-color);
       }
-      html[data-theme='dark'] .certification-card:hover {
-        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-      }
-      .cert-image-container {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        overflow: hidden;
-        margin-bottom: 1rem;
-        flex-shrink: 0;
-        border: 3px solid var(--global-theme-color);
-      }
-      .cert-image-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+      .certification-card img {
+        width: 60px;
+        height: 60px;
+        margin-right: 1.5rem;
       }
       .cert-details {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        text-align: left;
       }
       .cert-title {
-        font-weight: 500;
+        font-weight: 600;
         margin-bottom: 0.25rem;
-        font-size: 1.1rem;
-        color: var(--global-text-color);
+        color: var(--heading-color);
       }
       .cert-issuer, .cert-date {
-        font-size: 0.9rem;
-        color: #888;
+        font-size: 0.85rem;
         margin-bottom: 0;
       }
-      html[data-theme='dark'] .cert-issuer, 
-      html[data-theme='dark'] .cert-date {
-        color: #aaa;
+
+      /* Social/Footer */
+      .social {
+        text-align: center;
+        padding: 4rem 0;
+      }
+      .contact-icons {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-bottom: 1.5rem;
+      }
+      .contact-icons a i, .contact-icons a img {
+        font-size: 2.5rem;
+        transition: transform 0.3s, color 0.3s;
+      }
+      .contact-icons a:hover i, .contact-icons a:hover img {
+        transform: scale(1.2) translateY(-3px);
+        color: var(--theme-color);
+        filter: brightness(1.2);
+      }
+      .contact-icons img {
+          height: 40px;
+          width: 40px;
+      }
+      footer {
+        background-color: var(--card-bg-color);
+        border-top: 1px solid var(--card-border-color);
+        padding: 1.5rem 0;
+        text-align: center;
+        width: 100%;
+        margin-top: 2rem;
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 992px) {
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+        .profile-pic {
+          width: 200px;
+          height: 200px;
+        }
+      }
+      
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
     </style>
 </head>
@@ -117,19 +264,15 @@
     <header>
         <nav id="navbar" class="navbar navbar-expand-sm fixed-top">
             <div class="container">
-                <a class="navbar-brand title font-weight-lighter" href="./index.html"><span class="font-weight-bold">Ahmed</span> Khaled</a>
-                <div class="collapse navbar-collapse text-right" id="navbarNav">
-                    <ul class="navbar-nav ml-auto flex-nowrap align-items-center">
-                        <li class="nav-item active"><a class="nav-link" href="./index.html">About</a></li>
+                <a class="navbar-brand title font-weight-lighter" href="#"><span class="font-weight-bold">Ahmed</span> Khaled</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                    <span class="navbar-toggler-icon"><i class="fas fa-bars" style="color:var(--text-color);"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto align-items-center">
+                        <li class="nav-item active"><a class="nav-link" href="#">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="./services.html">Services</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Portfolio
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownPortfolio">
-                                <a class="dropdown-item" href="./portfolio.html">Data Scraping Portfolio</a>
-                            </div>
-                        </li>
+                        <li class="nav-item"><a class="nav-link" href="./portfolio.html">Portfolio</a></li>
                         <li class="nav-item">
                             <div class="toggle-container" id="theme-toggle">
                                 <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
@@ -141,133 +284,131 @@
         </nav>
     </header>
 
-    <!-- Content -->
-    <div class="container mt-5">
-        <div class="post">
-            <header class="post-header">
-                <h1 class="post-title"><span class="font-weight-bold">Ahmed</span> Khaled</h1>
-                <p class="desc">Web Scraping & Automation Specialist</p>
-            </header>
-            <article>
-                <div class="profile float-right ml-3">
-                    <figure>
-                        <img class="rounded-circle" src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Ahmed.jpg" alt="Ahmed Khaled Profile Picture">
-                    </figure>
-                </div>
-                <div class="clearfix">
-                    <p>Hello! I'm Ahmed Khaled, a dedicated and results-driven freelance specialist in web scraping and data automation. With over three years of intensive professional experience, I have successfully partnered with more than 1,500 clients worldwide, delivering high-quality data solutions tailored to their unique needs.</p>
-                    <p>My passion lies in transforming the vast, unstructured data of the web into clean, actionable insights. I excel at tackling complex, large-scale scraping challenges, developing robust and scalable pipelines to handle everything from simple data extraction to sophisticated automation that bypasses anti-bot measures. My track record of over 800 five-star reviews reflects my commitment to quality, reliability, and client satisfaction.</p>
-                    <p>Whether you need to gather market intelligence, monitor competitor pricing, or build a unique dataset for a machine learning project, I have the technical expertise and strategic mindset to get the job done efficiently. Feel free to explore my <a href="./portfolio.html"><b>Data Scraping Portfolio</b></a> to see examples of my work or review the <a href="./services.html"><b>Services I Offer</b></a>.</p>
-                </div>
-                
-                <div class="news">
-                    <h4><i class="fas fa-trophy mr-2"></i>Career Highlights</h4>
-                    <ul>
-                        <li><strong>1,500+</strong> Clients Served Globally 🌍</li>
-                        <li><strong>800+</strong> Five-Star Reviews ⭐⭐⭐⭐⭐</li>
-                        <li><strong>3+ Years</strong> of Professional Freelancing Experience</li>
-                        <li>Expertise in building <strong>large-scale, resilient web scraping solutions</strong></li>
-                    </ul>
-                </div>
-                
-                <div class="news">
-                    <h4><i class="fas fa-cogs mr-2"></i>Core Competencies</h4>
-                    <ul>
-                        <li><strong>Methodologies</strong>: Web Scraping, Data Mining, Data Cleaning, API Integration, Proxy & CAPTCHA Handling, Automation</li>
-                        <li><strong>Languages</strong>: Python (Requests, BeautifulSoup, Scrapy, Selenium, Pandas, Regex), SQL</li>
-                        <li><strong>Tools</strong>: Scrapy, Selenium, Playwright, DrissionPage, BeautifulSoup, LXML, Proxy Rotators, MySQL, PostgreSQL, Git</li>
-                        <li><strong>Data Handling</strong>: Pandas, Matplotlib, Power BI, Tableau, Excel, Google Sheets</li>
-                    </ul>
-                </div>
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1 class="hero-title"><span class="font-weight-bold">Ahmed</span> Khaled</h1>
+            <p class="hero-desc"><span id="typed-specialist"></span></p>
+        </section>
 
-                <!-- NEW CERTIFICATIONS SECTION START -->
-                <div class="news">
-                    <h4><i class="fas fa-certificate mr-2"></i>Certifications</h4>
-                    <div class="row">
-                        <div class="col-lg-6 mb-4">
-                            <a href="https://www.credly.com/badges/71a9c2ad-7394-4c25-842d-bacfafc72204" target="_blank" rel="noopener noreferrer" class="d-block h-100">
-                                <div class="certification-card h-100">
-                                    <div class="cert-image-container">
-                                        <img src="https://images.credly.com/images/9247e02c-eade-4704-8758-7a9f6ef8e3db/image.png" alt="Querying Databases with SQL Badge">
-                                    </div>
-                                    <div class="cert-details">
-                                        <h6 class="cert-title">Querying Databases with SQL</h6>
-                                        <p class="cert-issuer">Coursera</p>
-                                        <p class="cert-date">Issued: Oct 14, 2023</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-6 mb-4">
-                            <a href="https://www.credly.com/badges/29d55d4c-6e3a-4745-b85c-ccadcbf5718a" target="_blank" rel="noopener noreferrer" class="d-block h-100">
-                                <div class="certification-card h-100">
-                                    <div class="cert-image-container">
-                                        <img src="https://images.credly.com/images/f2573aac-d21c-483d-acda-afaa366b4f51/image.png" alt="Databases and SQL for Data Science Badge">
-                                    </div>
-                                    <div class="cert-details">
-                                        <h6 class="cert-title">Databases and SQL for Data Science</h6>
-                                        <p class="cert-issuer">Coursera</p>
-                                        <p class="cert-date">Issued: Oct 3, 2023</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-6 mb-4">
-                            <a href="https://www.credly.com/badges/476132a0-dba4-4fe3-84fe-6a82bec9ae7e" target="_blank" rel="noopener noreferrer" class="d-block h-100">
-                                <div class="certification-card h-100">
-                                    <div class="cert-image-container">
-                                        <img src="https://images.credly.com/images/2c88c783-8753-44f8-8842-85d495ba1c0e/image.png" alt="Relational Databases (RDBMS) Essentials Badge">
-                                    </div>
-                                    <div class="cert-details">
-                                        <h6 class="cert-title">Relational Databases (RDBMS) Essentials</h6>
-                                        <p class="cert-issuer">Coursera</p>
-                                        <p class="cert-date">Issued: Sep 30, 2023</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-6 mb-4">
-                            <a href="https://www.credly.com/badges/c6630790-de41-41d4-ba8c-a1330c2aae6c" target="_blank" rel="noopener noreferrer" class="d-block h-100">
-                                <div class="certification-card h-100">
-                                    <div class="cert-image-container">
-                                        <img src="https://images.credly.com/images/c0b439e5-79d5-498e-abc9-2b71cdf08c34/image.png" alt="Data Engineering Essentials Badge">
-                                    </div>
-                                    <div class="cert-details">
-                                        <h6 class="cert-title">Data Engineering Essentials</h6>
-                                        <p class="cert-issuer">Coursera</p>
-                                        <p class="cert-date">Issued: Jul 29, 2023</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+        <!-- About Me Section -->
+        <section class="content-section" id="about">
+             <div class="about-grid" data-aos="fade-up">
+                <div class="profile-pic-container">
+                    <img class="profile-pic" src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Ahmed.jpg" alt="Ahmed Khaled Profile Picture">
+                </div>
+                <div class="about-text">
+                    <h2>About Me</h2>
+                    <p>Hello! I'm a dedicated and results-driven freelance specialist in web scraping and data automation. With over three years of intensive professional experience, I have successfully partnered with more than 1,500 clients worldwide, delivering high-quality data solutions tailored to their unique needs.</p>
+                    <p>My passion lies in transforming the vast, unstructured data of the web into clean, actionable insights. I excel at tackling complex, large-scale scraping challenges, developing robust and scalable pipelines to handle everything from simple data extraction to sophisticated automation that bypasses anti-bot measures.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Highlights & Competencies -->
+        <section class="content-section" id="skills">
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+                    <div class="info-card">
+                        <h4><i class="fas fa-trophy mr-2"></i>Career Highlights</h4>
+                        <ul>
+                            <li><strong>1,500+</strong> Clients Served Globally 🌍</li>
+                            <li><strong>800+</strong> Five-Star Reviews ⭐⭐⭐⭐⭐</li>
+                            <li><strong>3+ Years</strong> of Freelancing Experience</li>
+                            <li>Expertise in building large-scale scraping solutions</li>
+                        </ul>
                     </div>
                 </div>
-                <!-- NEW CERTIFICATIONS SECTION END -->
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+                    <div class="info-card">
+                        <h4><i class="fas fa-cogs mr-2"></i>Core Competencies</h4>
+                        <ul>
+                            <li><strong>Languages</strong>: Python (Scrapy, Selenium, Pandas), SQL</li>
+                            <li><strong>Tools</strong>: Playwright, DrissionPage, Proxy Rotators, Git</li>
+                            <li><strong>Data Handling</strong>: Power BI, Tableau, Excel, Google Sheets</li>
+                            <li><strong>Methodologies</strong>: Data Mining, API Integration, CAPTCHA Handling</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            </article>
-        </div>
-    </div>
-    
+        <!-- Certifications Section -->
+        <section class="content-section" id="certifications">
+            <h2 class="section-title" data-aos="fade-up">Certifications</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <a href="https://www.credly.com/badges/71a9c2ad-7394-4c25-842d-bacfafc72204" target="_blank" rel="noopener noreferrer" class="certification-card h-100">
+                        <img src="https://images.credly.com/images/9247e02c-eade-4704-8758-7a9f6ef8e3db/image.png" alt="Querying Databases with SQL Badge">
+                        <div class="cert-details">
+                            <h6 class="cert-title">Querying Databases with SQL</h6>
+                            <p class="cert-issuer">Coursera</p>
+                            <p class="cert-date">Issued: Oct 14, 2023</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <a href="https://www.credly.com/badges/29d55d4c-6e3a-4745-b85c-ccadcbf5718a" target="_blank" rel="noopener noreferrer" class="certification-card h-100">
+                        <img src="https://images.credly.com/images/f2573aac-d21c-483d-acda-afaa366b4f51/image.png" alt="Databases and SQL for Data Science Badge">
+                        <div class="cert-details">
+                            <h6 class="cert-title">Databases and SQL for Data Science</h6>
+                            <p class="cert-issuer">Coursera</p>
+                            <p class="cert-date">Issued: Oct 3, 2023</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <a href="https://www.credly.com/badges/476132a0-dba4-4fe3-84fe-6a82bec9ae7e" target="_blank" rel="noopener noreferrer" class="certification-card h-100">
+                        <img src="https://images.credly.com/images/2c88c783-8753-44f8-8842-85d495ba1c0e/image.png" alt="Relational Databases (RDBMS) Essentials Badge">
+                        <div class="cert-details">
+                            <h6 class="cert-title">Relational Databases (RDBMS) Essentials</h6>
+                            <p class="cert-issuer">Coursera</p>
+                            <p class="cert-date">Issued: Sep 30, 2023</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <a href="https://www.credly.com/badges/c6630790-de41-41d4-ba8c-a1330c2aae6c" target="_blank" rel="noopener noreferrer" class="certification-card h-100">
+                        <img src="https://images.credly.com/images/c0b439e5-79d5-498e-abc9-2b71cdf08c34/image.png" alt="Data Engineering Essentials Badge">
+                        <div class="cert-details">
+                            <h6 class="cert-title">Data Engineering Essentials</h6>
+                            <p class="cert-issuer">Coursera</p>
+                            <p class="cert-date">Issued: Jul 29, 2023</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <!-- Social and Footer -->
     <div class="social">
-        <div class="contact-icons">
-            <a href="mailto:ahmedmtc11560@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-            <a href="https://www.linkedin.com/in/ahmed-khaled-a41919248/" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/ahmedkhaled115" title="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-            <a href="https://www.fiverr.com/ahmedkhaled160?public_mode=true" target="_blank" title="Fiverr"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Fiverr.png" alt="Fiverr"/></a>
-            <a href="https://www.upwork.com/freelancers/~01015f3348d2532c01?viewMode=1" target="_blank" title="Upwork"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/upwork2.png" alt="Upwork"/></a>  
-            <a href="https://khamsat.com/user/ahmed11560" target="_blank" title="Khamsat"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Khamsat.png" alt="Khamsat"/></a>
+        <div class="container" data-aos="fade-up">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-icons">
+                <a href="mailto:ahmedmtc11560@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/ahmed-khaled-a41919248/" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/ahmedkhaled115" title="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                <a href="https://www.fiverr.com/ahmedkhaled160?public_mode=true" target="_blank" title="Fiverr"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Fiverr.png" alt="Fiverr"/></a>
+                <a href="https://www.upwork.com/freelancers/~01015f3348d2532c01?viewMode=1" target="_blank" title="Upwork"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/upwork2.png" alt="Upwork"/></a>  
+                <a href="https://khamsat.com/user/ahmed11560" target="_blank" title="Khamsat"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Khamsat.png" alt="Khamsat"/></a>
+            </div>
+            <div class="contact-note">✨ Always open for collaborations & freelance opportunities!</div>
         </div>
-        <div class="contact-note">✨ Always open for collaborations & freelance opportunities!</div>
     </div>
     <footer>
         <div class="container">© Copyright 2025 Ahmed Khaled.</div>
     </footer>
 
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Theme Toggle
             const themeToggle = document.getElementById('theme-toggle');
             const html = document.documentElement;
             const applyTheme = (theme) => {
@@ -278,8 +419,26 @@
                 const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
                 applyTheme(newTheme);
             });
-            const savedTheme = localStorage.getItem('theme') || 'dark'; // Default to dark if nothing is saved
+            const savedTheme = localStorage.getItem('theme') || 'dark';
             applyTheme(savedTheme);
+
+            // Animate On Scroll Initialization
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 50,
+            });
+
+            // Typed.js Initialization
+            var options = {
+                strings: ['Web Scraping &amp; Automation Specialist', 'Data Extraction Expert', 'Python Developer'],
+                typeSpeed: 50,
+                backSpeed: 25,
+                backDelay: 1500,
+                startDelay: 500,
+                loop: true,
+            };
+            var typed = new Typed('#typed-specialist', options);
         });
     </script>
 </body>
