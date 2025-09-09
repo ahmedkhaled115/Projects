@@ -11,60 +11,111 @@
     <!-- Stylesheets and Fonts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Slab:wght@700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🕸️&lt;/text&gt;&lt;/svg&gt;">
 
     <style>
       :root {
-        --global-bg-color: #ffffff; --global-text-color: #000000; --global-theme-color: #007bff;
-        --navbar-bg-color: rgba(255, 255, 255, 0.95); --navbar-text-color: #333;
-        --footer-bg-color: #f8f9fa; --footer-border-color: #e7e7e7;
+        --bg-color: #F8F9FA;
+        --text-color: #495057;
+        --heading-color: #212529;
+        --theme-color: #0056b3;
+        --card-bg-color: rgba(255, 255, 255, 0.6);
+        --card-border-color: rgba(0, 0, 0, 0.1);
+        --navbar-bg-color: rgba(255, 255, 255, 0.85);
+        --shadow-color: rgba(0, 0, 0, 0.05);
+        --glow-color: rgba(0, 86, 179, 0.15);
       }
+
       html[data-theme='dark'] {
-        --global-bg-color: #1a1a1a; --global-text-color: #e8e6e3; --global-theme-color: #68a6ff;
-        --navbar-bg-color: rgba(26, 26, 26, 0.95); --navbar-text-color: #e8e6e3;
-        --footer-bg-color: #111; --footer-border-color: #333;
+        --bg-color: #0D1117;
+        --text-color: #ADB5BD;
+        --heading-color: #E8EAED;
+        --theme-color: #58A6FF;
+        --card-bg-color: rgba(22, 27, 34, 0.6);
+        --card-border-color: rgba(255, 255, 255, 0.1);
+        --navbar-bg-color: rgba(13, 17, 23, 0.85);
+        --shadow-color: rgba(0, 0, 0, 0.2);
+        --glow-color: rgba(88, 166, 255, 0.15);
       }
-      body { font-family: 'Roboto', sans-serif; background-color: var(--global-bg-color); color: var(--global-text-color); padding-top: 80px; }
+
+      /* Base Styles */
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        padding-top: 80px;
+        transition: background-color 0.3s, color 0.3s;
+        overflow-x: hidden;
+      }
       .arabic-text { font-family: 'Cairo', sans-serif; }
-      a { color: var(--global-theme-color); }
-      a:hover { color: var(--global-hover-color, #a7caff); }
-      .navbar { background-color: var(--navbar-bg-color); backdrop-filter: blur(5px); border-bottom: 1px solid var(--footer-border-color); }
-      .navbar-brand, .nav-link { color: var(--navbar-text-color) !important; }
-      .navbar-brand .font-weight-bold { color: var(--global-theme-color); }
-      .nav-item.active .nav-link { color: var(--global-theme-color) !important; font-weight: 500; }
-      .dropdown-menu { background-color: var(--navbar-bg-color); border: 1px solid var(--footer-border-color); }
-      .dropdown-item { color: var(--navbar-text-color) !important; }
-      .dropdown-item:hover { background-color: rgba(128, 128, 128, 0.2); }
-      html[data-theme='dark'] .dropdown-item:hover { background-color: rgba(255, 255, 255, 0.1); }
+      h1, h2, h3, h4, h5, h6 { font-family: 'Roboto Slab', serif; color: var(--heading-color); font-weight: 700; }
+      a { color: var(--theme-color); transition: filter 0.2s; }
+      a:hover { text-decoration: none; color: var(--theme-color); filter: brightness(1.2); }
+
+      /* Navbar */
+      .navbar {
+        background-color: var(--navbar-bg-color);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--card-border-color);
+      }
+      .navbar-brand { font-family: 'Roboto Slab', serif; font-size: 1.5rem; }
+      .nav-link { font-weight: 500; }
       .toggle-container { cursor: pointer; padding: 0.5rem 0.75rem; }
       .fa-sun { display: none; } .fa-moon { display: block; }
       html[data-theme='dark'] .fa-sun { display: block; } html[data-theme='dark'] .fa-moon { display: none; }
-      .post-header { margin-bottom: 2rem; }
-      .post-title { font-family: 'Roboto Slab', serif; }
-      .post-description { font-size: 1.25rem; color: #888; }
-      .gigs-section-title { font-family: 'Roboto Slab', serif; margin-top: 3rem; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--footer-border-color); }
+
+      /* Page Header */
+      .post-header { text-align: center; margin-bottom: 3rem; padding-top: 2rem; }
+      .post-title { font-size: 3rem; }
+      .post-description { font-size: 1.1rem; color: var(--text-color); max-width: 600px; margin: 0 auto; }
+
+      /* Gig Sections */
+      .gigs-section-title { margin-top: 3rem; margin-bottom: 2rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--card-border-color); }
       .gigs-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; }
-      .gig-card-link { text-decoration: none; color: var(--global-text-color); }
-      .gig-card-link:hover { text-decoration: none; }
-      .gig-card { background-color: var(--footer-bg-color); border: 1px solid var(--footer-border-color); border-radius: 8px; overflow: hidden; transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; display: flex; flex-direction: column; height: 100%; }
-      .gig-card:hover { transform: translateY(-5px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
-      html[data-theme='dark'] .gig-card:hover { box-shadow: 0 6px 20px rgba(255,255,255,0.08); }
-      .gig-card img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-bottom: 1px solid var(--footer-border-color); }
+      .gig-card-link { text-decoration: none; color: var(--text-color); }
+      
+      /* Gig Card with Glassmorphism */
+      .gig-card {
+        background: var(--card-bg-color);
+        border: 1px solid var(--card-border-color);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 32px var(--shadow-color);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        transition: box-shadow 0.3s ease;
+      }
+      .gig-card:hover { 
+        box-shadow: 0 8px 35px var(--shadow-color), 0 0 25px var(--glow-color);
+      }
+      .gig-card img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
       .gig-info { padding: 1rem; display: flex; flex-direction: column; flex-grow: 1; }
-      .gig-title { font-weight: 500; margin-bottom: 0.75rem; flex-grow: 1; }
+      .gig-title { font-weight: 500; margin-bottom: 0.75rem; flex-grow: 1; color: var(--heading-color); }
       .gig-rating { display: flex; align-items: center; gap: 0.3rem; font-size: 0.95rem; color: #ffb300; }
-      .gig-rating span { color: #888; font-weight: 300; }
-      .gig-price { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--footer-border-color); font-weight: bold; font-size: 1.1rem; display: flex; justify-content: flex-end; align-items: center; gap: 0.3rem; }
+      .gig-rating span { color: var(--text-color); font-weight: 400; }
+      .gig-price { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--card-border-color); font-weight: bold; font-size: 1.1rem; display: flex; justify-content: flex-end; align-items: center; gap: 0.3rem; color: var(--heading-color); }
       .gig-price.rtl { flex-direction: row-reverse; }
+      .gig-price span { font-weight: 400; font-size: 0.9rem; color: var(--text-color); }
+
+      /* Social and Footer */
       .social { text-align: center; margin-top: 4rem; margin-bottom: 2rem; }
       .contact-icons { display: flex; justify-content: center; align-items: center; gap: 25px; }
       .contact-icons i { font-size: 2.2rem; }
       .contact-icons img { height: 35px; width: auto; transition: transform 0.2s ease-in-out; }
       .contact-icons img:hover { transform: scale(1.1); }
-      .contact-note { margin-top: 1.5rem; font-size: 1.1rem; }
-      footer { background-color: var(--footer-bg-color); border-top: 1px solid var(--footer-border-color); padding: 1.5rem 0; text-align: center; width: 100%; margin-top: 3rem; }
+      footer { background-color: transparent; padding: 1.5rem 0; text-align: center; width: 100%; margin-top: 3rem; border-top: 1px solid var(--card-border-color); }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .post-title { font-size: 2.5rem; }
+      }
     </style>
 </head>
 <body>
@@ -78,9 +129,7 @@
                         <li class="nav-item"><a class="nav-link" href="./index.html">About</a></li>
                         <li class="nav-item active"><a class="nav-link" href="./services.html">Services</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Portfolio
-                            </a>
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" role="button" data-toggle="dropdown">Portfolio</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownPortfolio">
                                 <a class="dropdown-item" href="./portfolio.html">Data Scraping Portfolio</a>
                             </div>
@@ -99,17 +148,16 @@
     <!-- Content -->
     <div class="container mt-5">
         <div class="post">
-            <header class="post-header">
+            <header class="post-header g-fade-in">
                 <h1 class="post-title">My Gigs</h1>
                 <p class="post-description">Explore the specialized data services I offer. Click on any gig to go to the order page.</p>
             </header>
             <article>
 
                 <!-- Fiverr Gigs Section -->
-                <h2 class="gigs-section-title">Fiverr Gigs</h2>
+                <h2 class="gigs-section-title g-fade-in">Fiverr Gigs</h2>
                 <div class="gigs-container">
-                    <!-- Gig Card 1: General Web Scraping -->
-                    <a href="https://www.fiverr.com/ahmedkhaled160/do-web-scraping-data-entry-from-any-website?context_referrer=seller_page&ref_ctx_id=cd1360b82523499ea2e19bc6bc8a4cb4&pckg_id=1&pos=1&seller_online=true&imp_id=506fca0e-c82d-4221-add0-ea6513917738" class="gig-card-link" target="_blank" rel="noopener noreferrer" title="View this gig on Fiverr">
+                    <a href="#" class="gig-card-link g-fade-in">
                         <div class="gig-card">
                             <img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/2.png" alt="Web Scraping Gig">
                             <div class="gig-info">
@@ -119,9 +167,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- Gig Card 2: Product Scraping -->
-                    <a href="https://www.fiverr.com/ahmedkhaled160/scrape-varied-product-info-from-any-ecommerce-website?context_referrer=seller_page&ref_ctx_id=cd1360b82523499ea2e19bc6bc8a4cb4&pckg_id=1&pos=2&seller_online=true&imp_id=37263a2a-773b-4d7d-a0b6-5f3dd75cccb7" class="gig-card-link" target="_blank" rel="noopener noreferrer" title="View this gig on Fiverr">
+                    <a href="#" class="gig-card-link g-fade-in">
                         <div class="gig-card">
                             <img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/1.png" alt="Product Scraping Gig">
                             <div class="gig-info">
@@ -134,11 +180,9 @@
                 </div>
 
                 <!-- Khamsat Gigs Section -->
-                <h2 class="gigs-section-title">Khamsat Gigs</h2>
+                <h2 class="gigs-section-title g-fade-in">Khamsat Gigs</h2>
                 <div class="gigs-container">
-                    
-                    <!-- Gig Card 3: Maroof Scraping -->
-                    <a href="https://khamsat.com/data/web-scraping/2736039-%D8%A7%D8%B3%D8%AA%D8%AE%D8%B1%D8%A7%D8%AC-%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA-%D8%A7%D9%84%D9%85%D8%AA%D8%A7%D8%AC%D8%B1-%D8%A7%D9%84%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A9-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D9%87-%D9%85%D9%86-%D9%85%D9%88%D9%82%D8%B9-%D9%85%D8%B9%D8%B1%D9%88%D9%81" class="gig-card-link" target="_blank" rel="noopener noreferrer" title="View this gig on Khamsat">
+                    <a href="#" class="gig-card-link g-fade-in">
                         <div class="gig-card">
                             <img src="https://khamsat.hsoubcdn.com/images/services/3086058/9781cd58b879457d6cd9ab06aafe9a80.jpg" alt="Maroof Scraping Gig">
                             <div class="gig-info" dir="rtl">
@@ -148,9 +192,7 @@
                             </div>
                         </div>
                     </a>
-
-                    <!-- Gig Card 4: Automated Web Scraping -->
-                    <a href="https://khamsat.com/data/web-scraping/2621302-%D8%AC%D9%85%D8%B9-%D9%88%D8%A5%D8%B3%D8%AA%D8%AE%D8%B1%D8%A7%D8%AC-%D8%A7%D9%84%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA-%D9%85%D9%86-%D8%A7%D9%84%D8%A5%D9%86%D8%AA%D8%B1%D9%86%D8%AA-%D8%A2%D9%84%D9%8A%D8%A7-web-scraping" class="gig-card-link" target="_blank" rel="noopener noreferrer" title="View this gig on Khamsat">
+                    <a href="#" class="gig-card-link g-fade-in">
                         <div class="gig-card">
                             <img src="https://khamsat.hsoubcdn.com/images/services/3086058/7fd34b89b3b0f2092d128138064651a8.jpg" alt="Automated Web Scraping Gig">
                             <div class="gig-info" dir="rtl">
@@ -160,9 +202,7 @@
                             </div>
                         </div>
                     </a>
-                    
-                    <!-- Gig Card 5: Saudi Factories Scraping -->
-                    <a href="https://khamsat.com/marketing/database-marketing/2768855-%D8%A7%D8%B3%D8%AA%D8%AE%D8%B1%D8%A7%D8%AC-%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA-%D9%85%D8%B5%D8%A7%D9%86%D8%B9-%D8%B3%D8%B9%D9%88%D8%AF%D9%8A%D8%A9-%D9%85%D9%86-%D8%A7%D9%84%D9%85%D8%B1%D9%83%D8%B2-%D8%A7%D9%84%D9%88%D8%B7%D9%86%D9%8A-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A" class="gig-card-link" target="_blank" rel="noopener noreferrer" title="View this gig on Khamsat">
+                    <a href="#" class="gig-card-link g-fade-in">
                         <div class="gig-card">
                             <img src="https://khamsat.hsoubcdn.com/images/services/3086058/c503284f16d73b0d1974be521ef26f3f.jpg" alt="Saudi Factories Scraping Gig">
                             <div class="gig-info" dir="rtl">
@@ -178,25 +218,28 @@
     </div>
     
     <!-- Social and Footer -->
-    <div class="social">
+    <div class="social g-fade-in">
         <div class="contact-icons">
             <a href="mailto:ahmedmtc11560@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-            <a href="https://www.linkedin.com/in/ahmed-khaled-a41919248/" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/ahmedkhaled115" title="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-            <a href="https://www.fiverr.com/ahmedkhaled160?public_mode=true" target="_blank" title="Fiverr"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Fiverr.png" alt="Fiverr"/></a>
-            <a href="https://www.upwork.com/freelancers/~01015f3348d2532c01?viewMode=1" target="_blank" title="Upwork"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/upwork2.png" alt="Upwork"/></a>  
-            <a href="https://khamsat.com/user/ahmed11560" target="_blank" title="Khamsat"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Khamsat.png" alt="Khamsat"/></a>
+            <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
         </div>
-        <div class="contact-note">✨ Always open for collaborations & freelance opportunities!</div>
     </div>
-    <footer>
+    <footer class="g-fade-in">
         <div class="container">© Copyright 2025 Ahmed Khaled.</div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // --- THEME TOGGLE ---
             const themeToggle = document.getElementById('theme-toggle');
             const html = document.documentElement;
             const applyTheme = (theme) => {
@@ -207,10 +250,51 @@
                 const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
                 applyTheme(newTheme);
             });
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme) {
-                applyTheme(savedTheme);
-            }
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            applyTheme(savedTheme);
+
+            // --- GSAP SCROLL-TRIGGERED ANIMATIONS ---
+            gsap.utils.toArray('.g-fade-in').forEach((el, i) => {
+                gsap.from(el, {
+                    scrollTrigger: {
+                        trigger: el,
+                        start: 'top 85%',
+                        toggleActions: 'play none none none'
+                    },
+                    opacity: 0,
+                    y: 40,
+                    duration: 0.8,
+                    ease: 'power3.out',
+                    delay: el.classList.contains('gig-card-link') ? (i % 3) * 0.1 : 0 // Stagger cards
+                });
+            });
+
+            // --- 3D TILT EFFECT FOR GIG CARDS ---
+            document.querySelectorAll('.gig-card-link').forEach(cardLink => {
+                const card = cardLink.querySelector('.gig-card');
+                cardLink.addEventListener('mousemove', e => {
+                    const rect = cardLink.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const rotateX = -1 * ((rect.height / 2) - y) / 15;
+                    const rotateY = ((rect.width / 2) - x) / 15;
+                    gsap.to(card, {
+                        rotationX: rotateX,
+                        rotationY: rotateY,
+                        transformPerspective: 1000,
+                        ease: 'power2.out',
+                        duration: 0.7
+                    });
+                });
+                cardLink.addEventListener('mouseleave', () => {
+                    gsap.to(card, {
+                        rotationX: 0,
+                        rotationY: 0,
+                        ease: 'elastic.out(1, 0.5)',
+                        duration: 1.2
+                    });
+                });
+            });
         });
     </script>
 </body>
