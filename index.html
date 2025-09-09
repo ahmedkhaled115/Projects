@@ -96,6 +96,14 @@
       .navbar-toggler { border: none; }
       .navbar-toggler:focus { outline: none; box-shadow: none; }
       .navbar-toggler-icon { color: var(--heading-color); }
+      .dropdown-menu { 
+        background-color: var(--card-bg-color);
+        border-color: var(--card-border-color);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+      .dropdown-item { color: var(--text-color) !important; }
+      .dropdown-item:hover { background-color: rgba(128, 128, 128, 0.1); }
       .toggle-container { cursor: pointer; padding: 0.5rem 0.75rem; }
       .fa-sun { display: none; } .fa-moon { display: block; }
       html[data-theme='dark'] .fa-sun { display: block; } html[data-theme='dark'] .fa-moon { display: none; }
@@ -168,7 +176,14 @@
                     <ul class="navbar-nav ml-auto align-items-center">
                         <li class="nav-item active"><a class="nav-link" href="./index.html">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="./services.html">Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="./portfolio.html">Portfolio</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Portfolio
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownPortfolio">
+                                <a class="dropdown-item" href="./portfolio.html">Data Scraping Portfolio</a>
+                            </div>
+                        </li>
                         <li class="nav-item">
                             <div class="toggle-container" id="theme-toggle">
                                 <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
