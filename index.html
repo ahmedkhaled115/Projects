@@ -13,50 +13,44 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🕸️&lt;/text&gt;&lt;/svg&gt;">
 
     <style>
       :root {
-        --bg-color: #EFEFEF;
-        --text-color: #333;
-        --heading-color: #000;
+        --bg-color: #F8F9FA;
+        --text-color: #495057;
+        --heading-color: #212529;
         --theme-color: #0056b3;
-        --card-bg-color: rgba(255, 255, 255, 0.6);
-        --card-border-color: rgba(0, 0, 0, 0.1);
-        --navbar-bg-color: rgba(255, 255, 255, 0.5);
+        --card-bg-color: #FFFFFF;
+        --card-border-color: #DEE2E6;
+        --navbar-bg-color: rgba(255, 255, 255, 0.85);
         --shadow-color: rgba(0, 0, 0, 0.05);
-        --cursor-color: #000;
       }
 
       html[data-theme='dark'] {
-        --bg-color: #0D1017;
-        --text-color: #B0B5B3;
-        --heading-color: #ffffff;
-        --theme-color: #3882F6;
-        --card-bg-color: rgba(22, 27, 34, 0.6);
-        --card-border-color: rgba(255, 255, 255, 0.1);
-        --navbar-bg-color: rgba(13, 16, 23, 0.5);
-        --shadow-color: rgba(0, 0, 0, 0.2);
-        --cursor-color: #fff;
+        --bg-color: #0D1117;
+        --text-color: #ADB5BD;
+        --heading-color: #E8EAED;
+        --theme-color: #58A6FF;
+        --card-bg-color: #161B22;
+        --card-border-color: #30363D;
+        --navbar-bg-color: rgba(13, 17, 23, 0.85);
+        --shadow-color: rgba(0, 0, 0, 0.15);
       }
 
       /* Base Styles */
-      *, *::before, *::after {
-          box-sizing: border-box;
-      }
-      
       body {
         font-family: 'Inter', sans-serif;
         background-color: var(--bg-color);
         color: var(--text-color);
-        padding-top: 90px;
+        padding-top: 80px;
         transition: background-color 0.3s, color 0.3s;
         overflow-x: hidden;
       }
 
-      h1, h2, h3, h4, h5, h6 {
-        font-family: 'Space Mono', monospace;
+      h1, h2, h3, h4 {
+        font-family: 'Roboto Slab', serif;
         color: var(--heading-color);
         font-weight: 700;
       }
@@ -64,70 +58,28 @@
       a { color: var(--theme-color); transition: filter 0.2s; }
       a:hover { text-decoration: none; color: var(--theme-color); filter: brightness(1.2); }
 
-      /* Custom Cursor - Hidden on Touch Devices */
-      .cursor { display: none; }
-      @media (hover: hover) and (pointer: fine) {
-        .cursor {
-          display: block;
-          position: fixed;
-          top: 0;
-          left: 0;
-          z-index: 1100;
-          pointer-events: none;
-          opacity: 0;
-          transition: opacity 0.3s;
-        }
-        body:hover .cursor { opacity: 1; }
-        .cursor__dot {
-          width: 8px;
-          height: 8px;
-          background-color: var(--cursor-color);
-          border-radius: 50%;
-          transform: translate(-50%, -50%);
-        }
-        .cursor__circle {
-          width: 40px;
-          height: 40px;
-          border: 2px solid var(--cursor-color);
-          border-radius: 50%;
-          transform: translate(-50%, -50%);
-          transition: transform 0.3s ease-out, width 0.3s, height 0.3s, border-width 0.3s;
-        }
-        .cursor--hover .cursor__circle {
-          transform: translate(-50%, -50%) scale(1.5);
-          border-width: 1px;
-        }
-        *, *::before, *::after { cursor: none; }
-        a, button { cursor: none; }
-      }
-
       /* Navbar */
       .navbar {
         background-color: var(--navbar-bg-color);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         border-bottom: 1px solid var(--card-border-color);
-        padding: 1rem 0;
+        padding: 0.75rem 0;
       }
-      .navbar-brand { font-family: 'Space Mono', monospace; font-size: 1.5rem; color: var(--heading-color) !important; }
+      .navbar-brand { font-family: 'Roboto Slab', serif; font-size: 1.5rem; color: var(--heading-color) !important; }
       .navbar-brand span { color: var(--theme-color); }
-      .nav-link { font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+      .nav-link { font-weight: 500; }
       .navbar-toggler { border: none; }
-      .navbar-toggler:focus { outline: none; }
+      .navbar-toggler:focus { outline: none; box-shadow: none; }
       .navbar-toggler-icon { color: var(--heading-color); font-size: 1.5rem; }
 
       /* Hero Section */
       .hero {
-        padding: 4rem 0;
+        padding: 5rem 0;
         text-align: center;
       }
-      .hero-title .char {
-          display: inline-block;
-          opacity: 0;
-          transform: translateY(50px) scale(0.8) rotate(20deg);
-      }
-      .hero-title { font-size: 3.5rem; margin-bottom: 1rem; }
-      .hero-desc { font-family: 'Space Mono', monospace; font-size: 1.25rem; color: var(--theme-color); }
+      .hero-title { font-size: 3rem; margin-bottom: 0.5rem; }
+      .hero-desc { font-size: 1.25rem; color: var(--theme-color); }
 
       /* Content Sections */
       .content-section {
@@ -136,59 +88,55 @@
       .section-title {
         text-align: center;
         margin-bottom: 3rem;
-        font-size: 2.5rem;
+        font-size: 2.25rem;
       }
 
       /* About Section */
-      .about-grid {
-        display: grid;
-        grid-template-columns: 280px 1fr;
-        gap: 3rem;
-        align-items: center;
-      }
       .profile-pic {
         width: 100%;
-        max-width: 280px;
+        max-width: 250px;
         height: auto;
         aspect-ratio: 1 / 1;
         object-fit: cover;
-        border-radius: 20px;
-        box-shadow: 0 15px 40px var(--shadow-color);
+        border-radius: 50%;
+        border: 5px solid var(--card-bg-color);
+        box-shadow: 0 10px 30px var(--shadow-color);
       }
-      .about-text h3 {
-          font-size: 1.8rem;
-          margin-bottom: 1rem;
-      }
-
-      /* Glass Cards */
-      .glass-card {
+      
+      /* Smooth Cards */
+      .smooth-card {
         background: var(--card-bg-color);
         border: 1px solid var(--card-border-color);
-        border-radius: 16px;
+        border-radius: 12px;
         padding: 2rem;
-        box-shadow: 0 8px 32px var(--shadow-color);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 4px 15px var(--shadow-color);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
-      .glass-card h4 {
+      .smooth-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px var(--shadow-color);
+      }
+      .smooth-card h4 {
         color: var(--theme-color);
         margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--card-border-color);
       }
-      .glass-card ul { list-style: none; padding-left: 0; }
-      .glass-card ul li { margin-bottom: 1rem; }
+      .smooth-card ul { list-style: none; padding-left: 0; margin-bottom: 0; }
+      .smooth-card ul li { margin-bottom: 0.75rem; }
 
       /* Certifications */
       .cert-card {
         display: flex;
         align-items: center;
         padding: 1rem;
-        background: transparent;
-        border: 1px solid var(--card-border-color);
-        border-radius: 12px;
-        transition: background-color 0.3s;
+        border-radius: 8px;
+        border: 1px solid transparent;
+        transition: background-color 0.3s, border-color 0.3s;
       }
       .cert-card:hover {
         background-color: var(--card-bg-color);
+        border-color: var(--card-border-color);
       }
       .cert-card img {
         width: 50px;
@@ -196,53 +144,54 @@
         margin-right: 1rem;
       }
       .cert-title { font-family: 'Inter', sans-serif; font-weight: 500; color: var(--heading-color); font-size: 1rem; }
-      .cert-issuer { font-size: 0.8rem; }
+      .cert-issuer { font-size: 0.9rem; }
       
       /* Social and Footer */
       .social { text-align: center; padding: 3rem 0; }
-      .contact-icons { display: flex; justify-content: center; gap: 0.5rem; }
+      .contact-icons { display: flex; justify-content: center; gap: 1rem; }
       .contact-icons a {
           display: inline-block;
           font-size: 1.8rem;
-          padding: 0.8rem;
           color: var(--text-color);
+          transition: transform 0.3s ease, color 0.3s ease;
       }
-      .contact-icons img { height: 28px; width: 28px; filter: grayscale(1); transition: filter 0.3s; }
-      .contact-icons a:hover img { filter: grayscale(0); }
+      .contact-icons a:hover {
+        transform: translateY(-3px);
+        color: var(--theme-color);
+      }
+      .contact-icons img { height: 28px; width: 28px; }
       .contact-note { margin-top: 1.5rem; }
-      footer { background-color: transparent; padding: 1.5rem 0; text-align: center; }
+      footer { background-color: transparent; padding: 1.5rem 0; text-align: center; border-top: 1px solid var(--card-border-color); margin-top: 2rem; }
 
-      /* --- Responsive Design --- */
-      @media (max-width: 991px) {
-        .about-grid { 
-          grid-template-columns: 1fr; 
-          text-align: center; 
-          gap: 2rem;
-        }
-        .profile-pic { margin: 0 auto; }
+      /* Simple Fade-In Animation */
+      .fade-in-up {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
       }
+      .fade-in-up.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      /* Responsive Design */
       @media (max-width: 768px) {
-        body { padding-top: 80px; }
+        body { padding-top: 70px; }
         .hero { padding: 3rem 0; }
-        .hero-title { font-size: 2.5rem; }
+        .hero-title { font-size: 2.25rem; }
         .hero-desc { font-size: 1rem; }
-        .section-title { font-size: 2rem; }
-        .glass-card { padding: 1.5rem; }
+        .section-title { font-size: 1.75rem; }
+        .smooth-card { padding: 1.5rem; }
+        .profile-pic { max-width: 200px; }
       }
     </style>
 </head>
 <body>
-    <!-- Custom Cursor -->
-    <div class="cursor">
-        <div class="cursor__dot"></div>
-        <div class="cursor__circle"></div>
-    </div>
-    
     <!-- Header -->
     <header>
         <nav id="navbar" class="navbar navbar-expand-lg fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="#"><span>A</span>K</a>
+                <a class="navbar-brand" href="#"><span>Ahmed</span> Khaled</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fas fa-bars navbar-toggler-icon"></i>
                 </button>
@@ -250,7 +199,7 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#certifications">Certs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -261,18 +210,18 @@
     <!-- Main Content -->
     <main class="container">
         <!-- Hero Section -->
-        <section class="hero">
+        <section class="hero fade-in-up">
             <h1 class="hero-title">Ahmed Khaled</h1>
             <p class="hero-desc">Web Scraping & Automation Specialist</p>
         </section>
 
         <!-- About Me Section -->
         <section class="content-section" id="about">
-             <div class="about-grid">
-                <div class="profile-container">
+             <div class="row align-items-center">
+                <div class="col-md-4 text-center mb-4 mb-md-0 fade-in-up">
                     <img class="profile-pic" src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Ahmed.jpg" alt="Ahmed Khaled Profile Picture">
                 </div>
-                <div class="about-text">
+                <div class="col-md-8 fade-in-up" style="transition-delay: 150ms;">
                     <h3>Hello, I'm Ahmed.</h3>
                     <p>A freelance specialist with over three years of experience in turning the web's vast data into structured, actionable insights. With a track record of serving over 1,500 clients globally, my focus is on delivering robust, scalable, and efficient data solutions.</p>
                     <p>I excel at building complex scraping pipelines that navigate anti-bot measures, ensuring reliable data extraction for market intelligence, price monitoring, or unique machine learning datasets.</p>
@@ -282,10 +231,10 @@
         
         <!-- Skills & Highlights -->
         <section class="content-section" id="skills">
-            <h2 class="section-title">My Expertise</h2>
+            <h2 class="section-title fade-in-up">My Expertise</h2>
             <div class="row">
-                <div class="col-lg-6 mb-4">
-                    <div class="glass-card h-100">
+                <div class="col-lg-6 mb-4 fade-in-up">
+                    <div class="smooth-card h-100">
                         <h4><i class="fas fa-trophy mr-2"></i>Career Highlights</h4>
                         <ul>
                             <li><strong>1,500+</strong> Clients Served Worldwide</li>
@@ -294,8 +243,8 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-6 mb-4">
-                    <div class="glass-card h-100">
+                <div class="col-lg-6 mb-4 fade-in-up" style="transition-delay: 150ms;">
+                    <div class="smooth-card h-100">
                         <h4><i class="fas fa-cogs mr-2"></i>Languages & Tools</h4>
                         <ul>
                             <li><strong>Python:</strong> Scrapy, Selenium, Pandas, Playwright</li>
@@ -309,26 +258,26 @@
 
         <!-- Certifications -->
         <section class="content-section" id="certifications">
-            <h2 class="section-title">Certifications</h2>
+            <h2 class="section-title fade-in-up">Certifications</h2>
             <div class="row">
-                <div class="col-lg-6 mb-4"><a href="https://www.credly.com/badges/71a9c2ad-7394-4c25-842d-bacfafc72204" target="_blank" rel="noopener" class="cert-card h-100"><img src="https://images.credly.com/images/9247e02c-eade-4704-8758-7a9f6ef8e3db/image.png"><div><h6 class="cert-title">Querying Databases with SQL</h6><p class="cert-issuer">Coursera</p></div></a></div>
-                <div class="col-lg-6 mb-4"><a href="https://www.credly.com/badges/29d55d4c-6e3a-4745-b85c-ccadcbf5718a" target="_blank" rel="noopener" class="cert-card h-100"><img src="https://images.credly.com/images/f2573aac-d21c-483d-acda-afaa366b4f51/image.png"><div><h6 class="cert-title">Databases and SQL for Data Science</h6><p class="cert-issuer">Coursera</p></div></a></div>
-                <div class="col-lg-6 mb-4"><a href="https://www.credly.com/badges/476132a0-dba4-4fe3-84fe-6a82bec9ae7e" target="_blank" rel="noopener" class="cert-card h-100"><img src="https://images.credly.com/images/2c88c783-8753-44f8-8842-85d495ba1c0e/image.png"><div><h6 class="cert-title">Relational Databases (RDBMS) Essentials</h6><p class="cert-issuer">Coursera</p></div></a></div>
-                <div class="col-lg-6 mb-4"><a href="https://www.credly.com/badges/c6630790-de41-41d4-ba8c-a1330c2aae6c" target="_blank" rel="noopener" class="cert-card h-100"><img src="https://images.credly.com/images/c0b439e5-79d5-498e-abc9-2b71cdf08c34/image.png"><div><h6 class="cert-title">Data Engineering Essentials</h6><p class="cert-issuer">Coursera</p></div></a></div>
+                <div class="col-lg-6 mb-3 fade-in-up"><a href="https://www.credly.com/badges/71a9c2ad-7394-4c25-842d-bacfafc72204" target="_blank" rel="noopener" class="cert-card h-100"><img src="https://images.credly.com/images/9247e02c-eade-4704-8758-7a9f6ef8e3db/image.png"><div><h6 class="cert-title">Querying Databases with SQL</h6><p class="cert-issuer mb-0">Coursera</p></div></a></div>
+                <div class="col-lg-6 mb-3 fade-in-up"><a href="https://www.credly.com/badges/29d55d4c-6e3a-4745-b85c-ccadcbf5718a" target="_blank" rel="noopener" class="cert-card h-100"><img src="https://images.credly.com/images/f2573aac-d21c-483d-acda-afaa366b4f51/image.png"><div><h6 class="cert-title">Databases and SQL for Data Science</h6><p class="cert-issuer mb-0">Coursera</p></div></a></div>
+                <div class="col-lg-6 mb-3 fade-in-up"><a href="https://www.credly.com/badges/476132a0-dba4-4fe3-84fe-6a82bec9ae7e" target="_blank" rel="noopener" class="cert-card h-100"><img src="https://images.credly.com/images/2c88c783-8753-44f8-8842-85d495ba1c0e/image.png"><div><h6 class="cert-title">Relational Databases (RDBMS)</h6><p class="cert-issuer mb-0">Coursera</p></div></a></div>
+                <div class="col-lg-6 mb-3 fade-in-up"><a href="https://www.credly.com/badges/c6630790-de41-41d4-ba8c-a1330c2aae6c" target="_blank" rel="noopener" class="cert-card h-100"><img src="https://images.credly.com/images/c0b439e5-79d5-498e-abc9-2b71cdf08c34/image.png"><div><h6 class="cert-title">Data Engineering Essentials</h6><p class="cert-issuer mb-0">Coursera</p></div></a></div>
             </div>
         </section>
     </main>
 
     <!-- Contact -->
     <section class="social" id="contact">
-        <div class="container">
+        <div class="container fade-in-up">
             <h2 class="section-title">Let's Connect</h2>
             <div class="contact-icons">
-                <a href="mailto:ahmedmtc11560@gmail.com" title="Email" class="magnetic-link"><i class="fas fa-envelope"></i></a>
-                <a href="https://www.linkedin.com/in/ahmed-khaled-a41919248/" target="_blank" rel="noopener" title="LinkedIn" class="magnetic-link"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/ahmedkhaled115" target="_blank" rel="noopener" title="GitHub" class="magnetic-link"><i class="fab fa-github"></i></a>
-                <a href="https://www.fiverr.com/ahmedkhaled160?public_mode=true" target="_blank" rel="noopener" title="Fiverr" class="magnetic-link"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Fiverr.png" alt="Fiverr"/></a>
-                <a href="https://www.upwork.com/freelancers/~01015f3348d2532c01?viewMode=1" target="_blank" rel="noopener" title="Upwork" class="magnetic-link"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/upwork2.png" alt="Upwork"/></a>
+                <a href="mailto:ahmedmtc11560@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/ahmed-khaled-a41919248/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/ahmedkhaled115" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.fiverr.com/ahmedkhaled160?public_mode=true" target="_blank" rel="noopener" title="Fiverr"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Fiverr-dark.svg" alt="Fiverr"/></a>
+                <a href="https://www.upwork.com/freelancers/~01015f3348d2532c01?viewMode=1" target="_blank" rel="noopener" title="Upwork"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/upwork-dark.svg" alt="Upwork"/></a>
             </div>
             <p class="contact-note">Open for collaborations & freelance opportunities.</p>
         </div>
@@ -339,82 +288,39 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- GSAP Animation Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/split-type"></script>
-
+    
     <script>
     document.addEventListener('DOMContentLoaded', function () {
-        gsap.registerPlugin(ScrollTrigger);
         
-        const isTouchDevice = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        // --- SIMPLE FADE-IN ON SCROLL ---
+        const animatedElements = document.querySelectorAll('.fade-in-up');
 
-        // --- HERO TEXT ANIMATION ---
-        const heroTitle = new SplitType('.hero-title', { types: 'chars' });
-        gsap.from(heroTitle.chars, {
-            delay: 0.5,
-            opacity: 0,
-            y: 50,
-            scale: 0.8,
-            rotation: -20,
-            stagger: 0.05,
-            ease: 'back.out(1.7)',
-        });
-        gsap.from('.hero-desc', { delay: 1, opacity: 0, y: 20, ease: 'power2.out'});
-
-        // --- SCROLL-TRIGGERED ANIMATIONS ---
-        const sections = document.querySelectorAll('.content-section');
-        sections.forEach(section => {
-            const elements = section.querySelectorAll('.profile-pic, .about-text, .glass-card, .cert-card');
-            gsap.from(elements, {
-                scrollTrigger: {
-                    trigger: section,
-                    start: 'top 85%',
-                    toggleActions: 'play none none none',
-                },
-                opacity: 0,
-                y: 50,
-                duration: 1,
-                stagger: 0.15,
-                ease: 'power3.out',
-            });
-        });
-
-        // --- DESKTOP-ONLY INTERACTIVITY ---
-        if (!isTouchDevice()) {
-            // --- CUSTOM CURSOR ---
-            const cursorDot = document.querySelector('.cursor__dot');
-            const cursorCircle = document.querySelector('.cursor__circle');
-            const hoverElements = document.querySelectorAll('a, button, .cert-card');
-
-            gsap.set(cursorDot, { xPercent: -50, yPercent: -50 });
-            gsap.set(cursorCircle, { xPercent: -50, yPercent: -50 });
-
-            window.addEventListener('mousemove', e => {
-                gsap.to(cursorDot, 0.15, { x: e.clientX, y: e.clientY });
-                gsap.to(cursorCircle, 0.4, { x: e.clientX, y: e.clientY, ease: "power2.out" });
-            });
-            
-            hoverElements.forEach(el => {
-                el.addEventListener('mouseenter', () => document.body.classList.add('cursor--hover'));
-                el.addEventListener('mouseleave', () => document.body.classList.remove('cursor--hover'));
-            });
-
-            // --- MAGNETIC LINKS ---
-            document.querySelectorAll('.magnetic-link').forEach(link => {
-                const icon = link.querySelector('i, img');
-                link.addEventListener('mousemove', e => {
-                    const rect = link.getBoundingClientRect();
-                    const x = e.clientX - rect.left - rect.width / 2;
-                    const y = e.clientY - rect.top - rect.height / 2;
-                    gsap.to(icon, { x: x * 0.4, y: y * 0.4, duration: 0.5, ease: 'power3.out' });
+        if ("IntersectionObserver" in window) {
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
                 });
-                link.addEventListener('mouseleave', () => {
-                    gsap.to(icon, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.3)' });
-                });
+            }, {
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            });
+
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+        } else {
+            // Fallback for older browsers
+            animatedElements.forEach(element => {
+                element.classList.add('is-visible');
             });
         }
+
+        // --- THEME TOGGLE (for future use if needed) ---
+        // This can be added back easily if you want a theme switcher.
+        // For simplicity, it's removed from the UI but the CSS variables remain.
+        
     });
     </script>
 </body>
