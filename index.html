@@ -55,15 +55,8 @@
         font-weight: 700;
       }
       
-      a {
-        color: var(--theme-color);
-        transition: filter 0.2s;
-      }
-      a:hover {
-        text-decoration: none;
-        color: var(--theme-color);
-        filter: brightness(1.2);
-      }
+      a { color: var(--theme-color); transition: filter 0.2s; }
+      a:hover { text-decoration: none; color: var(--theme-color); filter: brightness(1.2); }
       .font-weight-bold { font-weight: 700 !important; }
 
       /* Navbar */
@@ -78,11 +71,7 @@
       .nav-link { font-weight: 500; }
       .navbar-toggler { border: none; }
       .navbar-toggler:focus { outline: none; box-shadow: none; }
-      .dropdown-menu { 
-        background-color: var(--card-bg-color);
-        border-color: var(--card-border-color);
-        box-shadow: 0 8px 25px var(--shadow-color);
-      }
+      .dropdown-menu { background-color: var(--card-bg-color); border-color: var(--card-border-color); }
       .dropdown-item { color: var(--text-color) !important; }
       .dropdown-item:hover { background-color: rgba(128, 128, 128, 0.1); }
       .toggle-container { cursor: pointer; padding: 0.5rem 0.75rem; }
@@ -90,56 +79,17 @@
       html[data-theme='dark'] .fa-sun { display: block; } html[data-theme='dark'] .fa-moon { display: none; }
 
       /* Page Content & Layout */
-      .content-wrapper {
-        padding-top: 2rem;
-      }
-      .post-header {
-        text-align: center;
-        margin-bottom: 3rem;
-      }
+      .post-header { text-align: center; margin-bottom: 3rem; }
       .post-title { font-size: 3rem; }
       .desc { font-size: 1.25rem; color: var(--theme-color); }
 
-      .profile-section {
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-        margin-bottom: 3rem;
-      }
-      .profile-pic-container { flex-shrink: 0; }
-      .profile-pic {
-        width: 250px;
-        height: 250px;
-        object-fit: cover;
-        border-radius: 50%;
-        border: 5px solid var(--card-bg-color);
-        box-shadow: 0 10px 30px var(--shadow-color);
-      }
+      .profile-section { display: flex; align-items: center; gap: 2rem; margin-bottom: 3rem; }
+      .profile-pic { width: 250px; height: 250px; object-fit: cover; border-radius: 50%; border: 5px solid var(--card-bg-color); box-shadow: 0 10px 30px var(--shadow-color); }
 
-      /* Content Sections (Highlights, Competencies, Certs) */
-      .content-section {
-        margin-bottom: 3rem;
-      }
-      .content-section h4 {
-        margin-bottom: 1.5rem;
-        padding-bottom: 0.5rem;
-        border-bottom: 1px solid var(--card-border-color);
-      }
-      .content-section ul {
-        list-style: none;
-        padding-left: 0;
-      }
-       .content-section ul li {
-        margin-bottom: 0.75rem;
-        padding-left: 1.5rem;
-        position: relative;
-      }
-      .content-section ul li::before {
-        content: '✓';
-        color: var(--theme-color);
-        position: absolute;
-        left: 0;
-      }
+      .content-section { margin-bottom: 3rem; }
+      .content-section h4 { margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--card-border-color); }
+      .content-section ul { list-style: none; padding-left: 0; }
+      .content-section ul li { margin-bottom: 0.75rem; }
 
       /* Certification Cards */
       .certification-card {
@@ -151,50 +101,28 @@
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         color: var(--text-color) !important;
       }
-      .certification-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px var(--shadow-color);
-      }
-      .cert-image-container {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        overflow: hidden;
-        margin: 0 auto 1rem auto;
-        border: 3px solid var(--theme-color);
-      }
-      .cert-image-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
+      .certification-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px var(--shadow-color); }
+      .cert-image-container { width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin: 0 auto 1rem auto; border: 3px solid var(--theme-color); }
+      .cert-image-container img { width: 100%; height: 100%; object-fit: cover; }
       .cert-title { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1rem; color: var(--heading-color) !important; }
       .cert-issuer, .cert-date { font-size: 0.85rem; color: var(--text-color); }
       
       /* Social and Footer */
       .social { text-align: center; padding: 2rem 0; }
       .contact-icons { display: flex; justify-content: center; gap: 1.5rem; }
-      .contact-icons a {
-          display: inline-block;
-          font-size: 1.8rem;
-          color: var(--text-color);
-          transition: transform 0.3s ease, color 0.3s ease;
-      }
-      .contact-icons a:hover {
-        transform: translateY(-3px);
-        color: var(--theme-color);
-      }
+      .contact-icons a { display: inline-block; font-size: 1.8rem; color: var(--text-color); transition: transform 0.3s ease, color 0.3s ease; }
+      .contact-icons a:hover { transform: translateY(-3px); color: var(--theme-color); }
       .contact-icons img { height: 28px; width: 28px; }
       .contact-note { margin-top: 1.5rem; }
       footer { background-color: transparent; padding: 1.5rem 0; text-align: center; border-top: 1px solid var(--card-border-color); margin-top: 2rem; }
 
       /* Simple Fade-In Animation */
-      .fade-in-up {
+      .fade-in-up, [data-stagger] > * {
         opacity: 0;
         transform: translateY(20px);
         transition: opacity 0.6s ease-out, transform 0.6s ease-out;
       }
-      .fade-in-up.is-visible {
+      .fade-in-up.is-visible, [data-stagger].is-visible > * {
         opacity: 1;
         transform: translateY(0);
       }
@@ -221,9 +149,7 @@
                         <li class="nav-item active"><a class="nav-link" href="./index.html">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="./services.html">Services</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Portfolio
-                            </a>
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" role="button" data-toggle="dropdown">Portfolio</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownPortfolio">
                                 <a class="dropdown-item" href="./portfolio.html">Data Scraping Portfolio</a>
                             </div>
@@ -240,7 +166,7 @@
     </header>
 
     <!-- Content -->
-    <div class="container content-wrapper">
+    <div class="container">
         <div class="post">
             <header class="post-header fade-in-up">
                 <h1 class="post-title"><span class="font-weight-bold">Ahmed</span> Khaled</h1>
@@ -248,22 +174,22 @@
             </header>
             
             <article>
-                <section class="profile-section fade-in-up" style="transition-delay: 100ms;">
-                    <div class="profile-pic-container">
+                <section class="profile-section">
+                    <div class="fade-in-up">
                         <img class="profile-pic" src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Ahmed.jpg" alt="Ahmed Khaled Profile Picture">
                     </div>
-                    <div class="profile-text">
-                        <p>Hello! I'm Ahmed Khaled, a dedicated and results-driven freelance specialist in web scraping and data automation. With over three years of intensive professional experience, I have successfully partnered with more than 1,500 clients worldwide, delivering high-quality data solutions tailored to their unique needs.</p>
-                        <p>My passion lies in transforming the vast, unstructured data of the web into clean, actionable insights. I excel at tackling complex, large-scale scraping challenges, developing robust and scalable pipelines to handle everything from simple data extraction to sophisticated automation that bypasses anti-bot measures. My track record of over 800 five-star reviews reflects my commitment to quality, reliability, and client satisfaction.</p>
-                        <p>Whether you need to gather market intelligence, monitor competitor pricing, or build a unique dataset for a machine learning project, I have the technical expertise and strategic mindset to get the job done efficiently. Feel free to explore my <a href="./portfolio.html"><b>Data Scraping Portfolio</b></a> to see examples of my work or review the <a href="./services.html"><b>Services I Offer</b></a>.</p>
+                    <div class="profile-text fade-in-up" style="transition-delay: 150ms;">
+                        <p>Hello! I'm Ahmed Khaled, a freelance specialist dedicated to unlocking the web's data potential. With over three years of focused experience, I've empowered more than 1,500 clients globally by delivering precise, high-quality data solutions tailored to their strategic needs.</p>
+                        <p>My expertise lies in transforming chaotic web data into clean, actionable insights. I build robust and scalable pipelines to tackle complex scraping challenges, skillfully navigating anti-bot measures to ensure reliable data flow. This commitment to excellence is reflected in my track record of over 800 five-star reviews.</p>
+                        <p>Whether you're gathering market intelligence, monitoring competitor pricing, or building a dataset for a machine learning project, I provide the technical skill and strategic foresight to achieve your goals efficiently. Explore my <strong><a href="./portfolio.html">Data Scraping Portfolio</a></strong> to see my work or review the <strong><a href="./services.html">Services I Offer</a></strong>.</p>
                     </div>
                 </section>
                 
                 <div class="row">
                     <div class="col-lg-6">
-                        <div class="content-section fade-in-up" style="transition-delay: 200ms;">
+                        <div class="content-section fade-in-up">
                             <h4><i class="fas fa-trophy mr-2"></i>Career Highlights</h4>
-                            <ul>
+                            <ul data-stagger>
                                 <li><strong>1,500+</strong> Clients Served Globally 🌍</li>
                                 <li><strong>800+</strong> Five-Star Reviews ⭐⭐⭐⭐⭐</li>
                                 <li><strong>3+ Years</strong> of Professional Freelancing Experience</li>
@@ -272,74 +198,50 @@
                         </div>
                     </div>
                     <div class="col-lg-6">
-                         <div class="content-section fade-in-up" style="transition-delay: 300ms;">
+                         <div class="content-section fade-in-up">
                             <h4><i class="fas fa-cogs mr-2"></i>Core Competencies</h4>
-                            <ul>
-                                <li><strong>Methodologies</strong>: Web Scraping, Data Mining, Data Cleaning, API Integration, Proxy & CAPTCHA Handling, Automation</li>
-                                <li><strong>Languages</strong>: Python (Requests, BeautifulSoup, Scrapy, Selenium, Pandas, Regex), SQL</li>
-                                <li><strong>Tools</strong>: Scrapy, Selenium, Playwright, DrissionPage, BeautifulSoup, LXML, Proxy Rotators, MySQL, PostgreSQL, Git</li>
-                                <li><strong>Data Handling</strong>: Pandas, Matplotlib, Power BI, Tableau, Excel, Google Sheets</li>
+                            <ul data-stagger>
+                                <li><strong>Methodologies</strong>: Web Scraping, Data Mining, Automation</li>
+                                <li><strong>Languages</strong>: Python (Scrapy, Selenium, Pandas), SQL</li>
+                                <li><strong>Tools</strong>: Playwright, BeautifulSoup, Proxy Rotators, Git</li>
+                                <li><strong>Data Handling</strong>: Power BI, Tableau, Excel, Google Sheets</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-                <div class="content-section fade-in-up" style="transition-delay: 400ms;">
+                <div class="content-section fade-in-up">
                     <h4><i class="fas fa-certificate mr-2"></i>Certifications</h4>
-                    <div class="row">
+                    <div class="row" data-stagger>
                         <div class="col-lg-6 mb-4">
                             <a href="https://www.credly.com/badges/71a9c2ad-7394-4c25-842d-bacfafc72204" target="_blank" rel="noopener noreferrer" class="d-block h-100">
                                 <div class="certification-card h-100">
-                                    <div class="cert-image-container">
-                                        <img src="https://images.credly.com/images/9247e02c-eade-4704-8758-7a9f6ef8e3db/image.png" alt="Querying Databases with SQL Badge">
-                                    </div>
-                                    <div class="cert-details">
-                                        <h6 class="cert-title">Querying Databases with SQL</h6>
-                                        <p class="cert-issuer">Coursera</p>
-                                        <p class="cert-date">Issued: Oct 14, 2023</p>
-                                    </div>
+                                    <div class="cert-image-container"><img src="https://images.credly.com/images/9247e02c-eade-4704-8758-7a9f6ef8e3db/image.png" alt="SQL Badge"></div>
+                                    <div class="cert-details"><h6 class="cert-title">Querying Databases with SQL</h6><p class="cert-issuer">Coursera</p><p class="cert-date">Issued: Oct 14, 2023</p></div>
                                 </div>
                             </a>
                         </div>
                         <div class="col-lg-6 mb-4">
                             <a href="https://www.credly.com/badges/29d55d4c-6e3a-4745-b85c-ccadcbf5718a" target="_blank" rel="noopener noreferrer" class="d-block h-100">
                                 <div class="certification-card h-100">
-                                    <div class="cert-image-container">
-                                        <img src="https://images.credly.com/images/f2573aac-d21c-483d-acda-afaa366b4f51/image.png" alt="Databases and SQL for Data Science Badge">
-                                    </div>
-                                    <div class="cert-details">
-                                        <h6 class="cert-title">Databases and SQL for Data Science</h6>
-                                        <p class="cert-issuer">Coursera</p>
-                                        <p class="cert-date">Issued: Oct 3, 2023</p>
-                                    </div>
+                                    <div class="cert-image-container"><img src="https://images.credly.com/images/f2573aac-d21c-483d-acda-afaa366b4f51/image.png" alt="Data Science Badge"></div>
+                                    <div class="cert-details"><h6 class="cert-title">Databases and SQL for Data Science</h6><p class="cert-issuer">Coursera</p><p class="cert-date">Issued: Oct 3, 2023</p></div>
                                 </div>
                             </a>
                         </div>
                         <div class="col-lg-6 mb-4">
                             <a href="https://www.credly.com/badges/476132a0-dba4-4fe3-84fe-6a82bec9ae7e" target="_blank" rel="noopener noreferrer" class="d-block h-100">
                                 <div class="certification-card h-100">
-                                    <div class="cert-image-container">
-                                        <img src="https://images.credly.com/images/2c88c783-8753-44f8-8842-85d495ba1c0e/image.png" alt="Relational Databases (RDBMS) Essentials Badge">
-                                    </div>
-                                    <div class="cert-details">
-                                        <h6 class="cert-title">Relational Databases (RDBMS) Essentials</h6>
-                                        <p class="cert-issuer">Coursera</p>
-                                        <p class="cert-date">Issued: Sep 30, 2023</p>
-                                    </div>
+                                    <div class="cert-image-container"><img src="https://images.credly.com/images/2c88c783-8753-44f8-8842-85d495ba1c0e/image.png" alt="RDBMS Badge"></div>
+                                    <div class="cert-details"><h6 class="cert-title">Relational Databases (RDBMS) Essentials</h6><p class="cert-issuer">Coursera</p><p class="cert-date">Issued: Sep 30, 2023</p></div>
                                 </div>
                             </a>
                         </div>
                         <div class="col-lg-6 mb-4">
                             <a href="https://www.credly.com/badges/c6630790-de41-41d4-ba8c-a1330c2aae6c" target="_blank" rel="noopener noreferrer" class="d-block h-100">
                                 <div class="certification-card h-100">
-                                    <div class="cert-image-container">
-                                        <img src="https://images.credly.com/images/c0b439e5-79d5-498e-abc9-2b71cdf08c34/image.png" alt="Data Engineering Essentials Badge">
-                                    </div>
-                                    <div class="cert-details">
-                                        <h6 class="cert-title">Data Engineering Essentials</h6>
-                                        <p class="cert-issuer">Coursera</p>
-                                        <p class="cert-date">Issued: Jul 29, 2023</p>
-                                    </div>
+                                    <div class="cert-image-container"><img src="https://images.credly.com/images/c0b439e5-79d5-498e-abc9-2b71cdf08c34/image.png" alt="Data Engineering Badge"></div>
+                                    <div class="cert-details"><h6 class="cert-title">Data Engineering Essentials</h6><p class="cert-issuer">Coursera</p><p class="cert-date">Issued: Jul 29, 2023</p></div>
                                 </div>
                             </a>
                         </div>
@@ -383,14 +285,21 @@
             const savedTheme = localStorage.getItem('theme') || 'dark';
             applyTheme(savedTheme);
 
-            // --- SIMPLE FADE-IN ON SCROLL ---
-            const animatedElements = document.querySelectorAll('.fade-in-up');
+            // --- FADE & STAGGER ANIMATION ON SCROLL ---
+            const animatedElements = document.querySelectorAll('.fade-in-up, [data-stagger]');
 
             if ("IntersectionObserver" in window) {
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
                             entry.target.classList.add('is-visible');
+                            // Stagger children if the element has the data-stagger attribute
+                            if (entry.target.hasAttribute('data-stagger')) {
+                                const children = entry.target.children;
+                                for (let i = 0; i < children.length; i++) {
+                                    children[i].style.transitionDelay = `${i * 100}ms`;
+                                }
+                            }
                         }
                     });
                 }, {
