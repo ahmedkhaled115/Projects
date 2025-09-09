@@ -56,29 +56,39 @@
       .contact-note { margin-top: 1.5rem; font-size: 1.1rem; }
       footer { background-color: var(--footer-bg-color); border-top: 1px solid var(--footer-border-color); padding: 1.5rem 0; text-align: center; width: 100%; margin-top: 3rem; }
       
-      /* Styles for the new certification section */
+      /* Styles for the new circular certification section */
       .certification-card {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        padding: 1rem;
+        text-align: center;
+        padding: 1.5rem;
         border: 1px solid var(--footer-border-color);
-        border-radius: 8px;
-        transition: background-color 0.3s ease, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        color: var(--global-text-color); /* Inherit text color */
+        border-radius: 15px;
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        color: var(--global-text-color);
+        background-color: var(--navbar-bg-color);
       }
       .certification-card:hover {
-        background-color: rgba(128, 128, 128, 0.1);
         transform: translateY(-5px);
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       }
       html[data-theme='dark'] .certification-card:hover {
         box-shadow: 0 4px 15px rgba(0,0,0,0.3);
       }
-      .certification-card img {
-        width: 80px;
-        height: 80px;
-        margin-right: 1rem;
-        flex-shrink: 0; /* Prevents image from shrinking */
+      .cert-image-container {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 1rem;
+        flex-shrink: 0;
+        border: 3px solid var(--global-theme-color);
+      }
+      .cert-image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
       .cert-details {
         display: flex;
@@ -88,10 +98,11 @@
       .cert-title {
         font-weight: 500;
         margin-bottom: 0.25rem;
+        font-size: 1.1rem;
         color: var(--global-text-color);
       }
       .cert-issuer, .cert-date {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
         color: #888;
         margin-bottom: 0;
       }
@@ -174,42 +185,58 @@
                     <h4><i class="fas fa-certificate mr-2"></i>Certifications</h4>
                     <div class="row">
                         <div class="col-lg-6 mb-4">
-                            <a href="https://www.credly.com/badges/71a9c2ad-7394-4c25-842d-bacfafc72204" target="_blank" rel="noopener noreferrer" class="certification-card h-100">
-                                <img src="https://images.credly.com/images/9247e02c-eade-4704-8758-7a9f6ef8e3db/image.png" alt="Querying Databases with SQL Badge">
-                                <div class="cert-details">
-                                    <h6 class="cert-title">Querying Databases with SQL</h6>
-                                    <p class="cert-issuer">Coursera</p>
-                                    <p class="cert-date">Issued: Oct 14, 2023</p>
+                            <a href="https://www.credly.com/badges/71a9c2ad-7394-4c25-842d-bacfafc72204" target="_blank" rel="noopener noreferrer" class="d-block h-100">
+                                <div class="certification-card h-100">
+                                    <div class="cert-image-container">
+                                        <img src="https://images.credly.com/images/9247e02c-eade-4704-8758-7a9f6ef8e3db/image.png" alt="Querying Databases with SQL Badge">
+                                    </div>
+                                    <div class="cert-details">
+                                        <h6 class="cert-title">Querying Databases with SQL</h6>
+                                        <p class="cert-issuer">Coursera</p>
+                                        <p class="cert-date">Issued: Oct 14, 2023</p>
+                                    </div>
                                 </div>
                             </a>
                         </div>
                         <div class="col-lg-6 mb-4">
-                            <a href="https://www.credly.com/badges/29d55d4c-6e3a-4745-b85c-ccadcbf5718a" target="_blank" rel="noopener noreferrer" class="certification-card h-100">
-                                <img src="https://images.credly.com/images/f2573aac-d21c-483d-acda-afaa366b4f51/image.png" alt="Databases and SQL for Data Science Badge">
-                                <div class="cert-details">
-                                    <h6 class="cert-title">Databases and SQL for Data Science</h6>
-                                    <p class="cert-issuer">Coursera</p>
-                                    <p class="cert-date">Issued: Oct 3, 2023</p>
+                            <a href="https://www.credly.com/badges/29d55d4c-6e3a-4745-b85c-ccadcbf5718a" target="_blank" rel="noopener noreferrer" class="d-block h-100">
+                                <div class="certification-card h-100">
+                                    <div class="cert-image-container">
+                                        <img src="https://images.credly.com/images/f2573aac-d21c-483d-acda-afaa366b4f51/image.png" alt="Databases and SQL for Data Science Badge">
+                                    </div>
+                                    <div class="cert-details">
+                                        <h6 class="cert-title">Databases and SQL for Data Science</h6>
+                                        <p class="cert-issuer">Coursera</p>
+                                        <p class="cert-date">Issued: Oct 3, 2023</p>
+                                    </div>
                                 </div>
                             </a>
                         </div>
                         <div class="col-lg-6 mb-4">
-                            <a href="https://www.credly.com/badges/476132a0-dba4-4fe3-84fe-6a82bec9ae7e" target="_blank" rel="noopener noreferrer" class="certification-card h-100">
-                                <img src="https://images.credly.com/images/2c88c783-8753-44f8-8842-85d495ba1c0e/image.png" alt="Relational Databases (RDBMS) Essentials Badge">
-                                <div class="cert-details">
-                                    <h6 class="cert-title">Relational Databases (RDBMS) Essentials</h6>
-                                    <p class="cert-issuer">Coursera</p>
-                                    <p class="cert-date">Issued: Sep 30, 2023</p>
+                            <a href="https://www.credly.com/badges/476132a0-dba4-4fe3-84fe-6a82bec9ae7e" target="_blank" rel="noopener noreferrer" class="d-block h-100">
+                                <div class="certification-card h-100">
+                                    <div class="cert-image-container">
+                                        <img src="https://images.credly.com/images/2c88c783-8753-44f8-8842-85d495ba1c0e/image.png" alt="Relational Databases (RDBMS) Essentials Badge">
+                                    </div>
+                                    <div class="cert-details">
+                                        <h6 class="cert-title">Relational Databases (RDBMS) Essentials</h6>
+                                        <p class="cert-issuer">Coursera</p>
+                                        <p class="cert-date">Issued: Sep 30, 2023</p>
+                                    </div>
                                 </div>
                             </a>
                         </div>
                         <div class="col-lg-6 mb-4">
-                            <a href="https://www.credly.com/badges/c6630790-de41-41d4-ba8c-a1330c2aae6c" target="_blank" rel="noopener noreferrer" class="certification-card h-100">
-                                <img src="https://images.credly.com/images/c0b439e5-79d5-498e-abc9-2b71cdf08c34/image.png" alt="Data Engineering Essentials Badge">
-                                <div class="cert-details">
-                                    <h6 class="cert-title">Data Engineering Essentials</h6>
-                                    <p class="cert-issuer">Coursera</p>
-                                    <p class="cert-date">Issued: Jul 29, 2023</p>
+                            <a href="https://www.credly.com/badges/c6630790-de41-41d4-ba8c-a1330c2aae6c" target="_blank" rel="noopener noreferrer" class="d-block h-100">
+                                <div class="certification-card h-100">
+                                    <div class="cert-image-container">
+                                        <img src="https://images.credly.com/images/c0b439e5-79d5-498e-abc9-2b71cdf08c34/image.png" alt="Data Engineering Essentials Badge">
+                                    </div>
+                                    <div class="cert-details">
+                                        <h6 class="cert-title">Data Engineering Essentials</h6>
+                                        <p class="cert-issuer">Coursera</p>
+                                        <p class="cert-date">Issued: Jul 29, 2023</p>
+                                    </div>
                                 </div>
                             </a>
                         </div>
