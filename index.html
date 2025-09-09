@@ -89,9 +89,13 @@
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         border-bottom: 1px solid var(--card-border-color);
+        padding: 0.75rem 1rem;
       }
       .navbar-brand { font-family: 'Roboto Slab', serif; font-size: 1.5rem; color: var(--heading-color) !important; }
       .nav-link { font-weight: 500; }
+      .navbar-toggler { border: none; }
+      .navbar-toggler:focus { outline: none; box-shadow: none; }
+      .navbar-toggler-icon { color: var(--heading-color); }
       .toggle-container { cursor: pointer; padding: 0.5rem 0.75rem; }
       .fa-sun { display: none; } .fa-moon { display: block; }
       html[data-theme='dark'] .fa-sun { display: block; } html[data-theme='dark'] .fa-moon { display: none; }
@@ -103,7 +107,7 @@
 
       /* Content Layout */
       .profile-section { display: flex; align-items: center; gap: 3rem; margin-bottom: 4rem; }
-      .profile-pic { width: 250px; height: 250px; object-fit: cover; border-radius: 50%; border: 5px solid var(--card-bg-color); box-shadow: 0 10px 30px var(--shadow-color); }
+      .profile-pic { width: 250px; height: 250px; object-fit: cover; border-radius: 50%; border: 5px solid var(--card-bg-color); box-shadow: 0 10px 30px var(--shadow-color); flex-shrink: 0; }
       .content-section { margin-bottom: 4rem; }
       .content-section h4 { margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--card-border-color); }
       .content-section ul { list-style: none; padding-left: 0; }
@@ -119,6 +123,7 @@
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         color: var(--text-color) !important;
         box-shadow: 0 4px 15px var(--shadow-color);
+        height: 100%;
       }
       .certification-card:hover { 
         box-shadow: 0 8px 25px var(--shadow-color), 0 0 20px var(--glow-color);
@@ -129,16 +134,18 @@
       
       /* Social and Footer */
       .social { text-align: center; padding: 2rem 0; }
-      .contact-icons { display: flex; justify-content: center; gap: 1.5rem; }
+      .contact-icons { display: flex; justify-content: center; gap: 1.5rem; align-items: center; }
       .contact-icons a { display: inline-block; font-size: 1.8rem; color: var(--text-color); }
-      .contact-icons img { height: 28px; width: 28px; }
+      .contact-icons img { height: 28px; width: auto; vertical-align: middle; }
       .contact-note { margin-top: 1.5rem; }
       footer { background-color: transparent; padding: 1.5rem 0; text-align: center; border-top: 1px solid var(--card-border-color); margin-top: 2rem; }
 
       /* Responsive Design */
+      @media (max-width: 991px) {
+        .profile-section { flex-direction: column; text-align: center; }
+      }
       @media (max-width: 768px) {
         .post-title { font-size: 2.5rem; }
-        .profile-section { flex-direction: column; }
         .profile-pic { width: 200px; height: 200px; }
       }
     </style>
@@ -151,11 +158,14 @@
 
     <!-- Header -->
     <header>
-        <nav id="navbar" class="navbar navbar-expand-sm fixed-top">
+        <nav id="navbar" class="navbar navbar-expand-lg fixed-top">
             <div class="container">
                 <a class="navbar-brand title" href="./index.html"><span class="font-weight-bold">Ahmed</span> Khaled</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars navbar-toggler-icon"></i>
+                </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ml-auto flex-nowrap align-items-center">
+                    <ul class="navbar-nav ml-auto align-items-center">
                         <li class="nav-item active"><a class="nav-link" href="./index.html">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="./services.html">Services</a></li>
                         <li class="nav-item"><a class="nav-link" href="./portfolio.html">Portfolio</a></li>
@@ -219,33 +229,33 @@
                     <h4><i class="fas fa-certificate mr-2"></i>Certifications</h4>
                     <div class="row">
                         <div class="col-lg-6 mb-4">
-                            <a href="#" class="d-block h-100 certification-card-link">
-                                <div class="certification-card h-100">
+                            <a href="https://www.credly.com/badges/71a9c2ad-7394-4c25-842d-bacfafc72204" target="_blank" rel="noopener" class="d-block certification-card-link">
+                                <div class="certification-card">
                                     <div class="cert-image-container"><img src="https://images.credly.com/images/9247e02c-eade-4704-8758-7a9f6ef8e3db/image.png" alt="SQL Badge"></div>
                                     <div class="cert-details"><h6 class="cert-title">Querying Databases with SQL</h6></div>
                                 </div>
                             </a>
                         </div>
                         <div class="col-lg-6 mb-4">
-                            <a href="#" class="d-block h-100 certification-card-link">
-                                <div class="certification-card h-100">
+                            <a href="https://www.credly.com/badges/29d55d4c-6e3a-4745-b85c-ccadcbf5718a" target="_blank" rel="noopener" class="d-block certification-card-link">
+                                <div class="certification-card">
                                     <div class="cert-image-container"><img src="https://images.credly.com/images/f2573aac-d21c-483d-acda-afaa366b4f51/image.png" alt="Data Science Badge"></div>
                                     <div class="cert-details"><h6 class="cert-title">Databases and SQL for Data Science</h6></div>
                                 </div>
                             </a>
                         </div>
                         <div class="col-lg-6 mb-4">
-                            <a href="#" class="d-block h-100 certification-card-link">
-                                <div class="certification-card h-100">
+                            <a href="https://www.credly.com/badges/476132a0-dba4-4fe3-84fe-6a82bec9ae7e" target="_blank" rel="noopener" class="d-block certification-card-link">
+                                <div class="certification-card">
                                     <div class="cert-image-container"><img src="https://images.credly.com/images/2c88c783-8753-44f8-8842-85d495ba1c0e/image.png" alt="RDBMS Badge"></div>
                                     <div class="cert-details"><h6 class="cert-title">Relational Databases (RDBMS) Essentials</h6></div>
                                 </div>
                             </a>
                         </div>
                         <div class="col-lg-6 mb-4">
-                           <a href="#" class="d-block h-100 certification-card-link">
-                                <div class="certification-card h-100">
-                                    <div class="cert-image-container"><img src="https://images.credly.com/images/c0b439e5-79d5-498e-abc9-2b71cdf08c34/image.png" alt="Data Engineering Badge"></div>
+                           <a href="https://www.credly.com/badges/c6630790-de41-41d4-ba8c-a1330c2aae6c" target="_blank" rel="noopener" class="d-block certification-card-link">
+                                <div class="certification-card">
+                                    <div class="cert-image-container"><img src="https://images.credly.com/images/c0b439e5-79d5-4powe-abc9-2b71cdf08c34/image.png" alt="Data Engineering Badge"></div>
                                     <div class="cert-details"><h6 class="cert-title">Data Engineering Essentials</h6></div>
                                 </div>
                             </a>
@@ -260,10 +270,11 @@
     <div class="social g-fade-in">
         <div class="contact-icons">
             <a href="mailto:ahmedmtc11560@gmail.com" title="Email" class="magnetic-link"><i class="fas fa-envelope"></i></a>
-            <a href="#" title="LinkedIn" class="magnetic-link"><i class="fab fa-linkedin"></i></a>
-            <a href="#" title="GitHub" class="magnetic-link"><i class="fab fa-github"></i></a>
-            <a href="#" title="Fiverr" class="magnetic-link"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Fiverr.png" alt="Fiverr"/></a>
-            <a href="#" title="Upwork" class="magnetic-link"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/upwork2.png" alt="Upwork"/></a>  
+            <a href="https://www.linkedin.com/in/ahmed-khaled-a41919248/" title="LinkedIn" target="_blank" rel="noopener noreferrer" class="magnetic-link"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/ahmedkhaled115" title="GitHub" target="_blank" rel="noopener noreferrer" class="magnetic-link"><i class="fab fa-github"></i></a>
+            <a href="https://www.fiverr.com/ahmedkhaled160?public_mode=true" target="_blank" title="Fiverr" class="magnetic-link"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Fiverr.png" alt="Fiverr"/></a>
+            <a href="https://www.upwork.com/freelancers/~01015f3348d2532c01?viewMode=1" target="_blank" title="Upwork" class="magnetic-link"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/upwork2.png" alt="Upwork"/></a>
+            <a href="https://khamsat.com/user/ahmed11560" target="_blank" title="Khamsat" class="magnetic-link"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Khamsat.png" alt="Khamsat"/></a>
         </div>
         <div class="contact-note">✨ Always open for collaborations & freelance opportunities!</div>
     </div>
@@ -281,6 +292,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             gsap.registerPlugin(ScrollTrigger);
+            const isTouchDevice = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
             // --- PRELOADER ANIMATION ---
             const preloaderLogo = document.querySelector('.preloader-logo');
@@ -308,8 +320,7 @@
                 });
 
                 // --- GSAP SCROLL-TRIGGERED ANIMATIONS ---
-                const animatedElements = document.querySelectorAll('.g-fade-in');
-                animatedElements.forEach(el => {
+                gsap.utils.toArray('.g-fade-in').forEach(el => {
                     gsap.from(el, {
                         scrollTrigger: {
                             trigger: el,
@@ -323,46 +334,38 @@
                     });
                 });
 
-                // --- 3D TILT EFFECT FOR CERT CARDS ---
-                document.querySelectorAll('.certification-card-link').forEach(cardLink => {
-                    const card = cardLink.querySelector('.certification-card');
-                    cardLink.addEventListener('mousemove', e => {
-                        const rect = cardLink.getBoundingClientRect();
-                        const x = e.clientX - rect.left;
-                        const y = e.clientY - rect.top;
-                        const rotateX = -1 * ((rect.height / 2) - y) / 20;
-                        const rotateY = ((rect.width / 2) - x) / 20;
-                        gsap.to(card, {
-                            rotationX: rotateX,
-                            rotationY: rotateY,
-                            transformPerspective: 1000,
-                            ease: 'power2.out',
-                            duration: 0.5
+                // --- DESKTOP-ONLY INTERACTIVITY ---
+                if (!isTouchDevice()) {
+                    // --- 3D TILT EFFECT FOR CERT CARDS ---
+                    document.querySelectorAll('.certification-card-link').forEach(cardLink => {
+                        const card = cardLink.querySelector('.certification-card');
+                        cardLink.addEventListener('mousemove', e => {
+                            const rect = cardLink.getBoundingClientRect();
+                            const x = e.clientX - rect.left;
+                            const y = e.clientY - rect.top;
+                            const rotateX = -1 * ((rect.height / 2) - y) / 20;
+                            const rotateY = ((rect.width / 2) - x) / 20;
+                            gsap.to(card, { rotationX: rotateX, rotationY: rotateY, transformPerspective: 1000, ease: 'power2.out', duration: 0.5 });
+                        });
+                        cardLink.addEventListener('mouseleave', () => {
+                            gsap.to(card, { rotationX: 0, rotationY: 0, ease: 'elastic.out(1, 0.5)', duration: 1 });
                         });
                     });
-                    cardLink.addEventListener('mouseleave', () => {
-                        gsap.to(card, {
-                            rotationX: 0,
-                            rotationY: 0,
-                            ease: 'elastic.out(1, 0.5)',
-                            duration: 1
-                        });
-                    });
-                });
 
-                // --- MAGNETIC LINKS ---
-                document.querySelectorAll('.magnetic-link').forEach(link => {
-                    const icon = link.querySelector('i, img');
-                    link.addEventListener('mousemove', e => {
-                        const rect = link.getBoundingClientRect();
-                        const x = e.clientX - rect.left - rect.width / 2;
-                        const y = e.clientY - rect.top - rect.height / 2;
-                        gsap.to(icon, { x: x * 0.3, y: y * 0.3, duration: 0.5, ease: 'power3.out' });
+                    // --- MAGNETIC LINKS ---
+                    document.querySelectorAll('.magnetic-link').forEach(link => {
+                        const icon = link.querySelector('i, img');
+                        link.addEventListener('mousemove', e => {
+                            const rect = link.getBoundingClientRect();
+                            const x = e.clientX - rect.left - rect.width / 2;
+                            const y = e.clientY - rect.top - rect.height / 2;
+                            gsap.to(icon, { x: x * 0.3, y: y * 0.3, duration: 0.5, ease: 'power3.out' });
+                        });
+                        link.addEventListener('mouseleave', () => {
+                            gsap.to(icon, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.3)' });
+                        });
                     });
-                    link.addEventListener('mouseleave', () => {
-                        gsap.to(icon, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.3)' });
-                    });
-                });
+                }
             }
 
             // --- THEME TOGGLE ---
