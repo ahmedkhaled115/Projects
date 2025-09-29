@@ -1,281 +1,512 @@
-<!-- Header -->
-<header>
-    <nav id="navbar" class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand title" href="./index.html"><span class="font-weight-bold">Ahmed</span> Khaled</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fas fa-bars navbar-toggler-icon"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto align-items-center">
-                    <li class="nav-item active"><a class="nav-link" href="./index.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./services.html">Services</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Portfolio
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownPortfolio">
-                            <a class="dropdown-item" href="./portfolio.html">Data Scraping Portfolio</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <div class="toggle-container" id="theme-toggle">
-                            <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <!-- Metadata -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>About | Ahmed Khaled</title>
+    <meta name="author" content="Ahmed Khaled">
+    <meta name="description" content="A portfolio of web scraping and data automation projects by Ahmed Khaled.">
 
-<!-- Content -->
-<div class="container">
-    <div class="post">
-        <header class="post-header">
-            <h1 class="post-title"><span class="font-weight-bold">Ahmed</span> Khaled</h1>
-            <p class="desc"><span id="typed-text"></span></p>
-        </header>
-        
-        <article>
-            <section class="profile-section">
-                <div class="g-fade-in">
-                    <img class="profile-pic" src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Ahmed.jpg" alt="Ahmed Khaled Profile Picture">
+    <!-- 
+      IMPORTANT NOTE: 
+      This page links to external CSS and Font files from the web (Bootstrap, FontAwesome, Google Fonts).
+      For security reasons, most browsers block these when you open the HTML file directly from your computer (using a file:///... path).
+      This is why the styling may appear broken.
+
+      SOLUTION: 
+      To see the page correctly, you MUST view it through a local web server. 
+      The easiest way is using the "Live Server" extension in Visual Studio Code.
+    -->
+
+    <!-- Stylesheets and Fonts -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🕸️&lt;/text&gt;&lt;/svg&gt;">
+
+    <style>
+      :root {
+        --bg-color: #F8F9FA;
+        --text-color: #495057;
+        --heading-color: #212529;
+        --theme-color: #0056b3;
+        --card-bg-color: #FFFFFF;
+        --card-border-color: #DEE2E6;
+        --navbar-bg-color: rgba(255, 255, 255, 0.85);
+        --shadow-color: rgba(0, 0, 0, 0.05);
+        --glow-color: rgba(0, 86, 179, 0.1);
+      }
+
+      html[data-theme='dark'] {
+        --bg-color: #0D1117;
+        --text-color: #ADB5BD;
+        --heading-color: #E8EAED;
+        --theme-color: #58A6FF;
+        --card-bg-color: #161B22;
+        --card-border-color: #30363D;
+        --navbar-bg-color: rgba(13, 17, 23, 0.85);
+        --shadow-color: rgba(0, 0, 0, 0.2);
+        --glow-color: rgba(88, 166, 255, 0.15);
+      }
+
+      /* Base Styles */
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        padding-top: 80px;
+        transition: background-color 0.3s, color 0.3s;
+        overflow-x: hidden;
+      }
+      .hidden { overflow: hidden; }
+
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Roboto Slab', serif;
+        color: var(--heading-color);
+        font-weight: 700;
+      }
+      
+      a { color: var(--theme-color); transition: filter 0.2s; }
+      a:hover { text-decoration: none; color: var(--theme-color); filter: brightness(1.2); }
+      .font-weight-bold { font-weight: 700 !important; }
+
+      /* Preloader */
+      .preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--bg-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      }
+      .preloader-logo {
+        font-family: 'Roboto Slab', serif;
+        font-size: 3rem;
+        color: var(--heading-color);
+        opacity: 0;
+      }
+      .preloader-logo .ak-k { color: var(--theme-color); }
+
+      /* Navbar */
+      .navbar {
+        background-color: var(--navbar-bg-color);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--card-border-color);
+        padding: 0.75rem 1rem;
+      }
+      .navbar-brand { font-family: 'Roboto Slab', serif; font-size: 1.5rem; color: var(--heading-color) !important; }
+      .nav-link { font-weight: 500; }
+      .navbar-toggler { border: none; }
+      .navbar-toggler:focus { outline: none; box-shadow: none; }
+      .navbar-toggler-icon { color: var(--heading-color); }
+      .dropdown-menu { 
+        background-color: var(--card-bg-color);
+        border-color: var(--card-border-color);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+      .dropdown-item { color: var(--text-color) !important; }
+      .dropdown-item:hover { background-color: rgba(128, 128, 128, 0.1); }
+      .toggle-container { cursor: pointer; padding: 0.5rem 0.75rem; }
+      .fa-sun { display: none; } .fa-moon { display: block; }
+      html[data-theme='dark'] .fa-sun { display: block; } html[data-theme='dark'] .fa-moon { display: none; }
+
+      /* Hero Section */
+      .post-header { text-align: center; margin-bottom: 4rem; padding: 2rem 0; }
+      .post-title { font-size: 3.5rem; }
+      .desc { font-size: 1.25rem; color: var(--theme-color); min-height: 40px; }
+
+      /* Content Layout */
+      .profile-section { display: flex; align-items: center; gap: 3rem; margin-bottom: 4rem; }
+      .profile-pic { width: 250px; height: 250px; object-fit: cover; border-radius: 50%; border: 5px solid var(--card-bg-color); box-shadow: 0 10px 30px var(--shadow-color); flex-shrink: 0; }
+      .content-section { margin-bottom: 4rem; }
+      .content-section h4 { margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--card-border-color); }
+      
+      /* Highlights Section */
+      .highlight-card {
+        background: var(--card-bg-color);
+        border: 1px solid var(--card-border-color);
+        border-radius: 12px;
+        padding: 1.5rem;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 15px var(--shadow-color);
+        height: 100%;
+      }
+      .highlight-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px var(--shadow-color), 0 0 20px var(--glow-color);
+      }
+      .highlight-icon {
+        font-size: 2.5rem;
+        color: var(--theme-color);
+        margin-bottom: 1rem;
+      }
+      .highlight-title {
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        font-size: 1.25rem;
+        color: var(--heading-color);
+      }
+      .highlight-text {
+        font-size: 0.9rem;
+      }
+
+      /* Core Competencies */
+      .competencies-list { list-style: none; padding-left: 0; }
+      .competencies-list li { margin-bottom: 0.75rem; }
+
+      /* Certification Cards */
+      .certification-card {
+        background: var(--card-bg-color);
+        border: 1px solid var(--card-border-color);
+        border-radius: 12px;
+        padding: 1.5rem;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        color: var(--text-color) !important;
+        box-shadow: 0 4px 15px var(--shadow-color);
+        height: 100%;
+      }
+      .certification-card:hover { 
+        box-shadow: 0 8px 25px var(--shadow-color), 0 0 20px var(--glow-color);
+      }
+      .cert-image-container { width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin: 0 auto 1rem auto; border: 3px solid var(--theme-color); }
+      .cert-image-container img { width: 100%; height: 100%; object-fit: cover; }
+      .cert-title { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1rem; color: var(--heading-color) !important; }
+      
+      /* Reviews Section */
+      .review-card {
+        background: var(--card-bg-color);
+        border: 1px solid var(--card-border-color);
+        border-radius: 12px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 15px var(--shadow-color);
+        height: 100%;
+      }
+      .review-quote {
+        font-style: italic;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+      }
+      .review-author {
+        font-weight: 700;
+        color: var(--heading-color);
+      }
+      .review-stars {
+        color: #FFC107;
+        margin-bottom: 1rem;
+      }
+
+      /* Social and Footer */
+      .social { text-align: center; padding: 2rem 0; }
+      .contact-icons { display: flex; justify-content: center; gap: 1.5rem; align-items: center; }
+      .contact-icons a { display: inline-block; font-size: 1.8rem; color: var(--text-color); }
+      .contact-icons img { height: 28px; width: auto; vertical-align: middle; }
+      .contact-note { margin-top: 1.5rem; }
+      footer { background-color: transparent; padding: 1.5rem 0; text-align: center; border-top: 1px solid var(--card-border-color); margin-top: 2rem; }
+
+      /* Responsive Design */
+      @media (max-width: 991px) {
+        .profile-section { flex-direction: column; text-align: center; }
+      }
+      @media (max-width: 768px) {
+        .post-title { font-size: 2.5rem; }
+        .profile-pic { width: 200px; height: 200px; }
+      }
+    </style>
+</head>
+<body class="hidden">
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-logo"><span class="ak-a">A</span><span class="ak-k">K</span></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav id="navbar" class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                <a class="navbar-brand title" href="./index.html"><span class="font-weight-bold">Ahmed</span> Khaled</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars navbar-toggler-icon"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto align-items-center">
+                        <li class="nav-item active"><a class="nav-link" href="./index.html">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./services.html">Services</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Portfolio
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownPortfolio">
+                                <a class="dropdown-item" href="./portfolio.html">Data Scraping Portfolio</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="toggle-container" id="theme-toggle">
+                                <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                <div class="profile-text g-fade-in">
-                    <p>Hello! I'm Ahmed Khaled, a freelance specialist dedicated to unlocking the web's data potential. With over three years of focused experience, I've empowered more than 1,500 clients globally by delivering precise, high-quality data solutions tailored to their strategic needs.</p>
-                    <p>My expertise lies in transforming chaotic web data into clean, actionable insights. I build robust and scalable pipelines to tackle complex scraping challenges, skillfully navigating anti-bot measures to ensure reliable data flow. This commitment to excellence is reflected in my track record of over 800 five-star reviews.</p>
-                    <p>Whether you're gathering market intelligence, monitoring competitor pricing, or building a dataset for a machine learning project, I provide the technical skill and strategic foresight to achieve your goals efficiently. Explore my <strong><a href="./portfolio.html">Data Scraping Portfolio</a></strong> to see my work or review the <strong><a href="./services.html">Services I Offer</a></strong>.</p>
-                </div>
-            </section>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Content -->
+    <div class="container">
+        <div class="post">
+            <header class="post-header">
+                <h1 class="post-title"><span class="font-weight-bold">Ahmed</span> Khaled</h1>
+                <p class="desc"><span id="typed-text"></span></p>
+            </header>
             
-            <div class="content-section g-fade-in">
-                <h4><i class="fas fa-trophy mr-2"></i>Career Highlights</h4>
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="highlight-card">
-                            <div class="highlight-icon"><i class="fas fa-users"></i></div>
-                            <div class="highlight-title">1,500+</div>
-                            <div class="highlight-text">Clients Served Globally</div>
-                        </div>
+            <article>
+                <section class="profile-section">
+                    <div class="g-fade-in">
+                        <img class="profile-pic" src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Ahmed.jpg" alt="Ahmed Khaled Profile Picture">
                     </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="highlight-card">
-                            <div class="highlight-icon"><i class="fas fa-star"></i></div>
-                            <div class="highlight-title">800+</div>
-                            <div class="highlight-text">Five-Star Reviews</div>
-                        </div>
+                    <div class="profile-text g-fade-in">
+                        <p>Hello! I'm Ahmed Khaled, a freelance specialist dedicated to unlocking the web's data potential. With over three years of focused experience, I've empowered more than 1,500 clients globally by delivering precise, high-quality data solutions tailored to their strategic needs.</p>
+                        <p>My expertise lies in transforming chaotic web data into clean, actionable insights. I build robust and scalable pipelines to tackle complex scraping challenges, skillfully navigating anti-bot measures to ensure reliable data flow. This commitment to excellence is reflected in my track record of over 800 five-star reviews.</p>
+                        <p>Whether you're gathering market intelligence, monitoring competitor pricing, or building a dataset for a machine learning project, I provide the technical skill and strategic foresight to achieve your goals efficiently. Explore my <strong><a href="./portfolio.html">Data Scraping Portfolio</a></strong> to see my work or review the <strong><a href="./services.html">Services I Offer</a></strong>.</p>
                     </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="highlight-card">
-                            <div class="highlight-icon"><i class="fas fa-briefcase"></i></div>
-                            <div class="highlight-title">3+ Years</div>
-                            <div class="highlight-text">Freelancing Experience</div>
+                </section>
+                
+                <div class="content-section g-fade-in">
+                    <h4><i class="fas fa-trophy mr-2"></i>Career Highlights</h4>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="highlight-card">
+                                <div class="highlight-icon"><i class="fas fa-users"></i></div>
+                                <div class="highlight-title">1,500+</div>
+                                <div class="highlight-text">Clients Served Globally</div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="highlight-card">
-                            <div class="highlight-icon"><i class="fas fa-cogs"></i></div>
-                            <div class="highlight-title">Large-Scale</div>
-                            <div class="highlight-text">Web Scraping Solutions</div>
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="highlight-card">
+                                <div class="highlight-icon"><i class="fas fa-star"></i></div>
+                                <div class="highlight-title">800+</div>
+                                <div class="highlight-text">Five-Star Reviews</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="highlight-card">
+                                <div class="highlight-icon"><i class="fas fa-briefcase"></i></div>
+                                <div class="highlight-title">3+ Years</div>
+                                <div class="highlight-text">Freelancing Experience</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-4">
+                            <div class="highlight-card">
+                                <div class="highlight-icon"><i class="fas fa-cogs"></i></div>
+                                <div class="highlight-title">Large-Scale</div>
+                                <div class="highlight-text">Web Scraping Solutions</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="col-lg-6">
-                     <div class="content-section g-fade-in">
-                        <h4><i class="fas fa-cogs mr-2"></i>Core Competencies</h4>
-                        <ul>
-                            <li><strong>Methodologies</strong>: Web Scraping, Data Mining, Automation</li>
-                            <li><strong>Languages</strong>: Python (Scrapy, Selenium, Pandas), SQL</li>
-                            <li><strong>Tools</strong>: Playwright, BeautifulSoup, Proxy Rotators, Git</li>
-                            <li><strong>Data Handling</strong>: Power BI, Tableau, Excel, Google Sheets</li>
-                        </ul>
-                    </div>
+                <div class="content-section g-fade-in">
+                    <h4><i class="fas fa-tools mr-2"></i>Core Competencies</h4>
+                     <ul class="competencies-list">
+                        <li><i class="fas fa-check-circle mr-2 text-success"></i><strong>Methodologies</strong>: Web Scraping, Data Mining, Automation</li>
+                        <li><i class="fas fa-check-circle mr-2 text-success"></i><strong>Languages</strong>: Python (Scrapy, Selenium, Pandas), SQL</li>
+                        <li><i class="fas fa-check-circle mr-2 text-success"></i><strong>Tools</strong>: Playwright, BeautifulSoup, Proxy Rotators, Git</li>
+                        <li><i class="fas fa-check-circle mr-2 text-success"></i><strong>Data Handling</strong>: Power BI, Tableau, Excel, Google Sheets</li>
+                    </ul>
                 </div>
-            </div>
 
-            <div class="content-section g-fade-in">
-                <h4><i class="fas fa-certificate mr-2"></i>Certifications</h4>
-                <div class="row">
-                    <div class="col-lg-6 mb-4">
-                        <a href="https://www.credly.com/badges/71a9c2ad-7394-4c25-842d-bacfafc72204" target="_blank" rel="noopener" class="d-block certification-card-link">
-                            <div class="certification-card">
-                                <div class="cert-image-container"><img src="https://images.credly.com/images/9247e02c-eade-4704-8758-7a9f6ef8e3db/image.png" alt="SQL Badge"></div>
-                                <div class="cert-details"><h6 class="cert-title">Querying Databases with SQL</h6></div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <a href="https://www.credly.com/badges/29d55d4c-6e3a-4745-b85c-ccadcbf5718a" target="_blank" rel="noopener" class="d-block certification-card-link">
-                            <div class="certification-card">
-                                <div class="cert-image-container"><img src="https://images.credly.com/images/f2573aac-d21c-483d-acda-afaa366b4f51/image.png" alt="Data Science Badge"></div>
-                                <div class="cert-details"><h6 class="cert-title">Databases and SQL for Data Science</h6></div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                        <a href="https://www.credly.com/badges/476132a0-dba4-4fe3-84fe-6a82bec9ae7e" target="_blank" rel="noopener" class="d-block certification-card-link">
-                            <div class="certification-card">
-                                <div class="cert-image-container"><img src="https://images.credly.com/images/2c88c783-8753-44f8-8842-85d495ba1c0e/image.png" alt="RDBMS Badge"></div>
-                                <div class="cert-details"><h6 class="cert-title">Relational Databases (RDBMS) Essentials</h6></div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-6 mb-4">
-                       <a href="https://www.credly.com/badges/c6630790-de41-41d4-ba8c-a1330c2aae6c" target="_blank" rel="noopener" class="d-block certification-card-link">
-                            <div class="certification-card">
-                                <div class="cert-image-container"><img src="https://images.credly.com/images/c0b439e5-79d5-498e-abc9-2b71cdf08c34/image.png" alt="Data Engineering Badge"></div>
-                                <div class="cert-details"><h6 class="cert-title">Data Engineering Essentials</h6></div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="content-section g-fade-in">
-                <h4><i class="fas fa-comments mr-2"></i>Client Reviews</h4>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="review-card">
-                            <div class="review-stars">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <p class="review-quote">"Ahmed is an exceptional freelancer. His attention to detail and ability to deliver high-quality data on a tight deadline was impressive. I would highly recommend him."</p>
-                            <p class="review-author">- John Doe, CEO of ExampleCorp</p>
+                <div class="content-section g-fade-in">
+                    <h4><i class="fas fa-certificate mr-2"></i>Certifications</h4>
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <a href="https://www.credly.com/badges/71a9c2ad-7394-4c25-842d-bacfafc72204" target="_blank" rel="noopener" class="d-block certification-card-link">
+                                <div class="certification-card">
+                                    <div class="cert-image-container"><img src="https://images.credly.com/images/9247e02c-eade-4704-8758-7a9f6ef8e3db/image.png" alt="SQL Badge"></div>
+                                    <div class="cert-details"><h6 class="cert-title">Querying Databases with SQL</h6></div>
+                                </div>
+                            </a>
                         </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="review-card">
-                            <div class="review-stars">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <p class="review-quote">"Working with Ahmed was a pleasure. He is a great communicator and was able to understand our complex requirements and deliver a solution that exceeded our expectations."</p>
-                            <p class="review-author">- Jane Smith, Project Manager at Data Insights</p>
+                        <div class="col-lg-6 mb-4">
+                            <a href="https://www.credly.com/badges/29d55d4c-6e3a-4745-b85c-ccadcbf5718a" target="_blank" rel="noopener" class="d-block certification-card-link">
+                                <div class="certification-card">
+                                    <div class="cert-image-container"><img src="https://images.credly.com/images/f2573aac-d21c-483d-acda-afaa366b4f51/image.png" alt="Data Science Badge"></div>
+                                    <div class="cert-details"><h6 class="cert-title">Databases and SQL for Data Science</h6></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <a href="https://www.credly.com/badges/476132a0-dba4-4fe3-84fe-6a82bec9ae7e" target="_blank" rel="noopener" class="d-block certification-card-link">
+                                <div class="certification-card">
+                                    <div class="cert-image-container"><img src="https://images.credly.com/images/2c88c783-8753-44f8-8842-85d495ba1c0e/image.png" alt="RDBMS Badge"></div>
+                                    <div class="cert-details"><h6 class="cert-title">Relational Databases (RDBMS) Essentials</h6></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                           <a href="https://www.credly.com/badges/c6630790-de41-41d4-ba8c-a1330c2aae6c" target="_blank" rel="noopener" class="d-block certification-card-link">
+                                <div class="certification-card">
+                                    <div class="cert-image-container"><img src="https://images.credly.com/images/c0b439e5-79d5-498e-abc9-2b71cdf08c34/image.png" alt="Data Engineering Badge"></div>
+                                    <div class="cert-details"><h6 class="cert-title">Data Engineering Essentials</h6></div>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </article>
+
+                <div class="content-section g-fade-in">
+                    <h4><i class="fas fa-comments mr-2"></i>Client Reviews</h4>
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="review-card">
+                                <div class="review-stars">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                                <p class="review-quote">"Ahmed is an exceptional freelancer. His attention to detail and ability to deliver high-quality data on a tight deadline was impressive. I would highly recommend him."</p>
+                                <p class="review-author">- John D., CEO of ExampleCorp</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="review-card">
+                                <div class="review-stars">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                                <p class="review-quote">"Working with Ahmed was a pleasure. He is a great communicator and was able to understand our complex requirements and deliver a solution that exceeded our expectations."</p>
+                                <p class="review-author">- Jane S., Project Manager at Data Insights</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
     </div>
-</div>
-
-<!-- Social and Footer -->
-<div class="social g-fade-in">
-    <div class="contact-icons">
-        <a href="mailto:ahmedmtc11560@gmail.com" title="Email" class="magnetic-link"><i class="fas fa-envelope"></i></a>
-        <a href="https://www.linkedin.com/in/ahmed-khaled-a41919248/" title="LinkedIn" target="_blank" rel="noopener noreferrer" class="magnetic-link"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/ahmedkhaled115" title="GitHub" target="_blank" rel="noopener noreferrer" class="magnetic-link"><i class="fab fa-github"></i></a>
-        <a href="https://www.fiverr.com/ahmedkhaled160?public_mode=true" target="_blank" title="Fiverr" class="magnetic-link"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Fiverr.png" alt="Fiverr"/></a>
-        <a href="https://www.upwork.com/freelancers/~01015f3348d2532c01?viewMode=1" target="_blank" title="Upwork" class="magnetic-link"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/upwork2.png" alt="Upwork"/></a>
-        <a href="https://khamsat.com/user/ahmed11560" target="_blank" title="Khamsat" class="magnetic-link"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Khamsat.png" alt="Khamsat"/></a>
+    
+    <!-- Social and Footer -->
+    <div class="social g-fade-in">
+        <div class="contact-icons">
+            <a href="mailto:ahmedmtc11560@gmail.com" title="Email" class="magnetic-link"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/ahmed-khaled-a41919248/" title="LinkedIn" target="_blank" rel="noopener noreferrer" class="magnetic-link"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/ahmedkhaled115" title="GitHub" target="_blank" rel="noopener noreferrer" class="magnetic-link"><i class="fab fa-github"></i></a>
+            <a href="https://www.fiverr.com/ahmedkhaled160?public_mode=true" target="_blank" title="Fiverr" class="magnetic-link"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Fiverr.png" alt="Fiverr"/></a>
+            <a href="https://www.upwork.com/freelancers/~01015f3348d2532c01?viewMode=1" target="_blank" title="Upwork" class="magnetic-link"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/upwork2.png" alt="Upwork"/></a>
+            <a href="https://khamsat.com/user/ahmed11560" target="_blank" title="Khamsat" class="magnetic-link"><img src="https://raw.githubusercontent.com/ahmedkhaled115/Projects/refs/heads/main/icons/Khamsat.png" alt="Khamsat"/></a>
+        </div>
+        <div class="contact-note">✨ Always open for collaborations & freelance opportunities!</div>
     </div>
-    <div class="contact-note">✨ Always open for collaborations & freelance opportunities!</div>
-</div>
-<footer class="g-fade-in">
-    <div class="container">© Copyright 2025 Ahmed Khaled.</div>
-</footer>
+    <footer class="g-fade-in">
+        <div class="container">© Copyright 2025 Ahmed Khaled.</div>
+    </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-<!-- GSAP & Typed.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- GSAP & Typed.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        gsap.registerPlugin(ScrollTrigger);
-        const isTouchDevice = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            gsap.registerPlugin(ScrollTrigger);
+            const isTouchDevice = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-        // --- PRELOADER ANIMATION ---
-        const preloaderLogo = document.querySelector('.preloader-logo');
-        const body = document.querySelector('body');
-        
-        const preloaderTl = gsap.timeline();
-        preloaderTl
-            .to(preloaderLogo, { opacity: 1, duration: 0.5, scale: 1, ease: 'power2.out' })
-            .to(preloaderLogo, { scale: 1.2, duration: 1.5, ease: 'power1.inOut' })
-            .to(preloaderLogo, { opacity: 0, scale: 0.8, duration: 0.5, ease: 'power2.in' })
-            .to('.preloader', { y: '-100%', duration: 1, ease: 'power2.inOut', onComplete: () => {
-                body.classList.remove('hidden');
-                startMainAnimations();
-            }}, '-=0.5');
+            // --- PRELOADER ANIMATION ---
+            const preloaderLogo = document.querySelector('.preloader-logo');
+            const body = document.querySelector('body');
+            
+            const preloaderTl = gsap.timeline();
+            preloaderTl
+                .to(preloaderLogo, { opacity: 1, duration: 0.5, scale: 1, ease: 'power2.out' })
+                .to(preloaderLogo, { scale: 1.2, duration: 1.5, ease: 'power1.inOut' })
+                .to(preloaderLogo, { opacity: 0, scale: 0.8, duration: 0.5, ease: 'power2.in' })
+                .to('.preloader', { y: '-100%', duration: 1, ease: 'power2.inOut', onComplete: () => {
+                    body.classList.remove('hidden');
+                    startMainAnimations();
+                }}, '-=0.5');
 
-        function startMainAnimations() {
-            // --- TYPED.JS ANIMATION ---
-            new Typed('#typed-text', {
-                strings: ['Web Scraping Specialist', 'Data Automation Expert', 'Python Developer'],
-                typeSpeed: 50,
-                backSpeed: 30,
-                backDelay: 2000,
-                loop: true,
-                smartBackspace: true
-            });
-
-            // --- GSAP SCROLL-TRIGGERED ANIMATIONS ---
-            gsap.utils.toArray('.g-fade-in').forEach(el => {
-                gsap.from(el, {
-                    scrollTrigger: {
-                        trigger: el,
-                        start: 'top 85%',
-                        toggleActions: 'play none none none'
-                    },
-                    opacity: 0,
-                    y: 50,
-                    duration: 1,
-                    ease: 'power3.out'
+            function startMainAnimations() {
+                // --- TYPED.JS ANIMATION ---
+                new Typed('#typed-text', {
+                    strings: ['Web Scraping Specialist', 'Data Automation Expert', 'Python Developer'],
+                    typeSpeed: 50,
+                    backSpeed: 30,
+                    backDelay: 2000,
+                    loop: true,
+                    smartBackspace: true
                 });
-            });
 
-            // --- DESKTOP-ONLY INTERACTIVITY ---
-            if (!isTouchDevice()) {
-                // --- 3D TILT EFFECT FOR CERT CARDS ---
-                document.querySelectorAll('.certification-card-link').forEach(cardLink => {
-                    const card = cardLink.querySelector('.certification-card');
-                    cardLink.addEventListener('mousemove', e => {
-                        const rect = cardLink.getBoundingClientRect();
-                        const x = e.clientX - rect.left;
-                        const y = e.clientY - rect.top;
-                        const rotateX = -1 * ((rect.height / 2) - y) / 20;
-                        const rotateY = ((rect.width / 2) - x) / 20;
-                        gsap.to(card, { rotationX: rotateX, rotationY: rotateY, transformPerspective: 1000, ease: 'power2.out', duration: 0.5 });
-                    });
-                    cardLink.addEventListener('mouseleave', () => {
-                        gsap.to(card, { rotationX: 0, rotationY: 0, ease: 'elastic.out(1, 0.5)', duration: 1 });
+                // --- GSAP SCROLL-TRIGGERED ANIMATIONS ---
+                gsap.utils.toArray('.g-fade-in').forEach(el => {
+                    gsap.from(el, {
+                        scrollTrigger: {
+                            trigger: el,
+                            start: 'top 85%',
+                            toggleActions: 'play none none none'
+                        },
+                        opacity: 0,
+                        y: 50,
+                        duration: 1,
+                        ease: 'power3.out'
                     });
                 });
 
-                // --- MAGNETIC LINKS ---
-                document.querySelectorAll('.magnetic-link').forEach(link => {
-                    const icon = link.querySelector('i, img');
-                    link.addEventListener('mousemove', e => {
-                        const rect = link.getBoundingClientRect();
-                        const x = e.clientX - rect.left - rect.width / 2;
-                        const y = e.clientY - rect.top - rect.height / 2;
-                        gsap.to(icon, { x: x * 0.3, y: y * 0.3, duration: 0.5, ease: 'power3.out' });
+                // --- DESKTOP-ONLY INTERACTIVITY ---
+                if (!isTouchDevice()) {
+                    // --- 3D TILT EFFECT FOR CERT CARDS ---
+                    document.querySelectorAll('.certification-card-link').forEach(cardLink => {
+                        const card = cardLink.querySelector('.certification-card');
+                        cardLink.addEventListener('mousemove', e => {
+                            const rect = cardLink.getBoundingClientRect();
+                            const x = e.clientX - rect.left;
+                            const y = e.clientY - rect.top;
+                            const rotateX = -1 * ((rect.height / 2) - y) / 20;
+                            const rotateY = ((rect.width / 2) - x) / 20;
+                            gsap.to(card, { rotationX: rotateX, rotationY: rotateY, transformPerspective: 1000, ease: 'power2.out', duration: 0.5 });
+                        });
+                        cardLink.addEventListener('mouseleave', () => {
+                            gsap.to(card, { rotationX: 0, rotationY: 0, ease: 'elastic.out(1, 0.5)', duration: 1 });
+                        });
                     });
-                    link.addEventListener('mouseleave', () => {
-                        gsap.to(icon, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.3)' });
+
+                    // --- MAGNETIC LINKS ---
+                    document.querySelectorAll('.magnetic-link').forEach(link => {
+                        const icon = link.querySelector('i, img');
+                        link.addEventListener('mousemove', e => {
+                            const rect = link.getBoundingClientRect();
+                            const x = e.clientX - rect.left - rect.width / 2;
+                            const y = e.clientY - rect.top - rect.height / 2;
+                            gsap.to(icon, { x: x * 0.3, y: y * 0.3, duration: 0.5, ease: 'power3.out' });
+                        });
+                        link.addEventListener('mouseleave', () => {
+                            gsap.to(icon, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.3)' });
+                        });
                     });
-                });
+                }
             }
-        }
 
-        // --- THEME TOGGLE ---
-        const themeToggle = document.getElementById('theme-toggle');
-        const html = document.documentElement;
-        const applyTheme = (theme) => {
-            html.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
-        };
-        themeToggle.addEventListener('click', () => {
-            const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-            applyTheme(newTheme);
+            // --- THEME TOGGLE ---
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            const applyTheme = (theme) => {
+                html.setAttribute('data-theme', theme);
+                localStorage.setItem('theme', theme);
+            };
+            themeToggle.addEventListener('click', () => {
+                const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                applyTheme(newTheme);
+            });
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            applyTheme(savedTheme);
         });
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        applyTheme(savedTheme);
-    });
-</script>
+    </script>
+</body>
+</html>
