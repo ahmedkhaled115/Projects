@@ -8,17 +8,6 @@
     <meta name="author" content="Ahmed Khaled">
     <meta name="description" content="A portfolio of web scraping and data automation projects by Ahmed Khaled.">
 
-    <!-- 
-      IMPORTANT NOTE: 
-      This page links to external CSS and Font files from the web (Bootstrap, FontAwesome, Google Fonts).
-      For security reasons, most browsers block these when you open the HTML file directly from your computer (using a file:///... path).
-      This is why the styling may appear broken.
-
-      SOLUTION: 
-      To see the page correctly, you MUST view it through a local web server. 
-      The easiest way is using the "Live Server" extension in Visual Studio Code.
-    -->
-
     <!-- Stylesheets and Fonts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
@@ -110,8 +99,6 @@
       .dropdown-menu { 
         background-color: var(--card-bg-color);
         border-color: var(--card-border-color);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
       }
       .dropdown-item { color: var(--text-color) !important; }
       .dropdown-item:hover { background-color: rgba(128, 128, 128, 0.1); }
@@ -145,24 +132,29 @@
         transform: translateY(-5px);
         box-shadow: 0 8px 25px var(--shadow-color), 0 0 20px var(--glow-color);
       }
-      .highlight-icon {
-        font-size: 2.5rem;
-        color: var(--theme-color);
-        margin-bottom: 1rem;
-      }
-      .highlight-title {
-        font-family: 'Inter', sans-serif;
-        font-weight: 700;
-        font-size: 1.25rem;
-        color: var(--heading-color);
-      }
-      .highlight-text {
-        font-size: 0.9rem;
-      }
+      .highlight-icon { font-size: 2.5rem; color: var(--theme-color); margin-bottom: 1rem; }
+      .highlight-title { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.25rem; color: var(--heading-color); }
+      .highlight-text { font-size: 0.9rem; }
 
-      /* Core Competencies */
-      .competencies-list { list-style: none; padding-left: 0; }
-      .competencies-list li { margin-bottom: 0.75rem; }
+      /* Core Competencies NEW */
+      .competency-card {
+        background: var(--card-bg-color);
+        border: 1px solid var(--card-border-color);
+        border-radius: 12px;
+        padding: 2rem;
+        height: 100%;
+        box-shadow: 0 4px 15px var(--shadow-color);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+       .competency-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px var(--shadow-color), 0 0 20px var(--glow-color);
+      }
+      .competency-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+      .competency-icon { font-size: 1.5rem; color: var(--theme-color); }
+      .competency-title { font-family: 'Inter', sans-serif; font-size: 1.1rem; font-weight: bold; color: var(--heading-color); margin-bottom: 0; }
+      .competency-list { padding-left: 0; list-style-type: none; margin-bottom: 0; }
+      .competency-list li { margin-bottom: 0.25rem; }
 
       /* Certification Cards */
       .certification-card {
@@ -176,36 +168,35 @@
         box-shadow: 0 4px 15px var(--shadow-color);
         height: 100%;
       }
-      .certification-card:hover { 
-        box-shadow: 0 8px 25px var(--shadow-color), 0 0 20px var(--glow-color);
-      }
+      .certification-card:hover { box-shadow: 0 8px 25px var(--shadow-color), 0 0 20px var(--glow-color); }
       .cert-image-container { width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin: 0 auto 1rem auto; border: 3px solid var(--theme-color); }
       .cert-image-container img { width: 100%; height: 100%; object-fit: cover; }
       .cert-title { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1rem; color: var(--heading-color) !important; }
       
-      /* Reviews Section */
-      .review-card {
+      /* Client Testimonials Section NEW */
+      .testimonial-card {
         background: var(--card-bg-color);
         border: 1px solid var(--card-border-color);
         border-radius: 12px;
         padding: 2rem;
-        margin-bottom: 2rem;
         box-shadow: 0 4px 15px var(--shadow-color);
         height: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
       }
-      .review-quote {
-        font-style: italic;
-        margin-bottom: 1rem;
-        font-size: 1.1rem;
+      .testimonial-quote-icon {
+        position: absolute;
+        top: 1rem;
+        left: 1.5rem;
+        font-size: 2rem;
+        color: var(--theme-color);
+        opacity: 0.2;
       }
-      .review-author {
-        font-weight: 700;
-        color: var(--heading-color);
-      }
-      .review-stars {
-        color: #FFC107;
-        margin-bottom: 1rem;
-      }
+      .testimonial-text { font-style: italic; margin-bottom: 1.5rem; flex-grow: 1; padding-top: 1rem;}
+      .testimonial-author { font-weight: 700; color: var(--heading-color); }
+      .testimonial-author span { font-weight: 400; color: var(--text-color); font-size: 0.9rem; }
+      .testimonial-stars { color: #FFC107; margin-bottom: 1rem; }
 
       /* Social and Footer */
       .social { text-align: center; padding: 2rem 0; }
@@ -216,13 +207,8 @@
       footer { background-color: transparent; padding: 1.5rem 0; text-align: center; border-top: 1px solid var(--card-border-color); margin-top: 2rem; }
 
       /* Responsive Design */
-      @media (max-width: 991px) {
-        .profile-section { flex-direction: column; text-align: center; }
-      }
-      @media (max-width: 768px) {
-        .post-title { font-size: 2.5rem; }
-        .profile-pic { width: 200px; height: 200px; }
-      }
+      @media (max-width: 991px) { .profile-section { flex-direction: column; text-align: center; } }
+      @media (max-width: 768px) { .post-title { font-size: 2.5rem; } .profile-pic { width: 200px; height: 200px; } }
     </style>
 </head>
 <body class="hidden">
@@ -243,14 +229,7 @@
                     <ul class="navbar-nav ml-auto align-items-center">
                         <li class="nav-item active"><a class="nav-link" href="./index.html">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="./services.html">Services</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Portfolio
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownPortfolio">
-                                <a class="dropdown-item" href="./portfolio.html">Data Scraping Portfolio</a>
-                            </div>
-                        </li>
+                        <li class="nav-item"><a class="nav-link" href="./portfolio.html">Portfolio</a></li>
                         <li class="nav-item">
                             <div class="toggle-container" id="theme-toggle">
                                 <i class="fas fa-moon"></i><i class="fas fa-sun"></i>
@@ -278,10 +257,11 @@
                     <div class="profile-text g-fade-in">
                         <p>Hello! I'm Ahmed Khaled, a freelance specialist dedicated to unlocking the web's data potential. With over three years of focused experience, I've empowered more than 1,500 clients globally by delivering precise, high-quality data solutions tailored to their strategic needs.</p>
                         <p>My expertise lies in transforming chaotic web data into clean, actionable insights. I build robust and scalable pipelines to tackle complex scraping challenges, skillfully navigating anti-bot measures to ensure reliable data flow. This commitment to excellence is reflected in my track record of over 800 five-star reviews.</p>
-                        <p>Whether you're gathering market intelligence, monitoring competitor pricing, or building a dataset for a machine learning project, I provide the technical skill and strategic foresight to achieve your goals efficiently. Explore my <strong><a href="./portfolio.html">Data Scraping Portfolio</a></strong> to see my work or review the <strong><a href="./services.html">Services I Offer</a></strong>.</p>
+                        <p>Whether you're gathering market intelligence, monitoring competitor pricing, or building a dataset for a machine learning project, I provide the technical skill and strategic foresight to achieve your goals efficiently.</p>
                     </div>
                 </section>
                 
+                <!-- CAREER HIGHLIGHTS -->
                 <div class="content-section g-fade-in">
                     <h4><i class="fas fa-trophy mr-2"></i>Career Highlights</h4>
                     <div class="row">
@@ -308,82 +288,138 @@
                         </div>
                         <div class="col-lg-3 col-md-6 mb-4">
                             <div class="highlight-card">
-                                <div class="highlight-icon"><i class="fas fa-cogs"></i></div>
+                                <div class="highlight-icon"><i class="fas fa-rocket"></i></div>
                                 <div class="highlight-title">Large-Scale</div>
-                                <div class="highlight-text">Web Scraping Solutions</div>
+                                <div class="highlight-text">Data Solutions Expert</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- CORE COMPETENCIES (NEW DESIGN) -->
                 <div class="content-section g-fade-in">
                     <h4><i class="fas fa-tools mr-2"></i>Core Competencies</h4>
-                     <ul class="competencies-list">
-                        <li><i class="fas fa-check-circle mr-2 text-success"></i><strong>Methodologies</strong>: Web Scraping, Data Mining, Automation</li>
-                        <li><i class="fas fa-check-circle mr-2 text-success"></i><strong>Languages</strong>: Python (Scrapy, Selenium, Pandas), SQL</li>
-                        <li><i class="fas fa-check-circle mr-2 text-success"></i><strong>Tools</strong>: Playwright, BeautifulSoup, Proxy Rotators, Git</li>
-                        <li><i class="fas fa-check-circle mr-2 text-success"></i><strong>Data Handling</strong>: Power BI, Tableau, Excel, Google Sheets</li>
-                    </ul>
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <div class="competency-card">
+                                <div class="competency-header">
+                                    <i class="fas fa-database competency-icon"></i>
+                                    <h6 class="competency-title">Methodologies</h6>
+                                </div>
+                                <ul class="competency-list">
+                                    <li>Web Scraping & Crawling</li>
+                                    <li>Data Mining & Extraction</li>
+                                    <li>Process Automation</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <div class="competency-card">
+                                <div class="competency-header">
+                                    <i class="fas fa-code competency-icon"></i>
+                                    <h6 class="competency-title">Languages & Frameworks</h6>
+                                </div>
+                                <ul class="competency-list">
+                                    <li>Python (Scrapy, Selenium, Pandas)</li>
+                                    <li>SQL</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <div class="competency-card">
+                                <div class="competency-header">
+                                    <i class="fas fa-toolbox competency-icon"></i>
+                                    <h6 class="competency-title">Tools & Technologies</h6>
+                                </div>
+                                <ul class="competency-list">
+                                    <li>Playwright, BeautifulSoup</li>
+                                    <li>Proxy Rotators, CAPTCHA Solving</li>
+                                    <li>Git & Version Control</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <div class="competency-card">
+                                <div class="competency-header">
+                                    <i class="fas fa-chart-bar competency-icon"></i>
+                                    <h6 class="competency-title">Data Handling & Delivery</h6>
+                                </div>
+                                <ul class="competency-list">
+                                    <li>Power BI, Tableau</li>
+                                    <li>Excel, Google Sheets</li>
+                                    <li>JSON, CSV, Databases</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
+                <!-- CLIENT TESTIMONIALS (NEW SECTION) -->
+                <div class="content-section g-fade-in">
+                    <h4><i class="fas fa-comments mr-2"></i>What My Clients Say</h4>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="testimonial-card">
+                                <i class="fas fa-quote-left testimonial-quote-icon"></i>
+                                <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                <p class="testimonial-text">"Such amazing service and quality work... Ahmed was super quick and efficient which was a huge help. He was super thorough and meticulous with the content he gathered for me. You will not go wrong with Ahmed."</p>
+                                <div class="testimonial-author">nastashap <span>from South Africa</span></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="testimonial-card">
+                                <i class="fas fa-quote-left testimonial-quote-icon"></i>
+                                <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                <p class="testimonial-text">"Awesome experience... it took a couple revisions and he was so helpful, understanding, and fast! Would hire again in a heartbeat if I ever needed to. Thank you, Ahmed and team!"</p>
+                                <div class="testimonial-author">willf536 <span>from United States</span></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="testimonial-card">
+                                <i class="fas fa-quote-left testimonial-quote-icon"></i>
+                                <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                <p class="testimonial-text">"Ahmed was in touch throughout the process, helped us upload about 6000 products from our suppliers website to my own trading website. Highly recommend and will also give him more jobs in future."</p>
+                                <div class="testimonial-author">spfthames513 <span>from New Zealand</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CERTIFICATIONS -->
                 <div class="content-section g-fade-in">
                     <h4><i class="fas fa-certificate mr-2"></i>Certifications</h4>
                     <div class="row">
-                        <div class="col-lg-6 mb-4">
+                        <div class="col-lg-3 col-md-6 mb-4">
                             <a href="https://www.credly.com/badges/71a9c2ad-7394-4c25-842d-bacfafc72204" target="_blank" rel="noopener" class="d-block certification-card-link">
                                 <div class="certification-card">
                                     <div class="cert-image-container"><img src="https://images.credly.com/images/9247e02c-eade-4704-8758-7a9f6ef8e3db/image.png" alt="SQL Badge"></div>
-                                    <div class="cert-details"><h6 class="cert-title">Querying Databases with SQL</h6></div>
+                                    <div class="cert-details"><h6 class="cert-title">Querying with SQL</h6></div>
                                 </div>
                             </a>
                         </div>
-                        <div class="col-lg-6 mb-4">
+                        <div class="col-lg-3 col-md-6 mb-4">
                             <a href="https://www.credly.com/badges/29d55d4c-6e3a-4745-b85c-ccadcbf5718a" target="_blank" rel="noopener" class="d-block certification-card-link">
                                 <div class="certification-card">
                                     <div class="cert-image-container"><img src="https://images.credly.com/images/f2573aac-d21c-483d-acda-afaa366b4f51/image.png" alt="Data Science Badge"></div>
-                                    <div class="cert-details"><h6 class="cert-title">Databases and SQL for Data Science</h6></div>
+                                    <div class="cert-details"><h6 class="cert-title">SQL for Data Science</h6></div>
                                 </div>
                             </a>
                         </div>
-                        <div class="col-lg-6 mb-4">
+                        <div class="col-lg-3 col-md-6 mb-4">
                             <a href="https://www.credly.com/badges/476132a0-dba4-4fe3-84fe-6a82bec9ae7e" target="_blank" rel="noopener" class="d-block certification-card-link">
                                 <div class="certification-card">
                                     <div class="cert-image-container"><img src="https://images.credly.com/images/2c88c783-8753-44f8-8842-85d495ba1c0e/image.png" alt="RDBMS Badge"></div>
-                                    <div class="cert-details"><h6 class="cert-title">Relational Databases (RDBMS) Essentials</h6></div>
+                                    <div class="cert-details"><h6 class="cert-title">RDBMS Essentials</h6></div>
                                 </div>
                             </a>
                         </div>
-                        <div class="col-lg-6 mb-4">
+                        <div class="col-lg-3 col-md-6 mb-4">
                            <a href="https://www.credly.com/badges/c6630790-de41-41d4-ba8c-a1330c2aae6c" target="_blank" rel="noopener" class="d-block certification-card-link">
                                 <div class="certification-card">
                                     <div class="cert-image-container"><img src="https://images.credly.com/images/c0b439e5-79d5-498e-abc9-2b71cdf08c34/image.png" alt="Data Engineering Badge"></div>
                                     <div class="cert-details"><h6 class="cert-title">Data Engineering Essentials</h6></div>
                                 </div>
                             </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="content-section g-fade-in">
-                    <h4><i class="fas fa-comments mr-2"></i>Client Reviews</h4>
-                    <div class="row">
-                        <div class="col-md-6 mb-4">
-                            <div class="review-card">
-                                <div class="review-stars">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                </div>
-                                <p class="review-quote">"Ahmed is an exceptional freelancer. His attention to detail and ability to deliver high-quality data on a tight deadline was impressive. I would highly recommend him."</p>
-                                <p class="review-author">- John D., CEO of ExampleCorp</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <div class="review-card">
-                                <div class="review-stars">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                </div>
-                                <p class="review-quote">"Working with Ahmed was a pleasure. He is a great communicator and was able to understand our complex requirements and deliver a solution that exceeded our expectations."</p>
-                                <p class="review-author">- Jane S., Project Manager at Data Insights</p>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -409,7 +445,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- GSAP & Typed.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
@@ -419,7 +454,6 @@
             gsap.registerPlugin(ScrollTrigger);
             const isTouchDevice = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-            // --- PRELOADER ANIMATION ---
             const preloaderLogo = document.querySelector('.preloader-logo');
             const body = document.querySelector('body');
             
@@ -434,7 +468,6 @@
                 }}, '-=0.5');
 
             function startMainAnimations() {
-                // --- TYPED.JS ANIMATION ---
                 new Typed('#typed-text', {
                     strings: ['Web Scraping Specialist', 'Data Automation Expert', 'Python Developer'],
                     typeSpeed: 50,
@@ -444,7 +477,6 @@
                     smartBackspace: true
                 });
 
-                // --- GSAP SCROLL-TRIGGERED ANIMATIONS ---
                 gsap.utils.toArray('.g-fade-in').forEach(el => {
                     gsap.from(el, {
                         scrollTrigger: {
@@ -459,9 +491,7 @@
                     });
                 });
 
-                // --- DESKTOP-ONLY INTERACTIVITY ---
                 if (!isTouchDevice()) {
-                    // --- 3D TILT EFFECT FOR CERT CARDS ---
                     document.querySelectorAll('.certification-card-link').forEach(cardLink => {
                         const card = cardLink.querySelector('.certification-card');
                         cardLink.addEventListener('mousemove', e => {
@@ -477,7 +507,6 @@
                         });
                     });
 
-                    // --- MAGNETIC LINKS ---
                     document.querySelectorAll('.magnetic-link').forEach(link => {
                         const icon = link.querySelector('i, img');
                         link.addEventListener('mousemove', e => {
@@ -493,7 +522,6 @@
                 }
             }
 
-            // --- THEME TOGGLE ---
             const themeToggle = document.getElementById('theme-toggle');
             const html = document.documentElement;
             const applyTheme = (theme) => {
